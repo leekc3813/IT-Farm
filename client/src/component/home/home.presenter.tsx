@@ -1,6 +1,7 @@
 import styles from './home.module.css';
+import { IHomePageUIProps } from './home.types';
 
-export function HomePageUI ():JSX.Element {
+export function HomePageUI (props:IHomePageUIProps):JSX.Element {
     return (
         <div className={styles.homeBody}>
             <div className={styles.homeWrapper}>
@@ -12,7 +13,7 @@ export function HomePageUI ():JSX.Element {
                 </div>
                 <div className={styles.buttonContainer}>
                     <button className={styles.selectButton}>사러왔어요</button>
-                    <button className={styles.selectButton}>판매할래요</button>
+                    <button onClick={props.onClickAdmin} className={styles.selectButton}>판매할래요</button>
                 </div>
             </div>
         </div>
