@@ -1,12 +1,13 @@
 import {SearchOutlined, UserOutlined, ShoppingOutlined  } from '@ant-design/icons'
 import styles from './header.module.css'
+import { IHeaderPageUIProps } from './header.types'
 
 
-export default function HeaderPageUI():JSX.Element {
+export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
     return(
-        <div className={styles.body}>
+         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
             <div className={styles.headerTitle}>
-                Organic
+                IT-Farm
             </div>
             <div className={styles.headerInfoContainer}>
                 <div className={styles.infoBox1}>
@@ -32,6 +33,6 @@ export default function HeaderPageUI():JSX.Element {
                     <ShoppingOutlined className={styles.headerIcon} />
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }

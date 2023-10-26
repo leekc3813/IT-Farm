@@ -9,6 +9,14 @@
     top: 0;
     left: 0;
     border-bottom: 1px solid lightgray;
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .headerTitle {
