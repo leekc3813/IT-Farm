@@ -8,7 +8,6 @@ from django.contrib.auth import authenticate
 
 class RegisterView(APIView):
     def post(self, request):
-        print('호출')
         nickname = request.data.get('nickName')
         email = request.data.get('email')
         password = request.data.get('password')
@@ -26,12 +25,15 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
+        print('호출')
         email = request.data.get('email')
         password = request.data.get('password')
+        print(email,password)
         if not email or not password:
             return Response({'error': 'Please provide both email and password'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = authenticate(username=email, password=password)
+        print(user)
         if user:
             refresh = RefreshToken.for_user(user)
             return Response({

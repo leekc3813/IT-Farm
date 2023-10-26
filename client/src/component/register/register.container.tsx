@@ -35,7 +35,7 @@ export default function RegisterPage(): JSX.Element {
 
     const onClickSignUp = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/users/register/', {
+            const response = await axios.post('http://localhost:8000/users/register/', {
                 nickName,
                 email,
                 password,
@@ -54,9 +54,26 @@ export default function RegisterPage(): JSX.Element {
         }
     }
 
+    const onClickLogIn = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/users/login/', {
+                email,
+                password,
+            });
+
+            if (response.status === 200) {
+                alert('로그인 성공')
+                router.push('/')
+            }
+        } catch (error) {
+            console.log('Error', error)
+        }
+    }
+
     return (
         <RegisterPageUI
             onClickSignUp={onClickSignUp}
+            onClickLogIn={onClickLogIn}
             onChangeNickName={onChangeNickName}
             onChangeEmail={onChangeEmail}
             onChangePassword={onChangePassword}
