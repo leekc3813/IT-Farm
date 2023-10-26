@@ -8,9 +8,14 @@ export default function HomePage():JSX.Element {
         router.push('/register')
     }
 
+    const onCLickCustom = () => {
+        router.push('/purchase')
+    }
+
     return (
         <HomePageUI
             onClickAdmin = {onClickAdmin}
+            onCLickCustom = {onCLickCustom}
          />
     )
 }
