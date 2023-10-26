@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { ChangeEvent } from "react"
 import RegisterPageUI from "./register.presenter";
+import axios from "axios"
 
-export default function RegisterPage():JSX.Element {
+export default function RegisterPage(): JSX.Element {
     const router = useRouter()
 
     const [nickName, setNickName] = useState('')
@@ -32,17 +33,39 @@ export default function RegisterPage():JSX.Element {
         router.push('/')
     }
 
-    return(
+    const onClickSignUp = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/users/register/', {
+                nickName,
+                email,
+                password,
+            });
+            console.log('실행')
+            console.log(response)
+            if (response.status === 201) {
+                setIsLogin((prev) => !prev)
+                setNickName('')
+                setEmail('')
+                setPassword('')
+                alert('회원가입이 성공적으로 완료되었습니다.')
+            }
+        } catch (error) {
+            console.log('Error', error)
+        }
+    }
+
+    return (
         <RegisterPageUI
-            onChangeNickName = {onChangeNickName}
-            onChangeEmail = {onChangeEmail}
-            onChangePassword = {onChangePassword}
-            onClickLoginState = {onClickLoginState}
-            onClickMoveHome = {onClickMoveHome}
-            isLogin = {isLogin}
+            onClickSignUp={onClickSignUp}
+            onChangeNickName={onChangeNickName}
+            onChangeEmail={onChangeEmail}
+            onChangePassword={onChangePassword}
+            onClickLoginState={onClickLoginState}
+            onClickMoveHome={onClickMoveHome}
+            isLogin={isLogin}
             nickName={nickName}
             email={email}
             password={password}
-         />
+        />
     )
 }
