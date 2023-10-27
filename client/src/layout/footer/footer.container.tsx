@@ -8,9 +8,14 @@ export default function FooterPage():JSX.Element{
         router.push('/')
     }
 
+    const onClickRegister = ()=> {
+        router.push('/register')
+    }
+
     return(
         <FooterPageUI
             onClickHome = {onClickHome}
+            onClickRegister = {onClickRegister}
          />
     )
 }

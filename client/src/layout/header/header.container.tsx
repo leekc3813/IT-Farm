@@ -40,11 +40,16 @@ export default function HeaderPage():JSX.Element {
         router.push('/purchase')
     }
 
+    const onClickRegister = () => {
+      router.push('./register')
+    }
+
     return(
         <HeaderPageUI
             visible = {visible}
             onClickHome = {onClickHome}
             onClickPurchase = {onClickPurchase}
+            onClickRegister = {onClickRegister}
          />
     )
 }

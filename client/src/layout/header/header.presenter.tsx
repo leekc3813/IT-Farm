@@ -32,7 +32,7 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 <div className={styles.infoBox3}>
                     <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
                     <SearchOutlined className={styles.headerIcon} />
-                    <UserOutlined className={styles.headerIcon} />
+                    <UserOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     <ShoppingOutlined className={styles.headerIcon} />
                 </div>
             </div>

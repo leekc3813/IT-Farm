@@ -12,7 +12,7 @@ export default function FooterPageUI(props:IFooterPageUIProps):JSX.Element{
             <SearchOutlined className={styles.headerIcon} />
             </div>
             <div className={styles.iconBox}>
-            <UserOutlined className={styles.headerIcon} />
+            <UserOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
             </div>
             <div className={styles.iconBox}>
             <ShoppingOutlined className={styles.headerIcon} />
