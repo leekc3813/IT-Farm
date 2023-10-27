@@ -1,7 +1,6 @@
 export interface IHeaderPageUIProps {
     visible : boolean;
-}
-
-export interface IHiddenHeaderProps {
-    visible : boolean;
+    onClickHome : () => void;
+    onClickPurchase : () => void;
+    onClickRegister : () => void;
 }

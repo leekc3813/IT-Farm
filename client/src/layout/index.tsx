@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import HeaderPage from "./header/header.container";
+import FooterPage from "./footer/footer.container";
 
 interface ILayoutProps {
     children : JSX.Element
@@ -19,6 +20,7 @@ export default function Layout(props:ILayoutProps):JSX.Element {
         <>
             {!isHiddenHeader && <HeaderPage />}
             {props.children}
+            {!isHiddenHeader && <FooterPage />}
         </>
     )
 }

@@ -14,6 +14,12 @@
     visibility: visible;
 }
 
+@media (max-width:480px){
+    .body{
+        height: 100px;
+    }
+}
+
 .hidden {
     opacity: 0;
     visibility: hidden;
@@ -26,6 +32,7 @@
     height: 70px;
     font-size: 35px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .headerInfoContainer {
@@ -34,8 +41,23 @@
     height: 50px;
 }
 
+@media (max-width:480px){
+    .headerInfoContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .infoBox1 {
 
+}
+
+@media (max-width:480px){
+    .infoBox1{
+        display: none;
+    }
 }
 
 .infoBox2 {
@@ -48,11 +70,12 @@
 }
 
 .categorieBox {
-    width: 7%;
+    width: 70px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .infoBox3 {
@@ -61,9 +84,23 @@
     align-items: center;
 }
 
+@media (max-width:480px){
+    .infoBox3{
+        display: none;
+    }
+}
+
 .headerIcon {
     font-size: 22px;
     margin-right: 20px;
     cursor: pointer;
 }
+
+@media (max-width:480px){
+    .headerIcon{
+        font-size: 20px;
+    }
+}
+
+
 

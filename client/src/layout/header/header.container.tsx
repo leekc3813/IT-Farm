@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useMemo } from "react";
+import { useRouter } from "next/router";
 import throttle from "lodash/throttle";
 import HeaderPageUI from "./header.presenter";
 
@@ -7,6 +8,8 @@ export default function HeaderPage():JSX.Element {
     const [visible, setVisible] = useState(true);
 
     const beforeScrollY = useRef(0);
+
+    const router = useRouter();
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -29,9 +32,24 @@ export default function HeaderPage():JSX.Element {
         [beforeScrollY]
       );
 
+    const onClickHome = ()=> {
+        router.push('/')
+    }
+
+    const onClickPurchase = () => {
+        router.push('/purchase')
+    }
+
+    const onClickRegister = () => {
+      router.push('./register')
+    }
+
     return(
         <HeaderPageUI
             visible = {visible}
+            onClickHome = {onClickHome}
+            onClickPurchase = {onClickPurchase}
+            onClickRegister = {onClickRegister}
          />
     )
 }
