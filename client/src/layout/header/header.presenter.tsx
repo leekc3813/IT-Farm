@@ -14,19 +14,19 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 </div>
                 <div className={styles.infoBox2}>
                     <div className={styles.categorieBox}>
-                        NEW
+                        상품목록
                     </div>
                     <div className={styles.categorieBox}>
-                        BEST
+                        Today특가
                     </div>
                     <div className={styles.categorieBox}>
-                        SALE
+                        레시피
                     </div>
                     <div className={styles.categorieBox}>
                         EVENT
                     </div>
                     <div className={styles.categorieBox}>
-                        Board
+                        고객센터
                     </div>
                 </div>
                 <div className={styles.infoBox3}>
