@@ -5,12 +5,12 @@ export default function HomePage():JSX.Element {
     const router = useRouter();
 
     const onClickAdmin = () => {
-        localStorage.setItem('useState', 'seller');
+        localStorage.setItem('userState', 'seller');
         router.push('/register')
     }
 
     const onCLickCustom = () => {
-        localStorage.setItem('useState', 'buyer');
+        localStorage.setItem('userState', 'buyer');
         router.push('/purchase')
     }
 
