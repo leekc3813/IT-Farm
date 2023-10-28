@@ -32,6 +32,18 @@ export default function RegisterPage():JSX.Element {
         router.push('/')
     }
 
+    const submitLogin = () => {
+        if (localStorage.getItem('userState') === 'buyer'){
+            router.push('/purchase')
+            return
+        }
+        
+        if (localStorage.getItem('userState') === 'seller'){
+            router.push('/seller')
+            return
+        }
+    }
+
     return(
         <RegisterPageUI
             onChangeNickName = {onChangeNickName}
@@ -39,6 +51,7 @@ export default function RegisterPage():JSX.Element {
             onChangePassword = {onChangePassword}
             onClickLoginState = {onClickLoginState}
             onClickMoveHome = {onClickMoveHome}
+            submitLogin = {submitLogin}
             isLogin = {isLogin}
             nickName={nickName}
             email={email}
