@@ -6,21 +6,22 @@ interface ILayoutProps {
     children : JSX.Element
 }
 
-const HIDDEN_HEADERS = [
-    "/",
-    "/register"
+const SHOW_PURCHASE = [
+    "/purchase"
 ]
 
 export default function Layout(props:ILayoutProps):JSX.Element {
     const router = useRouter();
 
-    const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath)
+    const isShowPurchase = SHOW_PURCHASE.includes(router.asPath.slice(0,9))
+
+    console.log(router.asPath.slice(0,9))
 
     return(
         <>
-            {!isHiddenHeader && <HeaderPage />}
+            {isShowPurchase && <HeaderPage />}
             {props.children}
-            {!isHiddenHeader && <FooterPage />}
+            {isShowPurchase && <FooterPage />}
         </>
     )
 }

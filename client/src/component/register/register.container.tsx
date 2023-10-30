@@ -33,52 +33,27 @@ export default function RegisterPage(): JSX.Element {
         router.push('/')
     }
 
-    const onClickSignUp = async () => {
-        try {
-            const response = await axios.post('http://localhost:8000/users/register/', {
-                nickName,
-                email,
-                password,
-            });
-            console.log('실행')
-            console.log(response)
-            if (response.status === 201) {
-                setIsLogin((prev) => !prev)
-                setNickName('')
-                setEmail('')
-                setPassword('')
-                alert('회원가입이 성공적으로 완료되었습니다.')
-            }
-        } catch (error) {
-            console.log('Error', error)
+
+    const submitLogin = () => {
+        if (localStorage.getItem('userState') === 'buyer') {
+            router.push('/purchase')
+            return
         }
-    }
 
-    const onClickLogIn = async () => {
-        try {
-            const response = await axios.post('http://localhost:8000/users/login/', {
-                email,
-                password,
-            });
-
-            if (response.status === 200) {
-                alert('로그인 성공')
-                router.push('/')
-            }
-        } catch (error) {
-            console.log('Error', error)
+        if (localStorage.getItem('userState') === 'seller') {
+            router.push('/seller')
+            return
         }
     }
 
     return (
         <RegisterPageUI
-            onClickSignUp={onClickSignUp}
-            onClickLogIn={onClickLogIn}
             onChangeNickName={onChangeNickName}
             onChangeEmail={onChangeEmail}
             onChangePassword={onChangePassword}
             onClickLoginState={onClickLoginState}
             onClickMoveHome={onClickMoveHome}
+            submitLogin={submitLogin}
             isLogin={isLogin}
             nickName={nickName}
             email={email}
