@@ -28,9 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
+    # 생성한 앱
+    'users',
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,8 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    # 생성한 앱
-    'users',
 
     # 설치한 라이브러리
     'rest_framework',
@@ -60,6 +62,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_CREDENTIALS = True
+
+AUTH_USER_MODEL = 'users.User'
 
 
 ROOT_URLCONF = "first_app.urls"
@@ -134,6 +138,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 REST_USE_JWT = True
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 
 from datetime import timedelta
 
