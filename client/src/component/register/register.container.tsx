@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { ChangeEvent } from "react"
 import RegisterPageUI from "./register.presenter";
+import axios from "axios"
 
-export default function RegisterPage():JSX.Element {
+export default function RegisterPage(): JSX.Element {
     const router = useRouter()
 
     const [nickName, setNickName] = useState('')
@@ -32,30 +33,31 @@ export default function RegisterPage():JSX.Element {
         router.push('/')
     }
 
+
     const submitLogin = () => {
-        if (localStorage.getItem('userState') === 'buyer'){
+        if (localStorage.getItem('userState') === 'buyer') {
             router.push('/purchase')
             return
         }
-        
-        if (localStorage.getItem('userState') === 'seller'){
+
+        if (localStorage.getItem('userState') === 'seller') {
             router.push('/seller')
             return
         }
     }
 
-    return(
+    return (
         <RegisterPageUI
-            onChangeNickName = {onChangeNickName}
-            onChangeEmail = {onChangeEmail}
-            onChangePassword = {onChangePassword}
-            onClickLoginState = {onClickLoginState}
-            onClickMoveHome = {onClickMoveHome}
-            submitLogin = {submitLogin}
-            isLogin = {isLogin}
+            onChangeNickName={onChangeNickName}
+            onChangeEmail={onChangeEmail}
+            onChangePassword={onChangePassword}
+            onClickLoginState={onClickLoginState}
+            onClickMoveHome={onClickMoveHome}
+            submitLogin={submitLogin}
+            isLogin={isLogin}
             nickName={nickName}
             email={email}
             password={password}
-         />
+        />
     )
 }
