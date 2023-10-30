@@ -16,7 +16,8 @@ class RegisterView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
-        return Response({"message": "실패"}, status=status.HTTP_404_CREATED)
+        errors = serializer.errors
+        return Response({"message": "실패", "error":errors}, status=status.HTTP_400_CREATED)
     
 
 class AuthView(APIView):

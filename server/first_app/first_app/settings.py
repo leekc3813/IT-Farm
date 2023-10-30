@@ -166,8 +166,3 @@ SIMPLE_JWT = {
 AUTHENTICATION_CLASSES = [
     'rest_framework_simplejwt.authentication.JWTAuthentication',
 ]
-
-# AUTHENTICATION_BACKENDS = [
-#     'users.backends.EmailBackend',
-#     'django.contrib.auth.backends.ModelBackend',
-# ]
