@@ -16,6 +16,7 @@ class RegisterView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
+        return Response({"message": "실패"}, status=status.HTTP_404_CREATED)
     
 
 class AuthView(APIView):
@@ -59,7 +60,6 @@ class LoginView(APIView):
             return Response({'error': 'Please provide both email and password'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = authenticate(username=email, password=password)
-        print(user)
         if user:
             serializer = UserSerializer(user)
             refresh = TokenObtainPairSerializer.get_token(user)
