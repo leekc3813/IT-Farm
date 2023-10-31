@@ -1,8 +1,9 @@
 import styles from './sellerHome.module.css'
 import { Carousel } from 'antd'
 import {ClockCircleOutlined, CommentOutlined, HeartOutlined, MailOutlined, ReadOutlined, ShoppingCartOutlined, SmileOutlined, SyncOutlined, UserOutlined, WalletOutlined, WifiOutlined} from '@ant-design/icons'
+import { ISellerHomePageUIProps } from './sellerHome.types'
 
-export default function SellerHomePageUI():JSX.Element{
+export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.bannerVisible}>
@@ -171,7 +172,7 @@ export default function SellerHomePageUI():JSX.Element{
                                 IT-Farm 사장님 반갑습니다<br />
                                 농장정보를 입력해주세요 :&#41;
                             </div>
-                            <button className={styles.greetButton}>
+                            <button onClick={props.onClickRegister} className={styles.greetButton}>
                                 농장정보 입력하기
                             </button>
                         </div>
