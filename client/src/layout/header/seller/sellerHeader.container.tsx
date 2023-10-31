@@ -17,24 +17,28 @@ export default function SellerHeaderPage():JSX.Element {
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+    }, []);
     
-      const handleScroll = useMemo(
-        () =>
-          throttle(() => {
-            const currentScrollY = window.scrollY;
-            if (beforeScrollY.current < currentScrollY) {
-              setVisible(false);
-            } else {
-              setVisible(true);
-            }
-            beforeScrollY.current = currentScrollY;
-          }, 250),
-        [beforeScrollY]
-      );
+    const handleScroll = useMemo(
+      () =>
+        throttle(() => {
+          const currentScrollY = window.scrollY;
+          if (beforeScrollY.current < currentScrollY) {
+            setVisible(false);
+          } else {
+            setVisible(true);
+          }
+          beforeScrollY.current = currentScrollY;
+        }, 250),
+      [beforeScrollY]
+    );
 
     const onClickLogout = ()=> {
         router.push('/')
+    }
+
+    const onClickLogo = () => {
+      router.push('/seller')
     }
 
 
@@ -42,6 +46,7 @@ export default function SellerHeaderPage():JSX.Element {
         <SellerHeaderPageUI
             visible = {visible}
             onClickLogout = {onClickLogout}
+            onClickLogo = {onClickLogo}
          />
     )
 }

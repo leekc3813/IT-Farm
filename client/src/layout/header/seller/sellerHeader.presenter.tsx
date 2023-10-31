@@ -4,7 +4,7 @@ import { ISellerHeaderPageUIProps } from './sellerHeader.types'
 export default function SellerHeaderPageUI(props:ISellerHeaderPageUIProps):JSX.Element{
     return(
         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
-            <div className={styles.headerTitle}>
+            <div onClick={props.onClickLogo} className={styles.headerTitle}>
                 IT-Farm 사장님
             </div>
             <div className={styles.headerInfoContainer}>
