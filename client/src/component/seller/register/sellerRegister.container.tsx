@@ -7,6 +7,7 @@ export default function SellerRegisterPage():JSX.Element{
     const [q1, setQ1] = useState('')
     const [q3, setQ3] = useState('')
     const [detailadress, setDetailadress] = useState('')
+    const [totalAdress, setTotalAdress] = useState('')
 
     const onToggleModal = () => {
         setIsOpen((prev) => !prev)
