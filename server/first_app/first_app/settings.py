@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 생성한 앱
     'users',
+    'farms',
 
     "django.contrib.admin",
     "django.contrib.auth",
