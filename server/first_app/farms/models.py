@@ -1,6 +1,6 @@
 from django.db import models
 
-class farms(models.Model):
+class Farms(models.Model):
     name = models.CharField(max_length=100, null=False)
     # user_id = models.IntegerField(null=False)
     area = models.IntegerField(default=0,null=False)
