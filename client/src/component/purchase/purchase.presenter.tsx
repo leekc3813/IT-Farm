@@ -9,10 +9,10 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
             <div className={styles.bannerVisible}>
                 <Carousel className={styles.bannerContainer}>
                     <div>
-                      <img className={styles.bannerImg}  src='https://file.cafe24cos.com/banner-admin-live/upload/ecudemo276582/695a2861-60e6-4532-b6fa-fbb93ec15fb1.png' alt='bannerImg' />
+                      <img className={styles.bannerImg}  src='/img/purchase/event1.png' alt='bannerImg' />
                     </div>
                     <div>
-                        <img className={styles.bannerImg} src='https://file.cafe24cos.com/banner-admin-live/upload/ecudemo276582/005955a2-5d06-4886-e495-56672683de90.png' alt='bannerImg' />
+                        <img className={styles.bannerImg} src='/img/purchase/event2.png' alt='bannerImg' />
                     </div>
                 </Carousel>
             </div>
