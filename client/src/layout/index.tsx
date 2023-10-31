@@ -19,7 +19,7 @@ export default function Layout(props:ILayoutProps):JSX.Element {
     const router = useRouter();
 
     const isShowPurchase = SHOW_PURCHASE.includes(router.asPath.slice(0,9))
-    const isShowSeller = SHOW_SELLER.includes(router.asPath.slice(0,9))
+    const isShowSeller = SHOW_SELLER.includes(router.asPath.slice(0,7))
 
     return(
         <>
