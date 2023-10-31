@@ -1,7 +1,8 @@
 import SellerHeaderPageUI from "./sellerHeader.presenter";
-
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
 
 export default function SellerHeaderPage():JSX.Element {
@@ -11,6 +12,8 @@ export default function SellerHeaderPage():JSX.Element {
     const beforeScrollY = useRef(0);
 
     const router = useRouter();
+
+    const [localLogin, setLocalLogin] = useRecoilState(loginState)
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -34,6 +37,8 @@ export default function SellerHeaderPage():JSX.Element {
     );
 
     const onClickLogout = ()=> {
+        localStorage.setItem('loginState', 'false')
+        setLocalLogin(false)
         router.push('/')
     }
 

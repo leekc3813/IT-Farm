@@ -7,6 +7,7 @@ export interface IRegisterPageUIProps {
     onClickLoginState : () => void;
     onClickMoveHome : () => void;
     submitLogin : () => void;
+    submitRegister : () => void;
     isLogin : boolean;
     nickName : string;
     email : string;
