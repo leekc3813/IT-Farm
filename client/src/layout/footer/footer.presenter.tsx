@@ -1,4 +1,4 @@
-import {SearchOutlined, UserOutlined, ShoppingOutlined,HomeOutlined} from '@ant-design/icons'
+import {SearchOutlined, ShoppingOutlined,HomeOutlined, StopOutlined, KeyOutlined} from '@ant-design/icons'
 import styles from './footer.module.css'
 import { IFooterPageUIProps } from './footer.types'
 
@@ -12,7 +12,11 @@ export default function FooterPageUI(props:IFooterPageUIProps):JSX.Element{
             <SearchOutlined className={styles.headerIcon} />
             </div>
             <div className={styles.iconBox}>
-            <UserOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
+                {props.localLogin ? 
+                    <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
+                    :
+                    <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
+                }
             </div>
             <div className={styles.iconBox}>
             <ShoppingOutlined className={styles.headerIcon} />

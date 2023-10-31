@@ -1,4 +1,4 @@
-import {SearchOutlined, UserOutlined, ShoppingOutlined,HomeOutlined  } from '@ant-design/icons'
+import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined  } from '@ant-design/icons'
 import styles from './header.module.css'
 import { IHeaderPageUIProps } from './header.types'
 
@@ -32,7 +32,11 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 <div className={styles.infoBox3}>
                     <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
                     <SearchOutlined className={styles.headerIcon} />
-                    <UserOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
+                    {props.localLogin ?
+                        <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
+                        : 
+                        <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
+                    }
                     <ShoppingOutlined className={styles.headerIcon} />
                 </div>
             </div>

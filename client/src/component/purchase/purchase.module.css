@@ -11,11 +11,13 @@
 .bannerContainer {
     width: 100%;
     margin-top: 120px;
+
 }
 
 .bannerImg {
     max-width: 100%;
     width: 100%;
+
 }
 
 .body {
@@ -213,6 +215,7 @@
     flex-direction: column;
     height: 250px;
     padding: 20px 30px;
+    border-top: 1px solid lightgrey;
 }
 
 @media (max-width:480px) {

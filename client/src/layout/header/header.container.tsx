@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef, useMemo } from "react";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
+import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
 import HeaderPageUI from "./header.presenter";
 
@@ -10,6 +12,8 @@ export default function HeaderPage():JSX.Element {
     const beforeScrollY = useRef(0);
 
     const router = useRouter();
+
+    const [localLogin, setLocalLogin] = useRecoilState(loginState)
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -44,12 +48,20 @@ export default function HeaderPage():JSX.Element {
       router.push('./register')
     }
 
+    const onClickLogout = () => {
+      localStorage.setItem('loginState', 'false')
+      setLocalLogin(false)
+      alert('로그아웃 하였습니다.')
+    }
+
     return(
         <HeaderPageUI
             visible = {visible}
             onClickHome = {onClickHome}
             onClickPurchase = {onClickPurchase}
             onClickRegister = {onClickRegister}
+            onClickLogout = {onClickLogout}
+            localLogin = {localLogin}
          />
     )
 }

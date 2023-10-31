@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { ChangeEvent } from "react"
+import { useState, useEffect } from "react";
+import { ChangeEvent } from "react";
+import { useRecoilState } from "recoil";
+import { loginState } from "@/src/store/states";
 import RegisterPageUI from "./register.presenter";
-import axios from "axios"
+import axios from "axios";
 
 export default function RegisterPage(): JSX.Element {
     const router = useRouter()
@@ -12,6 +14,8 @@ export default function RegisterPage(): JSX.Element {
     const [password, setPassword] = useState('')
 
     const [isLogin, setIsLogin] = useState(true) /* 로그인창 true, 회원가입창 false */
+
+    const [localLogin, setLocalLogin] = useRecoilState(loginState)
 
     const onChangeNickName = (event: ChangeEvent<HTMLInputElement>) => {
         setNickName(event.target.value)
@@ -34,15 +38,48 @@ export default function RegisterPage(): JSX.Element {
     }
 
 
-    const submitLogin = () => {
-        if (localStorage.getItem('userState') === 'buyer') {
-            router.push('/purchase')
-            return
-        }
+    const submitLogin = async () => {
+        try{
+            const response = await axios.post('http://localhost:8000/users/login/' ,{
+                email : email,
+                password : password,
+            })
+            localStorage.setItem('nickname', response.data.nickname)
+            localStorage.setItem('loginState', 'true')
+            setLocalLogin(true)
+            console.log(response)
+            if (localStorage.getItem('userState') === 'buyer') {
+                router.push('/purchase')
+                return
+            }
+    
+            if (localStorage.getItem('userState') === 'seller') {
+                router.push('/seller')
+                return
+            }
+        }catch(error){
+            console.log('error',error)
+        }    
+    }
 
-        if (localStorage.getItem('userState') === 'seller') {
-            router.push('/seller')
-            return
+    const submitRegister = async () => {
+
+        try {
+            const response = await axios.post('http://localhost:8000/users/register/',{
+            nickname : nickName,
+            email : email,
+            password : password,
+            user_type : localStorage.getItem('userState')
+            })
+
+            if (response.status === 201){
+                setNickName('')
+                setEmail('')
+                setPassword('')
+                onClickLoginState()
+            }
+        }catch(error){
+            console.log(error,'error')
         }
     }
 
@@ -58,6 +95,7 @@ export default function RegisterPage(): JSX.Element {
             nickName={nickName}
             email={email}
             password={password}
+            submitRegister = {submitRegister}
         />
     )
 }

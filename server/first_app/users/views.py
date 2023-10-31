@@ -11,7 +11,6 @@ from first_app.my_settings import SECRET_KEY
 
 class RegisterView(APIView):
     def post(self, request):
-        print(request)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
