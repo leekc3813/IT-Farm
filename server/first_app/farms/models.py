@@ -9,5 +9,8 @@ class Farms(models.Model):
     eco = models.CharField(max_length=100,null=False)
     kind = models.CharField(max_length=100,null=False)
     quantity = models.IntegerField(default=0,null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     # crop = models.IntegerField(default=0,null=False)
     # unit_type = models.BooleanField(default=True)

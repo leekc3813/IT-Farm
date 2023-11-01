@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import FarmSaveView, FarmUpdateView, FarmDeleteView, FarmListView
+from .views import FarmCreateView, FarmUpdateView, FarmDeleteView, FarmReadView
 
 urlpatterns = [
-    path('save/', FarmSaveView.as_view()),
+    path('create/', FarmCreateView.as_view()),
     path('update/', FarmUpdateView.as_view()),
     path('delete/', FarmDeleteView.as_view()),
-    path('list/', FarmListView.as_view()),
+    path('read/', FarmReadView.as_view()),
 ]

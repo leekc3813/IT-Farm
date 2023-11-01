@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # 생성한 앱
     'users',
     'farms',
+    'product',
 
     "django.contrib.admin",
     "django.contrib.auth",
