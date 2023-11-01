@@ -31,9 +31,21 @@ export default function SellerRegisterPageUI(props:ISellerRegisterPageUIProps):J
                             <input className={styles.registerInput} type='text'/>
                             <span className={styles.error}>재식수량을 입력해주세요.</span>
                         </div>
+                        <div className={styles.registerInputBox}>
+                            <span className={styles.registerInputTitle}>재배방법</span>
+                            <Select
+                                style={{ width: 120 }}
+                                defaultValue={''}
+                                // onChange={handleChange}
+                                options={[
+                                  { value: '토경', label: '토경' },
+                                  { value: '수경', label: '수경' },
+                                ]}
+                            />
+                            <span className={styles.error}>재배방법을 선택해주세요.</span>
+                        </div>
                     </div>
                 </div>
-                
                 {
                         props.isOpen && (
                         <Modal

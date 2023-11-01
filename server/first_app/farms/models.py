@@ -4,7 +4,7 @@ class Farms(models.Model):
     name = models.CharField(max_length=100, null=False)
     # user_id = models.IntegerField(null=False)
     area = models.IntegerField(default=0,null=False)
-    mail_number = models.IntegerField(null=False)
+    mail_number = models.IntegerField(default=00000,null=False)
     address = models.CharField(max_length=100,null=False)
     address_detail = models.CharField(max_length=100,null=False)
     method = models.CharField(max_length=100,null=False)
