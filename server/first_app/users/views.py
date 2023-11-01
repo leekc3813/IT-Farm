@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from django.shortcuts import render, get_object_or_404
 from first_app.my_settings import SECRET_KEY
+from .models import RefreshToken
 
 
 class RegisterView(APIView):
@@ -16,39 +17,39 @@ class RegisterView(APIView):
             user = serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
         errors = serializer.errors
-        return Response({"message": "실패", "error":errors}, status=status.HTTP_400_CREATED)
-    
+        return Response({"message": "실패", "error": errors}, status=status.HTTP_400_CREATED)
+
 
 class AuthView(APIView):
     def post(self, request):
         try:
-            access = request.COOKIES['access']
-            payload = jwt.decode(access, SECRET_KEY, algorithms=['HS256'])
+            token = request.data.get('token')
+            # access = request.COOKIES['access']
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
             pk = payload.get('user_id')
             user = get_object_or_404(User, pk=pk)
             serializer = UserSerializer(instance=user)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        
+
         except(jwt.exceptions.ExpiredSignatureError):
-            data = {'refresh':request.COOKIES.get('refresh', None)}
+            user_id = request.data.get('id')
+            refresh_token = RefreshToken.objects.get(
+                user_id=user_id).refresh_token
+            data = {'refresh': refresh_token}
             serializer = TokenRefreshSerializer(data=data)
             if serializer.is_valid(raise_exception=True):
-                access = serializer.data.get('access',None)
-                refresh = serializer.data.get('refresh',None)
+                access = serializer.validated_data['access']
                 payload = jwt.decode(access, SECRET_KEY, algorithms=['HS256'])
                 pk = payload.get('user_id')
                 user = get_object_or_404(User, pk=pk)
                 serializer = UserSerializer(instance=user)
-                res = Response(serializer.data, status=status.HTTP_200_OK)
-                res.set_cookie('access',access)
-                res.set_cookie('refresh',refresh)
+                res = Response({'user': serializer.data,
+                                'access': str(access)}, status=status.HTTP_200_OK)
                 return res
             raise jwt.exceptions.InvalidTokenError
-        
+
         except(jwt.exceptions.InvalidTokenError):
             return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
 
 
 class LoginView(APIView):
@@ -62,9 +63,11 @@ class LoginView(APIView):
         if user:
             serializer = UserSerializer(user)
             refresh = TokenObtainPairSerializer.get_token(user)
+
+            refresh_token = refresh
+            RefreshToken.objects.create(user=user, refresh_token=refresh_token)
             return Response({
                 'user': serializer.data,
-                'refresh': str(refresh),
                 'access': str(refresh.access_token),
             }, status=status.HTTP_200_OK)
         else:
@@ -72,8 +75,9 @@ class LoginView(APIView):
 
     def delete(self, request):
         response = Response({
-            'message':'Logout success'
+            'message': 'Logout success'
         }, status=status.HTTP_202_ACCEPTED)
         response.delete_cookie('access')
-        response.delete_cookie('refresh')
+        user_id = request.data.get('id')
+        RefreshToken.objects.filter(user_id=user_id).delete()
         return response

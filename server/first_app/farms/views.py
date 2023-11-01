@@ -19,7 +19,6 @@ class FarmCreateView(APIView):
 class FarmUpdateView(APIView):
     def post(self, request):
         pk = request.data['id']
-        print(pk)
         farm = get_object_or_404(Farms, pk=pk)
         serializer = FarmSerializer(instance=farm, data=request.data)
         print(serializer)
