@@ -8,9 +8,14 @@ export default function SellerHomePage():JSX.Element{
         router.push('/seller/register')
     }
 
+    const onClickHarvest = () => {
+        router.push(`seller/harvest/${localStorage.getItem('nickname')}`)
+    }
+
     return(
         <SellerHomePageUI
             onClickRegister = {onClickRegister}
+            onClickHarvest = {onClickHarvest}
          />
     )
 }
