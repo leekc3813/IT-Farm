@@ -46,17 +46,25 @@ export default function RegisterPage(): JSX.Element {
             })
             localStorage.setItem('nickname', response.data.nickname)
             localStorage.setItem('loginState', 'true')
+            localStorage.setItem('accesstoken', response.data.access)
+            localStorage.setItem('id', response.data.user.id)
+            localStorage.setItem('usertype',response.data.user.user_type)
             setLocalLogin(true)
-            console.log(response)
-            if (localStorage.getItem('userState') === 'buyer') {
+            if (localStorage.getItem('usertype') === 'buyer') {
                 router.push('/purchase')
                 return
             }
     
-            if (localStorage.getItem('userState') === 'seller') {
+            if (localStorage.getItem('usertype') === 'seller') {
                 router.push('/seller')
                 return
             }
+
+            if (localStorage.getItem('usertype') === 'admin') {
+                router.push('/center')
+                return
+            }
+
         }catch(error){
             console.log('error',error)
         }    
