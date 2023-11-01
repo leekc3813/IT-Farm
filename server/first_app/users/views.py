@@ -23,8 +23,8 @@ class RegisterView(APIView):
 class AuthView(APIView):
     def post(self, request):
         try:
-            token = request.data.get('token')
-            # access = request.COOKIES['access']
+            authorization_header = request.META.get('HTTP_AUTHORIZATION')
+            token = authorization_header
             payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
             pk = payload.get('user_id')
             user = get_object_or_404(User, pk=pk)
@@ -62,6 +62,9 @@ class LoginView(APIView):
         user = authenticate(username=email, password=password)
         if user:
             serializer = UserSerializer(user)
+            user_id = serializer.data.get('id')
+            if RefreshToken.objects.filter(user_id=user_id):
+                return Response({'message':'이미 로그인'})
             refresh = TokenObtainPairSerializer.get_token(user)
 
             refresh_token = refresh
