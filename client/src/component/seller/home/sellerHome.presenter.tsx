@@ -176,15 +176,6 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                                 농장정보 입력하기
                             </button>
                         </div>
-                        <div className={styles.greetContainer}>
-                            <div className={styles.greetInfoBox}>
-                                수확을 하셨나요?<br />
-                                수확량을 등록해주세요 :&#41;
-                            </div>
-                            <button onClick={props.onClickHarvest} className={styles.greetButton}>
-                                수확량 등록하기
-                            </button>
-                        </div>
                         <div className={styles.greetContainer2}>
                             <div className={styles.greet2Box}>
                                 <ReadOutlined className={styles.greet2Icon} />
