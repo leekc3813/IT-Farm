@@ -28,12 +28,8 @@ class UserManager(BaseUserManager):
         superuser = self.create_user(
             email=email,
             password=password,
-            nickname=extra_fields['nickname'],
-            user_type=extra_fields['user_type'],
-            mail_number=extra_fields['mail_number'],
-            address=extra_fields['address'],
-            address_detail=extra_fields['address_detail'],
-            profile=extra_fields['profile'],
+            nickname='admin',
+            user_type='admin'
         )
 
         superuser.is_staff = True
