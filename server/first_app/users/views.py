@@ -63,12 +63,13 @@ class LoginView(APIView):
         if user:
             serializer = UserSerializer(user)
             user_id = serializer.data.get('id')
+
             if RefreshToken.objects.filter(user_id=user_id):
                 return Response({'message':'이미 로그인'})
+            
             refresh = TokenObtainPairSerializer.get_token(user)
-
-            refresh_token = refresh
-            RefreshToken.objects.create(user=user, refresh_token=refresh_token)
+            RefreshToken.objects.create(user=user, refresh_token=refresh)
+            
             return Response({
                 'user': serializer.data,
                 'access': str(refresh.access_token),
