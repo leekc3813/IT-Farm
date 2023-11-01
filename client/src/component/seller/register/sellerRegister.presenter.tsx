@@ -16,33 +16,32 @@ export default function SellerRegisterPageUI(props:ISellerRegisterPageUIProps):J
                     <div className={styles.registerBox}>
                         <div className={styles.registerInputBox}>
                             <span className={styles.registerInputTitle}>농장명</span>
-                            <input className={styles.registerInput} type='text'/>
-                            <span className={styles.error}>농장명을 입력해주세요.</span>
+                            <input onChange={(event) => props.onChangeDetailadress('farmName', event.target.value)} name='farmName' className={styles.registerInput} type='text'/>
+                            {props.errorData.farmName && <span className={styles.error}>농장명을 입력해주세요.</span> }
                         </div>
                         <div className={styles.registerInputBox}>
                             <span className={styles.registerInputTitle}>평수</span>
-                            <input className={styles.registerInput} type='text'/>
-                            <span className={styles.error}>평수를 입력해주세요.</span>
+                            <input onChange={(event) => props.onChangeDetailadress('area', event.target.value)} name='area' className={styles.registerInput} type='text'/>
+                            {props.errorData.area && <span  className={styles.error}>평수를 입력해주세요.</span>}
                         </div>
                     </div>
                     <div className={styles.registerBox}>
                         <div className={styles.registerInputBox}>
                             <span className={styles.registerInputTitle}>재식수량</span>
-                            <input className={styles.registerInput} type='text'/>
-                            <span className={styles.error}>재식수량을 입력해주세요.</span>
+                            <input onChange={(event) => props.onChangeDetailadress('quantity', event.target.value)} name='quantity' className={styles.registerInput} type='text'/>
+                            {props.errorData.quantity && <span className={styles.error}>재식수량을 입력해주세요.</span>}
                         </div>
                         <div className={styles.registerInputBox}>
                             <span className={styles.registerInputTitle}>재배방법</span>
                             <Select
                                 style={{ width: 120 }}
-                                defaultValue={''}
-                                // onChange={handleChange}
+                                onChange={(value) => props.onChangeDetailadress('method', value)}
                                 options={[
-                                  { value: '토경', label: '토경' },
-                                  { value: '수경', label: '수경' },
+                                  { value: '토경', name: '토경' },
+                                  { value: '수경', name: '수경' },
                                 ]}
                             />
-                            <span className={styles.error}>재배방법을 선택해주세요.</span>
+                            {props.errorData.method && <span className={styles.error}>재배방법을 선택해주세요.</span>}
                         </div>
                     </div>
                 </div>
@@ -63,14 +62,14 @@ export default function SellerRegisterPageUI(props:ISellerRegisterPageUIProps):J
                         <input value={props.q1} className={styles.registerNum} type='text' placeholder='주소번호' readOnly />
                         <button onClick={props.onToggleModal} className={styles.searchButton}>검색</button>
                     </div>
-                    <span className={styles.error}>주소를 검색해주세요.</span>
+                    {props.errorData.q1 && <span className={styles.error}>주소를 검색해주세요.</span>}
                     <input value={props.q3} className={styles.reigsterAddress1} type='text' placeholder='주소' readOnly/>
-                    <span className={styles.error}>주소를 검색해주세요.</span>
-                    <input className={styles.reigsterAddress2} type='text' placeholder='상세주소' />
-                    <span className={styles.error}>상세주소를 입력해주세요.</span>
+                    {props.errorData.q3 && <span className={styles.error}>주소를 검색해주세요.</span>}
+                    <input onChange={(event) => props.onChangeDetailadress('detailadress', event.target.value)} className={styles.reigsterAddress2} type='text' placeholder='상세주소' />
+                    {props.errorData.detailadress && <span className={styles.error}>상세주소를 입력해주세요.</span>}
                 </div>
                 <div className={styles.submitContainer}>
-                    <button className={styles.submitButton}>등록하기</button>
+                    <button onClick={props.onClickSubmit} className={styles.submitButton}>등록하기</button>
                 </div>
             </div>
         </div>

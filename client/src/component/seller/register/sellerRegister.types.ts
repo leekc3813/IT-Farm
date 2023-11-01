@@ -6,6 +6,16 @@ export interface ISellerRegisterPageUIProps {
     q3 : string;
     detailadress : string;
     isOpen : boolean;
+    onClickSubmit : () => void;
     handleComplete : (data:any) => void;
-    onChangeDetailadress : (event:ChangeEvent<HTMLTextAreaElement>) => void;
+    onChangeDetailadress : (name:string, value : string) => void;
+    errorData: {
+        q1: boolean;
+        q3: boolean;
+        detailadress: boolean;
+        farmName: boolean;
+        area: boolean;
+        quantity: boolean;
+        method: boolean;
+      };
 }
