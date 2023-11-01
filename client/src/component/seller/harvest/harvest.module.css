@@ -58,7 +58,6 @@
 .box {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
 }
 
 .mount {
@@ -90,4 +89,15 @@
 
 .submitButton:active{
     transform: scale(1.0);
+}
+
+.error {
+    font-size: 15px;
+    color: red;
+}
+
+@media (max-width:480px) {
+    .error{
+        font-size: 16px;
+    }
 }

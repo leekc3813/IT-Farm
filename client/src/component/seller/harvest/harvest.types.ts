@@ -1,5 +1,13 @@
 export interface IHarvestPageUIProps {
     farmData : Farm[] | null;
+    onChangeDetail : (name:string, value : string) => void;
+    errorData : {
+        farmId : boolean,
+        unit_type : boolean,
+        crop : boolean,
+        eco : boolean,
+        yield : boolean,
+    }
 }
 
 interface Farm {

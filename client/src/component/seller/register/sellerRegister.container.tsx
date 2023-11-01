@@ -72,6 +72,7 @@ export default function SellerRegisterPage():JSX.Element{
           try {
             const token = localStorage.getItem('accesstoken')
             const response = await axios.post('http://localhost:8000/farms/create/',{
+                id : localStorage.getItem('id'),
                 name : formData.farmName,
                 area : formData.area,
                 mail_number : formData.q1,
