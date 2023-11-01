@@ -3,29 +3,27 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from .serializers import *
-from .models import Farms
+from .models import Farm_products
 from django.shortcuts import get_object_or_404
 from users.views import AuthView
 
 
-class FarmCreateView(APIView):
+class FarmProductCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        serializer = FarmSerializer(data={**request.data, 'user_id':response.data.get('user').get('id')})
+        serializer = FarmProductSerializer(data={**request.data, 'user_id':response.data.get('user')['id']})
         if serializer.is_valid():
-            farm_data = Farms.objects.filter(data=request.data)
-            print(farm_data)
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
         errors = serializer.errors
         return Response({"message": "실패", "error": errors}, status=status.HTTP_400_BAD_REQUEST)
 
-class FarmUpdateView(APIView):
+class FarmProductUpdateView(APIView):
     def post(self, request):
         pk = request.data['farm_id']
-        farm = get_object_or_404(Farms, pk=pk)
-        serializer = FarmSerializer(instance=farm, data=request.data)
+        farm_product = get_object_or_404(Farm_products, pk=pk)
+        serializer = FarmProductSerializer(instance=farm_product, data=request.data)
         print(serializer)
         if serializer.is_valid():
             serializer.save()
@@ -33,18 +31,18 @@ class FarmUpdateView(APIView):
         errors = serializer.errors
         return Response({"message": "실패", "error": errors}, status=status.HTTP_400_BAD_REQUEST)
     
-class FarmDeleteView(APIView):
+class FarmProductDeleteView(APIView):
     def post(self, request):
         farm_id = request.data.get('farm_id')
-        farm = get_object_or_404(Farms, id=farm_id)
-        farm.delete()
+        farm_product = get_object_or_404(Farm_products, id=farm_id)
+        farm_product.delete()
         return Response({'message':'삭제'})
 
-class FarmReadView(APIView):
+class FarmProductReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
         user_id = response.data.get('user')['id']
-        farms = Farms.objects.filter(user_id=user_id)
-        serializer = FarmSerializer(farms,many=True)
+        farm_product = Farm_products.objects.filter(user_id=user_id)
+        serializer = FarmProductSerializer(farm_product,many=True)
         return Response(serializer.data)
