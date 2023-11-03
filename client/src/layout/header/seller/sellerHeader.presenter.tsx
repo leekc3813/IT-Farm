@@ -12,7 +12,7 @@ export default function SellerHeaderPageUI(props:ISellerHeaderPageUIProps):JSX.E
                     <div onClick={props.onClickLogout} className={styles.categorieBox}>
                         로그아웃
                     </div>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickMy} className={styles.categorieBox}>
                         내정보
                     </div>
                 </div>
