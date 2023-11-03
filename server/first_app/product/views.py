@@ -18,11 +18,9 @@ class ProductCreateView(APIView):
 
 class ProductUpdateView(APIView):
     def post(self, request):
-        pk = request.data['id']
-        print(pk)
+        pk = request.data.get('id')
         product = get_object_or_404(Product, pk=pk)
         serializer = ProductSerializer(instance=product, data=request.data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
