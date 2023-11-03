@@ -5,24 +5,30 @@ from rest_framework.response import Response
 from .serializers import *
 from .models import Farms
 from django.shortcuts import get_object_or_404
+from users.views import AuthView
+from .distance import distance
 
 
 class FarmCreateView(APIView):
     def post(self, request):
-        serializer = FarmSerializer(data=request.data)
+        auth_view = AuthView()
+        response = auth_view.post(request)
+        center = distance(request.data.get('address'))
+        serializer = FarmSerializer(data={**request.data, 'user_id':response.data.get('user').get('id'), 'center':center})
         if serializer.is_valid():
-            farm = serializer.save()
+            serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
         errors = serializer.errors
         return Response({"message": "실패", "error": errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class FarmUpdateView(APIView):
     def post(self, request):
-        pk = request.data['id']
-        print(pk)
+        auth_view = AuthView()
+        response = auth_view.post(request)
+        pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
-        serializer = FarmSerializer(instance=farm, data=request.data)
-        print(serializer)
+        center = distance(request.data.get('address'))
+        serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':response.data.get('user').get('id'), 'center':center})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -31,14 +37,18 @@ class FarmUpdateView(APIView):
     
 class FarmDeleteView(APIView):
     def post(self, request):
-        farm_id = request.data.get('id')
+        auth_view = AuthView()
+        auth_view.post(request)
+        farm_id = request.data.get('farm_id')
         farm = get_object_or_404(Farms, id=farm_id)
         farm.delete()
         return Response({'message':'삭제'})
 
 class FarmReadView(APIView):
     def post(self, request):
-        farm_name = request.data.get('name')
-        farms = Farms.objects.filter(name=farm_name)
+        auth_view = AuthView()
+        response = auth_view.post(request)
+        user_id = response.data.get('user').get('id')
+        farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)

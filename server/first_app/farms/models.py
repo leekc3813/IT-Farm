@@ -1,18 +1,14 @@
 from django.db import models
 
 class Farms(models.Model):
-    name = models.CharField(max_length=100, null=False)
-    # user_id = models.IntegerField(null=False)
-    area = models.IntegerField(default=0,null=False)
-    mail_number = models.IntegerField(default=00000,null=False)
-    address = models.CharField(max_length=100,null=False)
-    address_detail = models.CharField(max_length=100,null=False)
-    method = models.CharField(max_length=100,null=False)
-    # eco = models.CharField(max_length=100,null=False)
-    # kind = models.CharField(max_length=100,null=False)
-    quantity = models.IntegerField(default=0,null=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    # crop = models.IntegerField(default=0,null=False)
-    # unit_type = models.BooleanField(default=True)
+    name = models.CharField(max_length=100, null=False) # 농장명
+    user_id = models.IntegerField(null=False) # 유저 id
+    area = models.IntegerField(default=0,null=False) # 평수
+    mail_number = models.IntegerField(default=00000,null=False) # 우편번호
+    address = models.CharField(max_length=100,null=False) # 주소
+    address_detail = models.CharField(max_length=100,null=False) # 상세주소
+    center = models.CharField(max_length=100,null=False) # 센터
+    method = models.CharField(max_length=100,null=False) # 재배방법
+    quantity = models.IntegerField(default=0,null=False) # 재식수량
+    created_at = models.DateTimeField(auto_now_add=True) # 작성일자
+    updated_at = models.DateTimeField(auto_now=True) # 수정일자
