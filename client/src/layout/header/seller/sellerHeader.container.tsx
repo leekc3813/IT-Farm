@@ -38,21 +38,25 @@ export default function SellerHeaderPage():JSX.Element {
     );
 
     const onClickLogout = async ()=> {
-        const response = await axios.post('http://localhost:8000/users/logout/', {
+        try{
+          const response = await axios.post('http://localhost:8000/users/logout/', {
           id : localStorage.getItem('id')
-        })
+          })
 
-        if (response.status === 201){
-          console.log("로그아웃 성공")
-        }
+          if (response.status === 201){
+            console.log("로그아웃 성공")
+          }
 
-        localStorage.setItem('loginState', 'false')
-        setLocalLogin(false)
-        localStorage.removeItem('accesstoken');
-        localStorage.removeItem('nickname');
-        localStorage.removeItem('usertype');
-        localStorage.removeItem('id');
-        router.push('/')
+          localStorage.setItem('loginState', 'false')
+          setLocalLogin(false)
+          localStorage.removeItem('accesstoken');
+          localStorage.removeItem('nickname');
+          localStorage.removeItem('usertype');
+          localStorage.removeItem('id');
+          router.push('/')
+          }catch(error){
+            console.log('error',error)
+          }
     }
 
     const onClickLogo = () => {
