@@ -14,7 +14,12 @@ class FarmCreateView(APIView):
         auth_view = AuthView()
         response = auth_view.post(request)
         user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
-        center = distance(request.data.get('address'))
+        address = request.data.get('address')
+        address_detail = request.data.get('address_detail')
+        farms = Farms.objects.filter(user_id=user_id,address=address,address_detail=address_detail)
+        if farms.exists():
+            return Response({"message":"이미 등록된 농장입니다."}, status=status.HTTP_409_CONFLICT)
+        center = distance(address)
         serializer = FarmSerializer(data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
@@ -28,7 +33,7 @@ class FarmUpdateView(APIView):
         response = auth_view.post(request)
         pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
-        user_id = response.data.get('id') if response.status == 200 else response.data.get('user').get('id')
+        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
         center = distance(request.data.get('address'))
         serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
@@ -50,7 +55,7 @@ class FarmReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        user_id = response.data.get('id')
+        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
         farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)

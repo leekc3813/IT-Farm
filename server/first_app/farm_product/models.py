@@ -1,6 +1,7 @@
 from django.db import models
 
 class Farm_products(models.Model):
+    farm_id = models.IntegerField(null=False) # 농장 id
     eco = models.CharField(max_length=100,null=False) # 친환경
     kind = models.CharField(max_length=100,null=False) # 품종
     crop = models.IntegerField(default=0,null=False) # 수확량
