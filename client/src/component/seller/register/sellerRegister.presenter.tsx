@@ -11,7 +11,7 @@ export default function SellerRegisterPageUI(props:ISellerRegisterPageUIProps):J
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
-                <span className={styles.registerTitle}>농장 등록하기</span>
+                {props.isEdit ? <span className={styles.registerTitle}>농장 수정하기</span> : <span className={styles.registerTitle}>농장 등록하기</span>}
                 <div className={styles.registerSection1}>
                     <div className={styles.registerBox}>
                         <div className={styles.registerInputBox}>
@@ -69,7 +69,12 @@ export default function SellerRegisterPageUI(props:ISellerRegisterPageUIProps):J
                     {props.errorData.detailadress && <span className={styles.error}>상세주소를 입력해주세요.</span>}
                 </div>
                 <div className={styles.submitContainer}>
-                    <button onClick={props.onClickSubmit} className={styles.submitButton}>등록하기</button>
+                    {props.isEdit ?
+                        <button onClick={props.onClickSubmit} className={styles.submitButton}>수정하기</button>
+                        :
+                        <button onClick={props.onClickSubmit} className={styles.submitButton}>등록하기</button>
+                    }
+                    
                 </div>
             </div>
         </div>

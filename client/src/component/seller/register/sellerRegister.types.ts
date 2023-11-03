@@ -6,6 +6,7 @@ export interface ISellerRegisterPageUIProps {
     q3 : string;
     detailadress : string;
     isOpen : boolean;
+    isEdit : boolean;
     onClickSubmit : () => void;
     handleComplete : (data:any) => void;
     onChangeDetailadress : (name:string, value : string) => void;
@@ -18,4 +19,8 @@ export interface ISellerRegisterPageUIProps {
         quantity: boolean;
         method: boolean;
       };
+}
+
+export interface ISellerRegisterPageProps {
+  isEdit : boolean;
 }

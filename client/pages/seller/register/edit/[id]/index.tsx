@@ -3,7 +3,7 @@ import SellerRegisterPage from "@/src/component/seller/register/sellerRegister.c
 export default function SellerRegister():JSX.Element{
     return (
         <SellerRegisterPage
-            isEdit = {false}
+            isEdit = {true}
          />
     )
 }
