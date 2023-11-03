@@ -21,10 +21,9 @@ class FarmProductCreateView(APIView):
 
 class FarmProductUpdateView(APIView):
     def post(self, request):
-        pk = request.data['farm_id']
+        pk = request.data['farm_product_id']
         farm_product = get_object_or_404(Farm_products, pk=pk)
         serializer = FarmProductSerializer(instance=farm_product, data=request.data)
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -33,8 +32,8 @@ class FarmProductUpdateView(APIView):
     
 class FarmProductDeleteView(APIView):
     def post(self, request):
-        farm_id = request.data.get('farm_id')
-        farm_product = get_object_or_404(Farm_products, id=farm_id)
+        farm_product_id = request.data.get('farm_product_id')
+        farm_product = get_object_or_404(Farm_products, id=farm_product_id)
         farm_product.delete()
         return Response({'message':'삭제'})
 

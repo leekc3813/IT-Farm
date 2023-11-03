@@ -18,8 +18,7 @@ class ProductCreateView(APIView):
 
 class ProductUpdateView(APIView):
     def post(self, request):
-        pk = request.data['id']
-        print(pk)
+        pk = request.data['product_id']
         product = get_object_or_404(Product, pk=pk)
         serializer = ProductSerializer(instance=product, data=request.data)
         print(serializer)
