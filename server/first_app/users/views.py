@@ -81,7 +81,10 @@ class LoginView(APIView):
 class LogoutView(APIView):
     def post(self, request):
         user_id = request.data.get('id')
-        RefreshToken.objects.filter(user_id=user_id).delete()
-        return Response({
-            'message': 'Logout success'
-        }, status=status.HTTP_200_OK)
+        user = RefreshToken.objects.filter(user_id=user_id)
+        if user:
+            user.delete()
+            return Response({
+                'message': 'Logout success'
+            }, status=status.HTTP_200_OK)
+        return Response({'error':'로그인 x'}, status=status.HTTP_401_UNAUTHORIZED)
