@@ -42,7 +42,7 @@ class FarmProductReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        user_id = response.data.get('id')
+        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
         farm_product = Farm_products.objects.filter(user_id=user_id)
         serializer = FarmProductSerializer(farm_product,many=True)
         return Response(serializer.data)

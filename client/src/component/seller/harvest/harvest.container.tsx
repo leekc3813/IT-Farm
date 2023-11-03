@@ -38,6 +38,8 @@ export default function HarvestPage():JSX.Element {
         try {
             const response = await axios.post('http://localhost:8000/farms/read/',{
                 id : localStorage.getItem('id')
+            },{
+                headers:{ Authorization: token}
             })
             setfarmData(response.data)
         }catch(error){
