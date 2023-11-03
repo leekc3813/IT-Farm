@@ -69,7 +69,6 @@ export default function HeaderPage():JSX.Element {
       }catch(error){
         console.log('error', error)
       }
-      
     }
 
     return(
