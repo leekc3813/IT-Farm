@@ -44,7 +44,7 @@ class AuthView(APIView):
                 user = get_object_or_404(User, pk=pk)
                 serializer = UserSerializer(instance=user)
                 res = Response({'user': serializer.data,
-                                'access': str(access)}, status=status.HTTP_200_OK)
+                                'access': str(access)}, status=status.HTTP_201_CREATED)
                 return res
             raise jwt.exceptions.InvalidTokenError
 

@@ -13,8 +13,9 @@ class FarmCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
+        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
         center = distance(request.data.get('address'))
-        serializer = FarmSerializer(data={**request.data, 'user_id':response.data.get('user').get('id'), 'center':center})
+        serializer = FarmSerializer(data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -27,8 +28,9 @@ class FarmUpdateView(APIView):
         response = auth_view.post(request)
         pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
+        user_id = response.data.get('id') if response.status == 200 else response.data.get('user').get('id')
         center = distance(request.data.get('address'))
-        serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':response.data.get('user').get('id'), 'center':center})
+        serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -48,7 +50,7 @@ class FarmReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        user_id = response.data.get('user').get('id')
+        user_id = response.data.get('id')
         farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)

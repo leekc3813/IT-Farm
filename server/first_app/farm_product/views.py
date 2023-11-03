@@ -12,7 +12,8 @@ class FarmProductCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        serializer = FarmProductSerializer(data={**request.data, 'user_id':response.data.get('user')['id']})
+        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -41,7 +42,7 @@ class FarmProductReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         response = auth_view.post(request)
-        user_id = response.data.get('user')['id']
+        user_id = response.data.get('id')
         farm_product = Farm_products.objects.filter(user_id=user_id)
         serializer = FarmProductSerializer(farm_product,many=True)
         return Response(serializer.data)
