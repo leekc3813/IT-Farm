@@ -2,12 +2,14 @@ import SellerRegisterPageUI from "./sellerRegister.presenter";
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { ISellerRegisterPageProps } from "./sellerRegister.types";
 
 
-export default function SellerRegisterPage():JSX.Element{
+export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.Element{
     const router = useRouter();
 
     const [isOpen, setIsOpen] = useState(false)
+    const [isEdit, setIsEdit] = useState(props.isEdit)
     const [formData, setFormData] = useState({
         q1: '',
         q3: '',
@@ -71,24 +73,48 @@ export default function SellerRegisterPage():JSX.Element{
           // All fields have a non-empty value
           try {
             const token = localStorage.getItem('accesstoken')
-            const response = await axios.post('http://localhost:8000/farms/create/',{
-                id : localStorage.getItem('id'),
-                name : formData.farmName,
-                area : formData.area,
-                mail_number : formData.q1,
-                address : formData.q3,
-                address_detail : formData.detailadress,
-                method : formData.method,
-                quantity : formData.quantity
-            },{
-                headers :{
-                    Authorization : token
-                }
-            })
-                if (response.status == 201){
-                    alert("등록성공")
-                    router.push('/seller')
-                }
+            
+            /*isEdit가 false == 등록 */
+            if (!isEdit){
+                const response = await axios.post('http://localhost:8000/farms/create/',{
+                    id : localStorage.getItem('id'),
+                    name : formData.farmName,
+                    area : formData.area,
+                    mail_number : formData.q1,
+                    address : formData.q3,
+                    address_detail : formData.detailadress,
+                    method : formData.method,
+                    quantity : formData.quantity
+                },{
+                    headers :{
+                        Authorization : token
+                    }
+                })
+                    if (response.status == 201){
+                        alert("등록성공")
+                        router.push('/seller')
+                    }
+            }else{
+                const response = await axios.post('http://localhost:8000/farms/update/',{
+                    id : localStorage.getItem('id'),
+                    name : formData.farmName,
+                    area : formData.area,
+                    mail_number : formData.q1,
+                    address : formData.q3,
+                    address_detail : formData.detailadress,
+                    method : formData.method,
+                    quantity : formData.quantity
+                },{
+                    headers :{
+                        Authorization : token
+                    }
+                })
+                    if (response.status == 201){
+                        alert("수정성공")
+                        router.push('/seller')
+                    }
+            }
+            
             }catch(error){
                 console.log('error', error)
             }
@@ -108,6 +134,7 @@ export default function SellerRegisterPage():JSX.Element{
             onChangeDetailadress = {onChangeDetailadress}
             onClickSubmit = {onClickSubmit}
             errorData = {errorData}
+            isEdit = {isEdit}
          />
     )
 }

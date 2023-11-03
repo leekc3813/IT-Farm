@@ -1,6 +1,7 @@
 import styles from './sellerinfo.module.css'
+import { ISellerinfoPageUIProps } from './sellerinfo.types'
 
-export default function SellerinfoPageUI():JSX.Element {
+export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Element {
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
@@ -43,7 +44,7 @@ export default function SellerinfoPageUI():JSX.Element {
                             광주 광산구 풍영로330번길 34 101동 1701호
                         </div>
                         <div className={styles.farmSelectBox}>
-                            <div className={styles.farmSelect}>
+                            <div onClick={props.onClickEdit} className={styles.farmSelect}>
                                 수정
                             </div>
                             <div className={styles.farmSelect}>
