@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'users',
     'farms',
     'product',
+    'farm_product',
+    'pest',
 
     "django.contrib.admin",
     "django.contrib.auth",
