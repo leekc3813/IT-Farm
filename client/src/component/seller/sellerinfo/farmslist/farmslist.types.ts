@@ -30,4 +30,5 @@ export interface ISellerinfoFarmslistPageUIProps {
         updated_at : string,
         user_id : number
     }
+    onClickEdit : () => void;
 }
