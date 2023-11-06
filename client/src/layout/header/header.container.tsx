@@ -52,7 +52,7 @@ export default function HeaderPage():JSX.Element {
     const onClickLogout = async () => {
       try{
         const response = await axios.post('http://localhost:8000/users/logout/', {
-          id : localStorage.getItem('id')
+          user_id : localStorage.getItem('id')
         })
 
         if (response.status === 200){
