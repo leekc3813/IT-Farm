@@ -14,7 +14,7 @@ class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            user = serializer.save()
+            serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
         errors = serializer.errors
         return Response({"message": "실패", "error": errors}, status=status.HTTP_400_CREATED)
@@ -32,7 +32,7 @@ class AuthView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
         except(jwt.exceptions.ExpiredSignatureError):
-            user_id = request.data.get('id')
+            user_id = request.data.get('user_id')
             refresh_token = RefreshToken.objects.get(
                 user_id=user_id).refresh_token
             data = {'refresh': refresh_token}
@@ -62,10 +62,10 @@ class LoginView(APIView):
         user = authenticate(username=email, password=password)
         if user:
             serializer = UserSerializer(user)
-            user_id = serializer.data.get('id')
+            user_id = serializer.data.get('user_id')
 
             if RefreshToken.objects.filter(user_id=user_id):
-                return Response({'message':'이미 로그인'})
+                return Response({'message':'이미 로그인'}, status=status.HTTP_200_OK)
             
             refresh = TokenObtainPairSerializer.get_token(user)
             RefreshToken.objects.create(user=user, refresh_token=refresh)
@@ -80,7 +80,7 @@ class LoginView(APIView):
 
 class LogoutView(APIView):
     def post(self, request):
-        user_id = request.data.get('id')
+        user_id = request.data.get('user_id')
         user = RefreshToken.objects.filter(user_id=user_id)
         if user:
             user.delete()

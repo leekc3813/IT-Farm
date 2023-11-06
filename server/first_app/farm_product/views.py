@@ -11,8 +11,8 @@ from users.views import AuthView
 class FarmProductCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
-        response = auth_view.post(request)
-        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        auth_view.post(request)
+        user_id = request.data.get('user_id')
         serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id})
         if serializer.is_valid():
             serializer.save()
@@ -22,6 +22,8 @@ class FarmProductCreateView(APIView):
 
 class FarmProductUpdateView(APIView):
     def post(self, request):
+        auth_view = AuthView()
+        auth_view.post(request)
         pk = request.data['farm_product_id']
         farm_product = get_object_or_404(Farm_products, pk=pk)
         serializer = FarmProductSerializer(instance=farm_product, data=request.data)
@@ -33,16 +35,21 @@ class FarmProductUpdateView(APIView):
     
 class FarmProductDeleteView(APIView):
     def post(self, request):
+        auth_view = AuthView()
+        auth_view.post(request)
         farm_product_id = request.data.get('farm_product_id')
         farm_product = get_object_or_404(Farm_products, id=farm_product_id)
-        farm_product.delete()
-        return Response({'message':'삭제'})
+        try:
+            farm_product.delete()
+            return Response({'message':'삭제'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'message':f'삭제 실패: {e}'}, status=status.HTTP_400_BAD_REQUEST)
 
 class FarmProductReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
-        response = auth_view.post(request)
-        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        auth_view.post(request)
+        user_id = request.data.get('user_id')
         farm_product = Farm_products.objects.filter(user_id=user_id)
         serializer = FarmProductSerializer(farm_product,many=True)
         return Response(serializer.data)
