@@ -60,6 +60,10 @@ class FarmReadView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         user_id = request.data.get('user_id')
-        farms = Farms.objects.filter(user_id=user_id)
+        center = request.data.get('center')
+        if center:
+            farms = Farms.objects.filter(center=center)
+        else:
+            farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)

@@ -28,7 +28,7 @@ class FarmProductUpdateView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         try:
-            pk = request.data['farm_product_id']
+            pk = request.data.get('farm_product_id')
             farm_product = get_object_or_404(Farm_products, pk=pk)
             farm_product.state = '등록완료'
             farm_product.save()
