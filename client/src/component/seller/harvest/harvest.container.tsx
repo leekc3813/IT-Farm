@@ -1,10 +1,14 @@
 import axios from "axios";
 import HarvestPageUI from "./harvest.presenter";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { harvestState } from "@/src/store/harvest";
 
+
 export default function HarvestPage():JSX.Element {
+    const router = useRouter()
+
     const [farmData, setfarmData] = useState([])
 
     const [harvest, setHarvest] = useRecoilState(harvestState)
@@ -71,7 +75,28 @@ export default function HarvestPage():JSX.Element {
         const isFormDataValid = Object.values(formData).every((value) => value.trim() !== '')
 
         if (isFormDataValid){
-            //api생성되면 넣어주기
+            try{
+                const response = await axios.post('http://localhost:8000/farm_product/create/',{
+                user_id : localStorage.getItem('id'),
+                farm_id : localStorage.getItem('harvest'),
+                eco : formData.eco,
+                kind : formData.crop,
+                crop : formData.yield,
+                unit_type : formData.unitType,
+                },{
+                    headers : {
+                        Authorization : localStorage.getItem('accesstoken')
+                    }
+                })
+
+                console.log(response)
+                alert('등록성공')
+                router.push('/seller')
+
+            }catch(error){
+                console.log('error', error)
+            }
+            
         }else{
             alert("항목을 전부 채워주세요!")
         }
@@ -82,6 +107,7 @@ export default function HarvestPage():JSX.Element {
             farmData = {farmData}
             onChangeDetail = {onChangeDetail}
             errorData = {errorData}
+            onClickSubmit = {onClickSubmit}
          />
     )
 }

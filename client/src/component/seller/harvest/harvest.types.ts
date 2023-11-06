@@ -8,6 +8,7 @@ export interface IHarvestPageUIProps {
         eco : boolean,
         yield : boolean,
     }
+    onClickSubmit : () => void;
 }
 
 interface Farm {

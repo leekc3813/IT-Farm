@@ -59,7 +59,7 @@ export default function HarvestPageUI(props: IHarvestPageUIProps):JSX.Element {
                     </div>
                     {props.errorData.yield && <div className={styles.error}>수확량을 입력하세요.</div>}
                     <div className={styles.submitBox}>
-                        <button className={styles.submitButton}>등록하기</button>
+                        <button onClick={props.onClickSubmit} className={styles.submitButton}>등록하기</button>
                     </div>
                 </div>
             </div>
