@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # 가상환경
-myvenv/
+../server/myvenv/
