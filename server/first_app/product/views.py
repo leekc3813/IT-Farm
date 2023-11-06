@@ -46,8 +46,13 @@ class ProductDeleteView(APIView):
 
 class ProductReadView(APIView):
     def post(self, request):
-        product_name = request.data.get('name')
-        products = Product.objects.filter(name=product_name)
+        products = Product.objects.all
         serializer = ProductSerializer(products,many=True)
         return Response(serializer.data)
     
+class ProductSearchView(APIView):
+    def post(self, request):
+        product_name = request.data.get('name')
+        products = Product.objects.filter(name__icontains=product_name)
+        serializer = ProductSerializer(products,many=True)
+        return Response(serializer.data)
