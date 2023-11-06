@@ -12,8 +12,8 @@ from .distance import distance
 class FarmCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
-        response = auth_view.post(request)
-        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        auth_view.post(request)
+        user_id = request.data.get('user_id')
         address = request.data.get('address')
         address_detail = request.data.get('address_detail')
         farms = Farms.objects.filter(user_id=user_id,address=address,address_detail=address_detail)
@@ -30,10 +30,10 @@ class FarmCreateView(APIView):
 class FarmUpdateView(APIView):
     def post(self, request):
         auth_view = AuthView()
-        response = auth_view.post(request)
+        auth_view.post(request)
         pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
-        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        user_id = request.data.get('user_id')
         center = distance(request.data.get('address'))
         serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
@@ -48,14 +48,16 @@ class FarmDeleteView(APIView):
         auth_view.post(request)
         farm_id = request.data.get('farm_id')
         farm = get_object_or_404(Farms, id=farm_id)
-        farm.delete()
-        return Response({'message':'삭제'})
-
+        try:
+            farm.delete()
+            return Response({'message':'삭제'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'message':f'삭제 실패: {e}'}, status=status.HTTP_400_REQUEST)
 class FarmReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
-        response = auth_view.post(request)
-        user_id = response.data.get('id') if response.status_code == 200 else response.data.get('user').get('id')
+        auth_view.post(request)
+        user_id = request.data.get('user_id')
         farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)
