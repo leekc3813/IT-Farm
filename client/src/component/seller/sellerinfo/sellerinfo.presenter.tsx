@@ -1,3 +1,4 @@
+import SellerinfoFarmslistPage from './farmslist/farmslist.container'
 import styles from './sellerinfo.module.css'
 import { ISellerinfoPageUIProps } from './sellerinfo.types'
 
@@ -20,38 +21,14 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
                             비고
                         </div>
                     </div>
-                    <div className={styles.farmBox}>
-                        <div className={styles.farmName}>
-                            희건이네농장
-                        </div>
-                        <div className={styles.farmAddress}>
-                            광주 광산구 풍영로330번길 34 101동 1701호
-                        </div>
-                        <div className={styles.farmSelectBox}>
-                            <div className={styles.farmSelect}>
-                                수정
-                            </div>
-                            <div className={styles.farmSelect}>
-                                삭제
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.farmBox}>
-                        <div className={styles.farmName}>
-                            희건이네농장
-                        </div>
-                        <div className={styles.farmAddress}>
-                            광주 광산구 풍영로330번길 34 101동 1701호
-                        </div>
-                        <div className={styles.farmSelectBox}>
-                            <div onClick={props.onClickEdit} className={styles.farmSelect}>
-                                수정
-                            </div>
-                            <div className={styles.farmSelect}>
-                                삭제
-                            </div>
-                        </div>
-                    </div>
+                    {props.farmsData?.map((farmsData) => {
+                        return (
+                            <SellerinfoFarmslistPage
+                                key = {farmsData.id}
+                                farmsData = {farmsData}
+                            />
+                        )
+                    })}
                 </div>
                 <div className={styles.title}>
                     나의 신청정보

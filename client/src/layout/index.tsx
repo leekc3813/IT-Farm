@@ -33,7 +33,7 @@ export default function Layout(props:ILayoutProps):JSX.Element {
     const [localLogin, setLocalLogin] = useRecoilState(loginState)
 
     useEffect(() => {
-        if (localStorage.getItem('loginState') === 'true') {
+        if (localStorage.getItem('loginstate') === 'true') {
             setLocalLogin(true)
         }else {
             setLocalLogin(false)

@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef, useMemo } from "react";
 import throttle from "lodash/throttle";
+import { useRecoilState } from "recoil";
+import { loginState } from "@/src/store/states";
 import HeaderCenterPageUI from "./centerHeader.presenter";
 
 export default function CenterHeaderPage():JSX.Element{
@@ -7,6 +9,8 @@ export default function CenterHeaderPage():JSX.Element{
     const [visible, setVisible] = useState(true);
 
     const beforeScrollY = useRef(0);
+
+    const [localLogin, setLocalLogin] = useRecoilState(loginState)
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -31,6 +35,7 @@ export default function CenterHeaderPage():JSX.Element{
     return(
         <HeaderCenterPageUI
             visible = {visible}
+            localLogin = {localLogin}
          />
     )
 }
