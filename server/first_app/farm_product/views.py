@@ -24,14 +24,14 @@ class FarmProductUpdateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
-        pk = request.data['farm_product_id']
-        farm_product = get_object_or_404(Farm_products, pk=pk)
-        serializer = FarmProductSerializer(instance=farm_product, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
+        try:
+            pk = request.data['farm_product_id']
+            farm_product = get_object_or_404(Farm_products, pk=pk)
+            farm_product.state = '등록완료'
+            farm_product.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
-        errors = serializer.errors
-        return Response({"message": "실패", "error": errors}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'message':f'실패: {e}'}, status=status.HTTP_400_BAD_REQUEST)
     
 class FarmProductDeleteView(APIView):
     def post(self, request):
