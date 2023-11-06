@@ -77,7 +77,7 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
             /*isEdit가 false == 등록 */
             if (!isEdit){
                 const response = await axios.post('http://localhost:8000/farms/create/',{
-                    id : localStorage.getItem('id'),
+                    user_id : localStorage.getItem('id'),
                     name : formData.farmName,
                     area : formData.area,
                     mail_number : formData.q1,
@@ -96,7 +96,8 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                     }
             }else{
                 const response = await axios.post('http://localhost:8000/farms/update/',{
-                    id : localStorage.getItem('id'),
+                    user_id : localStorage.getItem('id'),
+                    farm_id : router.asPath.slice(22),
                     name : formData.farmName,
                     area : formData.area,
                     mail_number : formData.q1,

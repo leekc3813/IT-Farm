@@ -1,5 +1,4 @@
 export interface ISellerinfoPageUIProps {
-    onClickEdit : () => void;
     farmsData : Farms[]
 }
 

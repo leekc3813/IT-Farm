@@ -37,7 +37,7 @@ export default function HarvestPage():JSX.Element {
         const token = localStorage.getItem('accesstoken')
         try {
             const response = await axios.post('http://localhost:8000/farms/read/',{
-                id : localStorage.getItem('id')
+                user_id : localStorage.getItem('id')
             },{
                 headers:{ Authorization: token}
             })

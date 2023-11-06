@@ -11,7 +11,7 @@ export default function SellerinfoFarmslistPageUI(props: ISellerinfoFarmslistPag
                 {props.farmsData.address + ' ' + props.farmsData.address_detail}
             </div>
             <div className={styles.farmSelectBox}>
-                <div className={styles.farmSelect}>
+                <div onClick={props.onClickEdit} className={styles.farmSelect}>
                     수정
                 </div>
                 <div className={styles.farmSelect}>
