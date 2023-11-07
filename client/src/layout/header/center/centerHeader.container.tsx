@@ -74,6 +74,8 @@ export default function CenterHeaderPage():JSX.Element{
     const onClickCenter = () => {
       router.push('/center')
     }
+    
+
     return(
         <HeaderCenterPageUI
             visible = {visible}

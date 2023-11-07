@@ -1,6 +1,7 @@
 import styles from './approval.module.css'
 import { Radio } from 'antd';
 import { IApprovalPageUIProps } from './approval.types';
+import ApprovalDetailPage from './detail/approvalDetail.container';
 
 export default function ApprovalPageUI(props: IApprovalPageUIProps):JSX.Element{
     return(
@@ -14,7 +15,25 @@ export default function ApprovalPageUI(props: IApprovalPageUIProps):JSX.Element{
                     <Radio.Button className={styles.placementButton} value="아산">아산</Radio.Button>
                     <Radio.Button className={styles.placementButton} value="청주">청주</Radio.Button>
                 </Radio.Group>
+                <div className={styles.detailContainer}>
+                    <div className={styles.infoBox}>
+                        <div className={styles.infoContent}>농장이름</div>
+                        <div className={styles.infoContent}>농장주소</div>
+                        <div className={styles.infoContent}>농업방식</div>
+                        <div className={styles.infoContent}>종류</div>
+                        <div className={styles.infoContent}>비고</div>
+                    </div>
+                    {props.farmData?.map((farmData) => {
+                        return (
+                            <ApprovalDetailPage 
+                                farmData = {farmData}
+                            />
+                        )
+                    })}
+                    
+                </div>
             </div>
+            
         </div>
     )
 }

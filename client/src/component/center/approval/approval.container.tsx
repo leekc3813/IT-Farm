@@ -5,6 +5,7 @@ import axios from "axios";
 
 export default function ApprovalPage():JSX.Element {
     const [placement, setPlacement] = useState('정읍')
+    const [farmData, setfarmData] = useState([])
 
     const placementChange = (e: RadioChangeEvent) => {
         setPlacement(e.target.value)
@@ -20,7 +21,8 @@ export default function ApprovalPage():JSX.Element {
                      Authorization : localStorage.getItem('accesstoken')
                  }
              })
-             console.log(response)
+             setfarmData(response.data)
+             console.log(response.data)
         }catch(error){
             console.log('error',error)
         }
@@ -35,6 +37,7 @@ export default function ApprovalPage():JSX.Element {
         <ApprovalPageUI 
         placement = {placement}
         placementChange = {placementChange}
+        farmData = {farmData}
         />
     )
 }
