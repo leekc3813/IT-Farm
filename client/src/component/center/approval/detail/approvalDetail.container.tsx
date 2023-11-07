@@ -1,6 +1,7 @@
 import ApprovalDetailPageUI from "./approvalDetail.presenter";
 import axios from "axios";
 import { IApprovalDetailPageProps } from "./approvalDetail.types";
+import { useState } from "react";
 
 
 export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.Element{
@@ -9,12 +10,21 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
         try {
             const response = await axios.post('http://localhost:8000/farm_product/update/',{
                 user_id : localStorage.getItem('id'),
-                farm_id : 'props로 받아온 아이디',
+                farm_product_id : props.farmData.id,
             },{
                 headers : {
                     Authorization : localStorage.getItem('accesstoken')
                 }
             })
+
+            if(response.status === 201){
+                alert('승인성공')
+                console.log('승인성공')
+                window.location.reload();
+            }else{
+                alert('승인실패')
+                console.log('승인실패')
+            }
         }catch(error){
             console.log('error', error)
         }
@@ -22,14 +32,24 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
 
      const onClickRefuse = async () => {
         try{
-            const response = await axios.post('http://farm_product/delete/',{
+            const response = await axios.post('http://localhost:8000/farm_product/delete/',{
                 user_id : localStorage.getItem('id'),
-                farm_product_id : 'props로 받아온 프로덕트',
+                farm_product_id : props.farmData.id,
             },{
                 headers : {
                     Authorization : localStorage.getItem('accestoken')
                 }
             })
+
+            if(response.status === 200){
+                alert('삭제성공')
+                console.log('삭제성공')
+                window.location.reload();
+
+            }else{
+                alert('삭제실패')
+                console.log('삭제실패')
+            }
         }catch(error){
             console.log('error',error)
         }
@@ -38,6 +58,8 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
     return(
         <ApprovalDetailPageUI
             farmData={props.farmData}
+            onCLickApproval = {onCLickApproval}
+            onClickRefuse = {onClickRefuse}
          />
     )
 }

@@ -18,10 +18,10 @@ export default function ApprovalDetailPageUI(props:IApprovalDetailPageUIProps):J
             </div>
             
             <div className={styles.selectBox}>
-                <div className={styles.select}>
+                <div onClick={props.onCLickApproval} className={styles.select}>
                     수락
                 </div>
-                <div className={styles.select}>
+                <div onClick={props.onClickRefuse} className={styles.select}>
                     거절
                 </div>
             </div>
