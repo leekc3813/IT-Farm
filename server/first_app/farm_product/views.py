@@ -6,6 +6,7 @@ from .serializers import *
 from .models import Farm_products
 from django.shortcuts import get_object_or_404
 from users.views import AuthView
+from farms.models import Farms
 
 
 class FarmProductCreateView(APIView):
@@ -13,7 +14,9 @@ class FarmProductCreateView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         user_id = request.data.get('user_id')
-        serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id})
+        farm_id = request.data.get('farm_id')
+        center = Farms.objects.get(id=farm_id).center
+        serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
@@ -25,7 +28,7 @@ class FarmProductUpdateView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         try:
-            pk = request.data['farm_product_id']
+            pk = request.data.get('farm_product_id')
             farm_product = get_object_or_404(Farm_products, pk=pk)
             farm_product.state = '등록완료'
             farm_product.save()
@@ -49,7 +52,11 @@ class FarmProductReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
-        user_id = request.data.get('user_id')
-        farm_product = Farm_products.objects.filter(user_id=user_id)
+        farm_id = request.data.get('farm_id')
+        center = request.data.get('center')
+        if center:
+            farm_product = Farm_products.objects.filter(center=center)
+        else :    
+            farm_product = Farm_products.objects.filter(farm_id=farm_id)
         serializer = FarmProductSerializer(farm_product,many=True)
         return Response(serializer.data)

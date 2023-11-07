@@ -52,3 +52,16 @@ class PestReadView(APIView):
         pest = Pest.objects.filter(farm_id=farm_id)
         serializer = PestSerializer(pest,many=True)
         return Response(serializer.data)
+    
+class PestSolutionView(APIView):
+    def post(self, request):
+        auth_view = AuthView()
+        auth_view.post(request)
+        try:
+            pk = request.data.get('pest_id')
+            pest = get_object_or_404(Pest, pk=pk)
+            pest.solution = request.data.get('solution')
+            pest.save()
+            return Response({'message':'성공'}, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response({'message':f'실패: {e}'}, status=status.HTTP_400_BAD_REQUEST)

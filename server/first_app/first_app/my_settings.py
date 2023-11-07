@@ -3,9 +3,9 @@ DATABASES = DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'it_farm',
-        'USER': 'root',
-        'PASSWORD': 'mysql',
-        'HOST': 'localhost',
+        'USER': 'user1',
+        'PASSWORD': 'mysql123',
+        'HOST': 'it-farm.cezqsa5by8wz.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }

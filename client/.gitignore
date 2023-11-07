@@ -36,3 +36,6 @@ next-env.d.ts
 
 # 가상환경
 ../server/myvenv/
+
+# .pyc
+*.pyc
