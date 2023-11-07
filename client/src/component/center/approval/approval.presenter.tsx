@@ -25,7 +25,8 @@ export default function ApprovalPageUI(props: IApprovalPageUIProps):JSX.Element{
                     </div>
                     {props.farmData?.map((farmData) => {
                         return (
-                            <ApprovalDetailPage 
+                            <ApprovalDetailPage
+                                key={farmData.id} 
                                 farmData = {farmData}
                             />
                         )

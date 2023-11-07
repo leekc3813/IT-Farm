@@ -9,7 +9,8 @@ export interface IApprovalDetailPageProps {
     farm_name :string;
     kind : string;
     state : string;
-    updated_at : string
+    updated_at : string;
+    id : number;
     } 
 }
 
@@ -24,6 +25,9 @@ export interface IApprovalDetailPageUIProps {
     farm_name :string;
     kind : string;
     state : string;
-    updated_at : string
+    updated_at : string;
+    id : number;
     } 
+    onCLickApproval : () => void;
+    onClickRefuse : () => void;
 }

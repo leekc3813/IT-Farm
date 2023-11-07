@@ -16,6 +16,6 @@ interface Farm {
     farm_name :string;
     kind : string;
     state : string;
-    updated_at : string
-
+    updated_at : string;
+    id : number;
 }
