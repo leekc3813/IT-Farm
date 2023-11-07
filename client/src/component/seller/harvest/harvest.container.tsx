@@ -34,7 +34,6 @@ export default function HarvestPage():JSX.Element {
             ...prevFormData,
             [name] : value
           }));
-        console.log(formData)
     }
 
     const fetchData = async ()=> {

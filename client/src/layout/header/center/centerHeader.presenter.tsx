@@ -5,15 +5,15 @@ import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined 
 export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.Element{
     return(
         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
-            <div  className={styles.headerTitle}>
+            <div onClick={props.onClickCenter}  className={styles.headerTitle}>
                 IT-Farm Center
             </div>
             <div className={styles.headerInfoContainer}>
                 <div className={styles.infoBox1}>
                 </div>
                 <div className={styles.infoBox2}>
-                    <div className={styles.categorieBox}>
-                        하위목록1
+                    <div onClick={props.onClickApproval} className={styles.categorieBox}>
+                        물품승인
                     </div>
                     <div className={styles.categorieBox}>
                         하위목록2

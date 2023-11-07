@@ -66,6 +66,14 @@ export default function CenterHeaderPage():JSX.Element{
     const onClickSell = () => {
       router.push('/seller')
     }
+
+    const onClickApproval =() => {
+      router.push('/center/approval')
+    }
+    
+    const onClickCenter = () => {
+      router.push('/center')
+    }
     return(
         <HeaderCenterPageUI
             visible = {visible}
@@ -73,6 +81,8 @@ export default function CenterHeaderPage():JSX.Element{
             onClickLogout = {onClickLogout}
             onClickBuy = {onClickBuy}
             onClickSell = {onClickSell}
+            onClickApproval = {onClickApproval}
+            onClickCenter = {onClickCenter}
          />
     )
 }
