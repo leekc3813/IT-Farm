@@ -28,12 +28,8 @@ class UserManager(BaseUserManager):
         superuser = self.create_user(
             email=email,
             password=password,
-            nickname=extra_fields['nickname'],
-            user_type=extra_fields['user_type'],
-            mail_number=extra_fields['mail_number'],
-            address=extra_fields['address'],
-            address_detail=extra_fields['address_detail'],
-            profile=extra_fields['profile'],
+            nickname='admin',
+            user_type='admin'
         )
 
         superuser.is_staff = True
@@ -75,3 +71,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # 사용자의 username field는 email으로 설정 (이메일로 로그인)
     USERNAME_FIELD = 'email'
+
+
+class RefreshToken(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    refresh_token = models.TextField()

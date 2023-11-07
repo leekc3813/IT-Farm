@@ -4,7 +4,7 @@ DATABASES = DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'it_farm',
         'USER': 'root',
-        'PASSWORD': 'mysql',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }
