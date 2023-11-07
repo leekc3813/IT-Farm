@@ -46,6 +46,11 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     }
                     <ShoppingOutlined className={styles.headerIcon} />
+                    {props.usertype === 'admin' ?
+                        <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
+                        :
+                        ''
+                    }
                 </div>
             </div>
         </div> 

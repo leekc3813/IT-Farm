@@ -9,6 +9,7 @@ import axios from "axios";
 export default function SellerHeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
     const [visible, setVisible] = useState(true);
+    const [usertype, setUsertype] = useState('')
 
     const beforeScrollY = useRef(0);
 
@@ -36,6 +37,14 @@ export default function SellerHeaderPage():JSX.Element {
         }, 250),
       [beforeScrollY]
     );
+
+    useEffect(() => {
+      if (localStorage.getItem('usertype') === 'admin'){
+        setUsertype('admin')
+      }else {
+        setUsertype('')
+      }
+    },[usertype])
 
     const onClickLogout = async ()=> {
         try{
@@ -67,6 +76,9 @@ export default function SellerHeaderPage():JSX.Element {
       router.push(`/seller/my/${localStorage.getItem('id')}`)
     }
 
+    const onClickCenter = () => {
+      router.push('/center')
+    }
 
     return(
         <SellerHeaderPageUI
@@ -74,6 +86,8 @@ export default function SellerHeaderPage():JSX.Element {
             onClickLogout = {onClickLogout}
             onClickLogo = {onClickLogo}
             onClickMy = {onClickMy}
+            usertype = {usertype}
+            onClickCenter = {onClickCenter}
          />
     )
 }

@@ -9,6 +9,7 @@ import axios from "axios";
 export default function HeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
     const [visible, setVisible] = useState(true);
+    const [usertype, setUsertype] = useState('')
 
     const beforeScrollY = useRef(0);
 
@@ -18,9 +19,10 @@ export default function HeaderPage():JSX.Element {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        
         return () => {
           window.removeEventListener('scroll', handleScroll);
-        };
+        };    
       }, []);
     
       const handleScroll = useMemo(
@@ -37,12 +39,24 @@ export default function HeaderPage():JSX.Element {
         [beforeScrollY]
       );
 
+    useEffect(() => {
+      if (localStorage.getItem('usertype') === 'admin'){
+        setUsertype('admin')
+      }else {
+        setUsertype('')
+      }
+    },[usertype])
+
     const onClickHome = ()=> {
         router.push('/')
     }
 
     const onClickPurchase = () => {
         router.push('/purchase')
+    }
+
+    const onClickCenter = () => {
+      router.push('/center')
     }
 
     const onClickRegister = () => {
@@ -79,6 +93,8 @@ export default function HeaderPage():JSX.Element {
             onClickRegister = {onClickRegister}
             onClickLogout = {onClickLogout}
             localLogin = {localLogin}
+            usertype = {usertype}
+            onClickCenter = {onClickCenter}
          />
     )
 }

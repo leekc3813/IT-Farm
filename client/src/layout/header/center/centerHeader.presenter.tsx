@@ -20,14 +20,13 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
                     </div>
                 </div>
                 <div className={styles.infoBox3}>
-                    <HomeOutlined  className={styles.headerIcon} />
-                    <SearchOutlined className={styles.headerIcon} />
                     {props.localLogin ?
-                        <StopOutlined className={styles.headerIcon} />
+                        <StopOutlined onClick={props.onClickLogout} className={styles.headerIcon} />
                         : 
                         <KeyOutlined  className={styles.headerIcon} />
                     }
-                    <ShoppingOutlined className={styles.headerIcon} />
+                    <button onClick={props.onClickBuy} className={styles.moveButton} >구매페이지</button>
+                    <button onClick = {props.onClickSell} className={styles.moveButton} >농부페이지</button>
                 </div>
             </div>
         </div> 

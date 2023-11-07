@@ -15,6 +15,11 @@ export default function SellerHeaderPageUI(props:ISellerHeaderPageUIProps):JSX.E
                     <div onClick={props.onClickMy} className={styles.categorieBox}>
                         내정보
                     </div>
+                    {props.usertype === 'admin' ?
+                        <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
+                        :
+                        ''
+                    }
                 </div>
             </div>
         </div>

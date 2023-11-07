@@ -3,8 +3,11 @@ import throttle from "lodash/throttle";
 import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import HeaderCenterPageUI from "./centerHeader.presenter";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function CenterHeaderPage():JSX.Element{
+    const router = useRouter()
 
     const [visible, setVisible] = useState(true);
 
@@ -32,10 +35,44 @@ export default function CenterHeaderPage():JSX.Element{
           }, 250),
         [beforeScrollY]
       );
+
+      const onClickLogout = async () => {
+        try{
+          const response = await axios.post('http://localhost:8000/users/logout/', {
+            user_id : localStorage.getItem('id')
+          })
+  
+          if (response.status === 200){
+            console.log("로그아웃 성공")
+          }
+  
+          localStorage.setItem('loginState', 'false')
+          setLocalLogin(false)
+          localStorage.removeItem('accesstoken');
+          localStorage.removeItem('nickname');
+          localStorage.removeItem('usertype');
+          localStorage.removeItem('id');
+          alert('로그아웃 하였습니다.')
+          router.push('/')
+        }catch(error){
+          console.log('error', error)
+        }
+      }
+
+    const onClickBuy = () => {
+      router.push('/purchase')
+    }
+
+    const onClickSell = () => {
+      router.push('/seller')
+    }
     return(
         <HeaderCenterPageUI
             visible = {visible}
             localLogin = {localLogin}
+            onClickLogout = {onClickLogout}
+            onClickBuy = {onClickBuy}
+            onClickSell = {onClickSell}
          />
     )
 }
