@@ -35,7 +35,8 @@ class FarmUpdateView(APIView):
         pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
         user_id = request.data.get('user_id')
-        center = distance(request.data.get('address'))
+        latitude, longitude = geocoding(address)
+        center = distance(latitude,longitude)
         serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
@@ -60,6 +61,10 @@ class FarmReadView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         user_id = request.data.get('user_id')
-        farms = Farms.objects.filter(user_id=user_id)
+        center = request.data.get('center')
+        if center:
+            farms = Farms.objects.filter(center=center)
+        else:
+            farms = Farms.objects.filter(user_id=user_id)
         serializer = FarmSerializer(farms,many=True)
         return Response(serializer.data)

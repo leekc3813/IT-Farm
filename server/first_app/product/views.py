@@ -38,11 +38,11 @@ class ProductDeleteView(APIView):
         auth_view.post(request)
         product_id = request.data.get('product_id')
         product = get_object_or_404(Product, id=product_id)
-        if product.is_valid():
+        try:
             product.delete()
             return Response({'message':'삭제'}, status=status.HTTP_200_OK)
-        errors = product.errors
-        return Response({'message':'실패', 'error':errors}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'message':f'삭제 실패: {e}'}, status=status.HTTP_400_REQUEST)
 
 class ProductReadView(APIView):
     def post(self, request):

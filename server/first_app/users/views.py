@@ -62,9 +62,9 @@ class LoginView(APIView):
         user = authenticate(username=email, password=password)
         if user:
             serializer = UserSerializer(user)
-            user_id = serializer.data.get('user_id')
+            user_id = serializer.data.get('id')
 
-            if RefreshToken.objects.filter(user_id=user_id):
+            if RefreshToken.objects.filter(user_id=user_id).exists():
                 return Response({'message':'이미 로그인'}, status=status.HTTP_200_OK)
             
             refresh = TokenObtainPairSerializer.get_token(user)
