@@ -62,5 +62,5 @@ class FarmProductReadView(APIView):
             farm_product = Farm_products.objects.filter(center=center)
         else :    
             farm_product = Farm_products.objects.filter(farm_id=farm_id)
-        serializer = FarmProductSerializer(farm_product,many=True)
+        serializer = FarmReadSerializer(farm_product,many=True)
         return Response(serializer.data)
