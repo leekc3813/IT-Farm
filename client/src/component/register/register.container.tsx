@@ -45,19 +45,27 @@ export default function RegisterPage(): JSX.Element {
                 password : password,
             })
             localStorage.setItem('nickname', response.data.user.nickname)
-            localStorage.setItem('loginState', 'true')
+            localStorage.setItem('loginstate', 'true')
             localStorage.setItem('accesstoken', response.data.access)
-            axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`
+            localStorage.setItem('id', response.data.user.id)
+            localStorage.setItem('usertype',response.data.user.user_type)
+            console.log(response)
             setLocalLogin(true)
-            if (localStorage.getItem('userState') === 'buyer') {
+            if (localStorage.getItem('usertype') === 'buyer') {
                 router.push('/purchase')
                 return
             }
     
-            if (localStorage.getItem('userState') === 'seller') {
+            if (localStorage.getItem('usertype') === 'seller') {
                 router.push('/seller')
                 return
             }
+
+            if (localStorage.getItem('usertype') === 'admin') {
+                router.push('/center')
+                return
+            }
+
         }catch(error){
             console.log('error',error)
         }    
@@ -70,7 +78,7 @@ export default function RegisterPage(): JSX.Element {
             nickname : nickName,
             email : email,
             password : password,
-            user_type : localStorage.getItem('userState')
+            user_type : localStorage.getItem('userstate')
             })
 
             if (response.status === 201){

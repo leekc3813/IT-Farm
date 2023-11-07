@@ -1,6 +1,5 @@
 import styles from './home.module.css';
 import { IHomePageUIProps } from './home.types';
-import Image from '/img/home/background.png';
 
 export function HomePageUI (props:IHomePageUIProps):JSX.Element {
     return (

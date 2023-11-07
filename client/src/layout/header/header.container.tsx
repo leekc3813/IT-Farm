@@ -4,10 +4,12 @@ import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
 import HeaderPageUI from "./header.presenter";
+import axios from "axios";
 
 export default function HeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
     const [visible, setVisible] = useState(true);
+    const [usertype, setUsertype] = useState('')
 
     const beforeScrollY = useRef(0);
 
@@ -17,9 +19,10 @@ export default function HeaderPage():JSX.Element {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        
         return () => {
           window.removeEventListener('scroll', handleScroll);
-        };
+        };    
       }, []);
     
       const handleScroll = useMemo(
@@ -36,6 +39,14 @@ export default function HeaderPage():JSX.Element {
         [beforeScrollY]
       );
 
+    useEffect(() => {
+      if (localStorage.getItem('usertype') === 'admin'){
+        setUsertype('admin')
+      }else {
+        setUsertype('')
+      }
+    },[usertype])
+
     const onClickHome = ()=> {
         router.push('/')
     }
@@ -44,14 +55,34 @@ export default function HeaderPage():JSX.Element {
         router.push('/purchase')
     }
 
+    const onClickCenter = () => {
+      router.push('/center')
+    }
+
     const onClickRegister = () => {
       router.push('./register')
     }
 
-    const onClickLogout = () => {
-      localStorage.setItem('loginState', 'false')
-      setLocalLogin(false)
-      alert('로그아웃 하였습니다.')
+    const onClickLogout = async () => {
+      try{
+        const response = await axios.post('http://localhost:8000/users/logout/', {
+          user_id : localStorage.getItem('id')
+        })
+
+        if (response.status === 200){
+          console.log("로그아웃 성공")
+        }
+
+        localStorage.setItem('loginState', 'false')
+        setLocalLogin(false)
+        localStorage.removeItem('accesstoken');
+        localStorage.removeItem('nickname');
+        localStorage.removeItem('usertype');
+        localStorage.removeItem('id');
+        alert('로그아웃 하였습니다.')
+      }catch(error){
+        console.log('error', error)
+      }
     }
 
     return(
@@ -62,6 +93,8 @@ export default function HeaderPage():JSX.Element {
             onClickRegister = {onClickRegister}
             onClickLogout = {onClickLogout}
             localLogin = {localLogin}
+            usertype = {usertype}
+            onClickCenter = {onClickCenter}
          />
     )
 }

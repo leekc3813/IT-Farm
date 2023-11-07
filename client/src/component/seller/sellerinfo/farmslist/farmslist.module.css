@@ -1,0 +1,46 @@
+.farmBox{
+    display: flex;
+    font-size: 18px;
+}
+
+@media (max-width:480px) {
+    .farmBox{
+        font-size: 15px;
+    }
+}
+
+.farmBox > *:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,0.1) ;
+}
+
+.farmName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 10px 0;
+}
+
+.farmAddress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+}
+
+.farmSelectBox{
+    display: flex;
+    width: 15%;
+}
+
+.farmSelectBox > *:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,0.1) ;
+}
+
+.farmSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    cursor: pointer;
+}

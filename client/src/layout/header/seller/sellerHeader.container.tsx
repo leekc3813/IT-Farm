@@ -4,10 +4,12 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
+import axios from "axios";
 
 export default function SellerHeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
     const [visible, setVisible] = useState(true);
+    const [usertype, setUsertype] = useState('')
 
     const beforeScrollY = useRef(0);
 
@@ -36,22 +38,56 @@ export default function SellerHeaderPage():JSX.Element {
       [beforeScrollY]
     );
 
-    const onClickLogout = ()=> {
-        localStorage.setItem('loginState', 'false')
-        setLocalLogin(false)
-        router.push('/')
+    useEffect(() => {
+      if (localStorage.getItem('usertype') === 'admin'){
+        setUsertype('admin')
+      }else {
+        setUsertype('')
+      }
+    },[usertype])
+
+    const onClickLogout = async ()=> {
+        try{
+          const response = await axios.post('http://localhost:8000/users/logout/', {
+            user_id : localStorage.getItem('id')
+          })
+
+        if (response.status === 200){
+          console.log("로그아웃 성공")
+        }
+
+          localStorage.setItem('loginState', 'false')
+          setLocalLogin(false)
+          localStorage.removeItem('accesstoken');
+          localStorage.removeItem('nickname');
+          localStorage.removeItem('usertype');
+          localStorage.removeItem('id');
+          router.push('/')
+          }catch(error){
+            console.log('error',error)
+          }
     }
 
     const onClickLogo = () => {
       router.push('/seller')
     }
 
+    const onClickMy = () => {
+      router.push(`/seller/my/${localStorage.getItem('id')}`)
+    }
+
+    const onClickCenter = () => {
+      router.push('/center')
+    }
 
     return(
         <SellerHeaderPageUI
             visible = {visible}
             onClickLogout = {onClickLogout}
             onClickLogo = {onClickLogo}
+            onClickMy = {onClickMy}
+            usertype = {usertype}
+            onClickCenter = {onClickCenter}
          />
     )
 }

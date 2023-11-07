@@ -26,7 +26,15 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         EVENT
                     </div>
                     <div className={styles.categorieBox}>
-                        고객센터
+                        <a href="#">고객센터</a>
+                        <ul className={styles.sub_cate01}>
+                            <li className={styles.noChild}>
+                                <a href="/purchase/board/notice">공지사항</a>
+                            </li>
+                            <li className={styles.noChild}>
+                                <a href="/purchase/board/qna">Q&A</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className={styles.infoBox3}>
@@ -38,6 +46,11 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     }
                     <ShoppingOutlined className={styles.headerIcon} />
+                    {props.usertype === 'admin' ?
+                        <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
+                        :
+                        ''
+                    }
                 </div>
             </div>
         </div> 
