@@ -16,7 +16,7 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
                         물품승인
                     </div>
                     <div className={styles.categorieBox}>
-                        하위목록2
+                        데이터
                     </div>
                 </div>
                 <div className={styles.infoBox3}>

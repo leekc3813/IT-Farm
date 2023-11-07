@@ -58,7 +58,11 @@ class FarmProductReadView(APIView):
         auth_view = AuthView()
         auth_view.post(request)
         farm_id = request.data.get('farm_id')
-        farm_product = Farm_products.objects.filter(farm_id=farm_id)
+        center = request.data.get('center')
+        if center:
+            farm_product = Farm_products.objects.filter(center=center)
+        else:
+            farm_product = Farm_products.objects.filter(farm_id=farm_id)
         serializer = FarmReadSerializer(farm_product,many=True)
         return Response(serializer.data)
     
