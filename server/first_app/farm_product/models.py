@@ -1,7 +1,8 @@
 from django.db import models
+from farms.models import Farms
 
 class Farm_products(models.Model):
-    farm_id = models.IntegerField(null=False) # 농장 id
+    farm_id = models.ForeignKey(Farms,on_delete=models.CASCADE, db_column='farm_id') # 농장 id
     eco = models.CharField(max_length=100,null=False) # 친환경
     kind = models.CharField(max_length=100,null=False) # 품종
     crop = models.IntegerField(default=0,null=False) # 수확량

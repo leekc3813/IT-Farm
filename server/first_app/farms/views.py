@@ -35,7 +35,8 @@ class FarmUpdateView(APIView):
         pk = request.data['farm_id']
         farm = get_object_or_404(Farms, pk=pk)
         user_id = request.data.get('user_id')
-        center = distance(request.data.get('address'))
+        latitude, longitude = geocoding(address)
+        center = distance(latitude,longitude)
         serializer = FarmSerializer(instance=farm, data={**request.data, 'user_id':user_id, 'center':center})
         if serializer.is_valid():
             serializer.save()
