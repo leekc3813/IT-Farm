@@ -15,8 +15,12 @@ class FarmProductCreateView(APIView):
         auth_view.post(request)
         user_id = request.data.get('user_id')
         farm_id = request.data.get('farm_id')
+        unit_type = request.data.get('unit_type')
+        crop = request.data.get('crop')
+        if unit_type:
+            crop *= 0.6
         center = Farms.objects.get(id=farm_id).center
-        serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id, 'center':center})
+        serializer = FarmProductSerializer(data={**request.data, 'user_id':user_id, 'center':center, 'crop':crop})
         if serializer.is_valid():
             serializer.save()
             return Response({"message": "성공"}, status=status.HTTP_201_CREATED)
