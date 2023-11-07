@@ -13,4 +13,4 @@ class FarmReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Farm_products
-        fields = ['farm_id', 'eco', 'kind', 'crop', 'center', 'state', 'created_at', 'updated_at','farm_name','farm_address']
+        fields = ['id','farm_id', 'eco', 'kind', 'crop', 'center', 'state', 'created_at', 'updated_at','farm_name','farm_address']
