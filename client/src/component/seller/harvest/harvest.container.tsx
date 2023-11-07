@@ -44,6 +44,7 @@ export default function HarvestPage():JSX.Element {
             },{
                 headers:{ Authorization: token}
             })
+            console.log(response.data)
             setfarmData(response.data)
         }catch(error){
             console.log('error',error)
