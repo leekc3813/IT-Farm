@@ -6,5 +6,5 @@ urlpatterns = [
     path('update/', NoticeUpdateView.as_view()),
     path('delete/', NoticeDeleteView.as_view()),
     path('search/', NoticeSearchView.as_view()),
-    path('read/<int:notice_id>/', NoticeDetailReadView.as_view()),
+    path('detail/', NoticeDetailReadView.as_view()),
 ]

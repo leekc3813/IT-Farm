@@ -29,12 +29,13 @@ class QnaReadView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class QnaDetailReadView(APIView):
-    def get(self, request, qna_id):
+    def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
-        # pk = request.data.get('qna_id')
-        qna = Qna.objects.filter(qna_id=qna_id)
+        pk = request.data.get('qna_id')
+        qna = Qna.objects.filter(qna_id=pk)
         serializer = QnaSerializer(qna, many=True)
+        
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class QnaUpdateView(APIView):
@@ -43,7 +44,7 @@ class QnaUpdateView(APIView):
         auth_view.post(request)
 
         pk = request.data.get('qna_id')
-        qna = get_object_or_404(Qna, user=request.user, qna_id=pk)
+        qna = get_object_or_404(Qna, qna_id=pk)
         serializer = QnaSerializer(qna, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -70,7 +71,6 @@ class QnaSearchView(APIView):
 
         search = request.data.get('search', '')
 
-        # 수정 필요
         if search:
             search_list = Qna.objects.filter(
                 Q(subject__icontains=search) |
@@ -99,7 +99,7 @@ class CommentReadView(APIView):
         qna_id = request.data.get('qna')  
         comments = Comment.objects.filter(qna_id=qna_id)
         serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class CommentUpdateView(APIView):
     def post(self, request):
@@ -120,7 +120,9 @@ class CommentDeleteView(APIView):
         auth_view.post(request)
         pk = request.data.get('comment_id')
         comment = get_object_or_404(Comment, comment_id=pk)
-        if comment.is_valid():
+
+        try:
             comment.delete()
             return Response({'message': '삭제'}, status=status.HTTP_200_OK)
-        return Response({'message': '실패'}, status=status.HTTP_400_BAD_REQUEST)
+        except:
+            return Response({'message': '실패'}, status=status.HTTP_400_BAD_REQUEST)
