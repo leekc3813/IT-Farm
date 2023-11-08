@@ -23,11 +23,11 @@ class RecipeReadView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class RecipeDetailReadView(APIView):
-    def get(self, request, recipe_id):
-        # pk = request.data.get('recipe_id')
-        recipes = Recipe.objects.filter(recipe_id=recipe_id)
-        seriazlier = RecipeSerializer(recipes, many=True)
-        return Response(seriazlier.data, status=status.HTTP_200_OK)
+    def post(self, request):
+        pk = request.data.get('recipe_id')
+        recipes = Recipe.objects.filter(recipe_id=pk)
+        serializer = RecipeSerializer(recipes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class RecipeUpdateView(APIView):
     def post(self, request):
