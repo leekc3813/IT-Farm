@@ -30,14 +30,14 @@ class NoticeReadView(APIView):
             return Response({"error": "Invalid parameters"}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer = NoticeSerializer(notices, many=True)
-        print(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class NoticeDetailReadView(APIView):
-    def get(self,request, notice_id):
+    def post(self,request):
         auth_view = AuthView()
         auth_view.post(request)
-        notices = Notice.objects.filter(notice_id=notice_id)
+        pk = request.data.get('notice_id')
+        notices = Notice.objects.filter(notice_id=pk)
         serializer = NoticeSerializer(notices, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -85,7 +85,6 @@ class NoticeSearchView(APIView):
 
         search = request.data.get('search', '')
 
-        # 수정 필요  
         if search:
             search_list = Notice.objects.filter(
                 Q(subject__icontains=search) |
@@ -95,4 +94,5 @@ class NoticeSearchView(APIView):
             search_list = Notice.objects.all()
         
         serializer = NoticeSerializer(search_list, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK) 
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
