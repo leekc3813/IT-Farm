@@ -57,6 +57,7 @@ class CartReadView(APIView):
     def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
-        cart = Cart.objects.all()
+        user_id = request.data.get('user_id')
+        cart = Cart.objects.filter(user_id=user_id)
         serializer = CartReadSerializer(cart,many=True)
         return Response(serializer.data)
