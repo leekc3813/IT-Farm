@@ -21,8 +21,8 @@ export default function NoticePage():JSX.Element {
                 }
             })
             if (response.status === 200){
-                console.log(response.data)
                 setData(response.data)
+                
             }else{
                 console.log('server 에러')
             }
