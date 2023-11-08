@@ -22,6 +22,10 @@ class NoticeReadView(APIView):
             notices = Notice.objects.filter(notice_type=1, user_type='buyer')
         elif notice_type == 1 and user_type.lower() == 'seller':
             notices = Notice.objects.filter(notice_type=1, user_type='seller')
+        elif notice_type == 0 and user_type.lower() == 'admin':
+            notices = Notice.objects.filter(notice_type=0)
+        elif notice_type == 1 and user_type.lower() == 'admin':
+            notices = Notice.objects.filter(notice_type=1)
         else:
             return Response({"error": "Invalid parameters"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -33,7 +37,6 @@ class NoticeDetailReadView(APIView):
     def get(self,request, notice_id):
         auth_view = AuthView()
         auth_view.post(request)
-        # pk = request.data.get('notice_id')
         notices = Notice.objects.filter(notice_id=notice_id)
         serializer = NoticeSerializer(notices, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
