@@ -10,6 +10,7 @@ from first_app.my_settings import SECRET_KEY
 from .models import RefreshToken
 
 
+
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -51,9 +52,9 @@ class AuthView(APIView):
         except(jwt.exceptions.InvalidTokenError):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
-
 class LoginView(APIView):
     def post(self, request):
+        print(request)
         email = request.data.get('email')
         password = request.data.get('password')
         if not email or not password:

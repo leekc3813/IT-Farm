@@ -32,7 +32,7 @@ class FarmUpdateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
-        pk = request.data['farm_id']
+        pk = request.data.get('farm_id')
         farm = get_object_or_404(Farms, pk=pk)
         user_id = request.data.get('user_id')
         address = request.data.get('address')
@@ -59,8 +59,6 @@ class FarmDeleteView(APIView):
         
 class FarmReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         user_id = request.data.get('user_id')
         center = request.data.get('center')
         if center == '전국':
