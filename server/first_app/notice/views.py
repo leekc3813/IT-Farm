@@ -22,21 +22,27 @@ class NoticeReadView(APIView):
             notices = Notice.objects.filter(notice_type=1, user_type='buyer')
         elif notice_type == 1 and user_type.lower() == 'seller':
             notices = Notice.objects.filter(notice_type=1, user_type='seller')
+        elif notice_type == 0 and user_type.lower() == 'admin':
+            notices = Notice.objects.filter(notice_type=0)
+        elif notice_type == 1 and user_type.lower() == 'admin':
+            notices = Notice.objects.filter(notice_type=1)
         else:
             return Response({"error": "Invalid parameters"}, status=status.HTTP_400_BAD_REQUEST)
 
         serializer = NoticeSerializer(notices, many=True)
-        print(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class NoticeDetailReadView(APIView):
-    def get(self,request, notice_id):
+    def post(self,request):
         auth_view = AuthView()
         auth_view.post(request)
-        # pk = request.data.get('notice_id')
-        notices = Notice.objects.filter(notice_id=notice_id)
+        pk = request.data.get('notice_id')
+        notices = Notice.objects.filter(notice_id=pk)
         serializer = NoticeSerializer(notices, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class NoticeCreateView(APIView):
     def post(self, request):
@@ -82,7 +88,6 @@ class NoticeSearchView(APIView):
 
         search = request.data.get('search', '')
 
-        # 수정 필요  
         if search:
             search_list = Notice.objects.filter(
                 Q(subject__icontains=search) |
@@ -92,4 +97,7 @@ class NoticeSearchView(APIView):
             search_list = Notice.objects.all()
         
         serializer = NoticeSerializer(search_list, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK) 
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -9,12 +9,12 @@ class Order(models.Model):
     order_date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(default=0) # 0이면 결제 전 
 
-# class Review(models.Model):
-#     order = models.ForeignKey(Order, on_delete=models.CASCADE) # order
-#     nickname = models.CharField(max_length=45)
-#     content = models.TextField()
-#     photo = models.CharField(max_length=255)
-#     score = models.IntegerField()
-#     kind = models.IntegerField()
-#     regdate = models.DateTimeField(auto_now_add=True)
+class Review(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE) # order
+    nickname = models.CharField(max_length=45)
+    content = models.TextField()
+    photo = models.CharField(max_length=255)
+    score = models.IntegerField()
+    kind = models.IntegerField()
+    regdate = models.DateTimeField(auto_now_add=True)
 
