@@ -63,7 +63,9 @@ class FarmReadView(APIView):
         auth_view.post(request)
         user_id = request.data.get('user_id')
         center = request.data.get('center')
-        if center:
+        if center == '전국':
+            farms = Farms.objects.all()
+        elif center:
             farms = Farms.objects.filter(center=center)
         else:
             farms = Farms.objects.filter(user_id=user_id)
