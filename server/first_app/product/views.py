@@ -6,6 +6,7 @@ from .serializers import *
 from .models import Product
 from django.shortcuts import get_object_or_404
 from users.views import AuthView
+from django.db.models import Q
 
 
 class ProductCreateView(APIView):
@@ -53,9 +54,14 @@ class ProductReadView(APIView):
 class ProductSearchView(APIView):
     def post(self, request):
         product_name = request.data.get('name')
-        products = Product.objects.filter(name__icontains=product_name)
-        serializer = ProductSerializer(products,many=True)
-        return Response(serializer.data)
+        if product_name:
+            products = Product.objects.filter(
+                Q(name__icontains=product_name) |
+                Q(kind__icontains=product_name)
+                )
+            serializer = ProductSerializer(products,many=True)
+            return Response(serializer.data)
+        return Response({'message':'잘못된 검색어'}, status=status.HTTP_400_BAD_REQUEST)
     
 class ProductDetailReadView(APIView):
     def post(self, request):
