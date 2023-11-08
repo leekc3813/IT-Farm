@@ -39,10 +39,7 @@ class NoticeDetailReadView(APIView):
         pk = request.data.get('notice_id')
         notices = Notice.objects.filter(notice_id=pk)
         serializer = NoticeSerializer(notices, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class NoticeCreateView(APIView):
     def post(self, request):
@@ -97,7 +94,5 @@ class NoticeSearchView(APIView):
             search_list = Notice.objects.all()
         
         serializer = NoticeSerializer(search_list, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)

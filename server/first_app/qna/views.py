@@ -26,10 +26,7 @@ class QnaReadView(APIView):
 
         qna = Qna.objects.all()
         serializer = QnaSerializer(qna, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class QnaDetailReadView(APIView):
     def post(self, request):
@@ -38,10 +35,8 @@ class QnaDetailReadView(APIView):
         pk = request.data.get('qna_id')
         qna = Qna.objects.filter(qna_id=pk)
         serializer = QnaSerializer(qna, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class QnaUpdateView(APIView):
     def post(self, request):
@@ -84,10 +79,7 @@ class QnaSearchView(APIView):
         else:
             search_list = Qna.objects.all()
         serializer = QnaSerializer(search_list, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 ###### 댓글 #######
 class CommentCreateView(APIView):
@@ -107,10 +99,7 @@ class CommentReadView(APIView):
         qna_id = request.data.get('qna')  
         comments = Comment.objects.filter(qna_id=qna_id)
         serializer = CommentSerializer(comments, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class CommentUpdateView(APIView):
     def post(self, request):
@@ -133,7 +122,7 @@ class CommentDeleteView(APIView):
         comment = get_object_or_404(Comment, comment_id=pk)
 
         try:
-                comment.delete()
-                return Response({'message': '삭제'}, status=status.HTTP_200_OK)
+            comment.delete()
+            return Response({'message': '삭제'}, status=status.HTTP_200_OK)
         except:
             return Response({'message': '실패'}, status=status.HTTP_400_BAD_REQUEST)

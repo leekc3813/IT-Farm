@@ -20,20 +20,14 @@ class RecipeReadView(APIView):
     def get(self, request):
         recipes = Recipe.objects.all()
         serializer = RecipeSerializer(recipes, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class RecipeDetailReadView(APIView):
     def post(self, request):
         pk = request.data.get('recipe_id')
         recipes = Recipe.objects.filter(recipe_id=pk)
         serializer = RecipeSerializer(recipes, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 class RecipeUpdateView(APIView):
     def post(self, request):
@@ -66,7 +60,4 @@ class RecipeSearchView(APIView):
         else:
             search_list = Recipe.objects.filter()
         serializer = RecipeSerializer(search_list, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_200_OK)
