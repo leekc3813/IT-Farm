@@ -1,10 +1,8 @@
-export interface INoticePageUIProps {
-    isAdmin: string | null;
-    onClickWrite : () => void;
-    data : Datas[];
+export interface INoticeIndexPageUIProps {
+    data : NoticeData []
 }
 
-interface Datas {
+interface NoticeData  {
     content : string;
     notice_id : number;
     notice_type : number;
