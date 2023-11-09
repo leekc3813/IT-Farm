@@ -1,0 +1,23 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 150px;
+    width: 65%;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.contentContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
