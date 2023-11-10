@@ -50,6 +50,7 @@ export default function RegisterPage(): JSX.Element {
             localStorage.setItem('id', response.data.user.id)
             localStorage.setItem('usertype',response.data.user.user_type)
             console.log(response)
+            console.log(document.cookie)
             setLocalLogin(true)
             if (localStorage.getItem('usertype') === 'buyer') {
                 router.push('/purchase')

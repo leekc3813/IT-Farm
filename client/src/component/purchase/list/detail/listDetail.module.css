@@ -1,0 +1,66 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin-top: 150px;
+    width: 50%;
+    display: flex;
+    gap: 2%;
+}
+
+.leftContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+}
+
+.leftContainer img{
+    width: 100%;
+}
+
+.rightContainer {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px 30px;
+}
+
+.contentTitle{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.subText {
+    font-size: 20px;
+    color: #454F5B;
+}
+
+.quantityInput{
+    height: 35px;
+    width: 180px;
+    font-size: 20px;
+}
+
+.quantityButton{
+    width: 180px;
+    height: 35px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid #346AFF;
+    color: #346AFF;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quantityButton:hover{
+    transform: scale(1.1);
+}
+
+.quantityButton:active{
+    transform: scale(1.0);
+}

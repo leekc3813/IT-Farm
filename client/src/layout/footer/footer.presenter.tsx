@@ -1,4 +1,4 @@
-import {SearchOutlined, ShoppingOutlined,HomeOutlined, StopOutlined, KeyOutlined} from '@ant-design/icons'
+import {SearchOutlined, ShoppingOutlined,HomeOutlined, StopOutlined, KeyOutlined, ShoppingCartOutlined} from '@ant-design/icons'
 import styles from './footer.module.css'
 import { IFooterPageUIProps } from './footer.types'
 
@@ -9,7 +9,10 @@ export default function FooterPageUI(props:IFooterPageUIProps):JSX.Element{
                 <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
             </div>
             <div className={styles.iconBox}>
-            <SearchOutlined className={styles.headerIcon} />
+                <ShoppingOutlined onClick={props.onClickBasket} className={styles.headerIcon} />
+            </div>
+            <div className={styles.iconBox}>
+                <ShoppingCartOutlined onClick = {props.onClickCart}  className={styles.headerIcon} />
             </div>
             <div className={styles.iconBox}>
                 {props.localLogin ? 
@@ -17,9 +20,6 @@ export default function FooterPageUI(props:IFooterPageUIProps):JSX.Element{
                     :
                     <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                 }
-            </div>
-            <div className={styles.iconBox}>
-            <ShoppingOutlined className={styles.headerIcon} />
             </div>
         </div>
     )

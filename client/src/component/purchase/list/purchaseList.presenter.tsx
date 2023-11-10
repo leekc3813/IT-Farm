@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './purchaseList.module.css'
 
 export default function PurchaseListPageUI():JSX.Element {
@@ -26,6 +27,16 @@ export default function PurchaseListPageUI():JSX.Element {
                             <p className={styles.contentsPrice}>10,000원</p>
                         </div>
                     </div>
+                    <div className={styles.contentBox}>
+                         <div className={styles.imgBox}>
+                            <img src='/img/purchase/list/국내산_홍고추.png' alt='상품이미지' />
+                        </div>
+                        <div className={styles.contentsBox}>
+                            <p className={styles.contentsTitle}>무농약 홍고추 1kg</p>
+                            <p className={styles.contentsPrice}>10,000원</p>
+                        </div>
+                    </div>
+                 
                     <div className={styles.contentBox}>
                          <div className={styles.imgBox}>
                             <img src='/img/purchase/list/청홍고추.png' alt='상품이미지' />

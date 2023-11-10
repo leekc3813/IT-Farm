@@ -1,4 +1,4 @@
-import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined  } from '@ant-design/icons'
+import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined,ShoppingCartOutlined  } from '@ant-design/icons'
 import styles from './header.module.css'
 import { IHeaderPageUIProps } from './header.types'
 
