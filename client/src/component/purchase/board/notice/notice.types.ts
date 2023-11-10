@@ -1,7 +1,7 @@
 export interface INoticePageUIProps {
     isAdmin: string | null;
     onClickWrite : () => void;
-    data : Datas[]
+    data : Datas[];
 }
 
 interface Datas {

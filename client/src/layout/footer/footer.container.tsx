@@ -17,6 +17,7 @@ export default function FooterPage():JSX.Element{
         router.push('/register')
     }
 
+
     const onClickLogout = async () => {
         const response = await axios.post('http://localhost:8000/users/logout/', {
           user_id : localStorage.getItem('id')

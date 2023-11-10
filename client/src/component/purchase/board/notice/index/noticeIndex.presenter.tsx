@@ -1,17 +1,18 @@
 import styles from './noticeIndex.module.css'
+import { INoticeIndexPageUIProps } from './noticeIndex.types'
 
-export default function NoticeIndexPageUI():JSX.Element{
+export default function NoticeIndexPageUI(props: INoticeIndexPageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
                 <div className={styles.titleForm}>
-                    제목
+                    {props.data[0]?.subject}
                 </div>
                 <div className={styles.dateForm}>
-                    2023-11-08
+                    {props.data[0]?.regdate}
                 </div>
                 <div className={styles.contentForm}>
-                    내욘내용
+                    {props.data[0]?.content}
                 </div>
             </div>
         </div>

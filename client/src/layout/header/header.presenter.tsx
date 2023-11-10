@@ -13,16 +13,16 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 <div className={styles.infoBox1}>
                 </div>
                 <div className={styles.infoBox2}>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickPurchaseList} className={styles.categorieBox}>
                         상품목록
                     </div>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickSale} className={styles.categorieBox}>
                         Today특가
                     </div>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickRecipe} className={styles.categorieBox}>
                         레시피
                     </div>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickEvent} className={styles.categorieBox}>
                         EVENT
                     </div>
                     <div className={styles.categorieBox}>
