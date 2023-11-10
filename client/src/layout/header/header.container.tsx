@@ -75,6 +75,14 @@ export default function HeaderPage():JSX.Element {
       router.push('/purchase/list')
     }
 
+    const onClickBasket = () => {
+      router.push('/purchase/basket/회원아이디')
+    }
+
+    const onClickCart = () => {
+      router.push('/purchase/cart/회원아이디')
+    }
+
     const onClickSale = () => {
       router.push('/purchase/sale')
     }
@@ -115,6 +123,8 @@ export default function HeaderPage():JSX.Element {
             onClickEvent = {onClickEvent}
             onClickPurchaseList = {onClickPurchaseList}
             onClickSale = {onClickSale}
+            onClickBasket = {onClickBasket}
+            onClickCart = {onClickCart}
          />
     )
 }

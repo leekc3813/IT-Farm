@@ -17,6 +17,13 @@ export default function FooterPage():JSX.Element{
         router.push('/register')
     }
 
+    const onClickBasket = () => {
+        router.push('/purchase/basket/회원아이디')
+      }
+  
+    const onClickCart = () => {
+      router.push('/purchase/cart/회원아이디')
+    }
 
     const onClickLogout = async () => {
         const response = await axios.post('http://localhost:8000/users/logout/', {
@@ -42,6 +49,8 @@ export default function FooterPage():JSX.Element{
             onClickRegister = {onClickRegister}
             onClickLogout = {onClickLogout}
             localLogin = {localLogin}
+            onClickBasket = {onClickBasket}
+            onClickCart = {onClickCart}
          />
     )
 }

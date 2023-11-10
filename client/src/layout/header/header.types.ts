@@ -11,4 +11,6 @@ export interface IHeaderPageUIProps {
     onClickEvent : () => void;
     onClickPurchaseList : () => void;
     onClickSale : () => void;
+    onClickBasket : () => void;
+    onClickCart : () => void;
 }
