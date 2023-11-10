@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     /* width:100px; */
-    margin-top: 70px;
+    margin-top: 100px;
     margin-bottom: 40px;
     font-size: 20px;
     color: #555555;
@@ -41,22 +41,22 @@
     line-height:30px;
 }
 .headCol1{
-    width: 80px;
+    width: 5%;
     height: 60px;
     padding:15px 10px 16px;
 }
 .headCol2{
-    width: 69.5%;
+    width: 75%;
     height: 60px;
     padding:15px 10px 16px;
 }
 .headCol3{
-    width: 100px;
+    width: 10%;
     height: 60px;
     padding:15px 10px 16px;
 }
 .headCol4{
-    width: 120px;
+    width: 10%;
     height: 60px;
     padding:15px 10px 16px;
 }
@@ -92,7 +92,7 @@
 .bodyCol4{
     width: 120px;
     padding:15px 10px 16px;
-    line-height:25px;
+    line-height:50px;
 }
 .searchContainer{
     display: flex;
