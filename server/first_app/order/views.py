@@ -7,7 +7,7 @@ from .serializers import *
 from users.views import AuthView
 
 # 주문하기 
-class OrderView(APIView):
+class OrderCreateView(APIView):
     def post(self, request):
         auth_view = AuthView()
         auth_view.post(request)
@@ -17,6 +17,20 @@ class OrderView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+# 주문삭제
+class OrderDeleteView(APIView):
+    def post(self, request):
+        auth_view = AuthView()
+        auth_view.post(request)
+        pk = request.data.get('order_number')
+        order = get_object_or_404(Order, order_number=pk)
+        try:
+            order.delete()
+            return Response({'message': '삭제'}, status=status.HTTP_200_OK)
+        except:
+            return Response({'message': '실패'}, status=status.HTTP_400_BAD_REQUEST)
+
+
 # 결제하기
 class OrderPayView(APIView):
     def post(self, request):
