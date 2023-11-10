@@ -5,14 +5,11 @@ from rest_framework.response import Response
 from .serializers import *
 from .models import Farms
 from django.shortcuts import get_object_or_404
-from users.views import AuthView
 from .distance import geocoding, distance
 
 
 class FarmCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         user_id = request.data.get('user_id')
         address = request.data.get('address')
         address_detail = request.data.get('address_detail')
@@ -30,8 +27,6 @@ class FarmCreateView(APIView):
 
 class FarmUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('farm_id')
         farm = get_object_or_404(Farms, pk=pk)
         user_id = request.data.get('user_id')
@@ -47,8 +42,6 @@ class FarmUpdateView(APIView):
     
 class FarmDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         farm_id = request.data.get('farm_id')
         farm = get_object_or_404(Farms, id=farm_id)
         try:

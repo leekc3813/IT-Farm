@@ -1,18 +1,13 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from .serializers import *
 from .models import Cart
 from django.shortcuts import get_object_or_404
-from users.views import AuthView
 from product.models import Product
-
 
 class CartCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         serializer = CartSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -22,8 +17,6 @@ class CartCreateView(APIView):
 
 class CartUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         try:
             pk = request.data.get('cart_id')
             cart = get_object_or_404(Cart, pk=pk)
@@ -43,8 +36,6 @@ class CartUpdateView(APIView):
     
 class CartDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         cart_id = request.data.get('cart_id')
         cart = get_object_or_404(Cart, id=cart_id)
         try:
@@ -55,8 +46,6 @@ class CartDeleteView(APIView):
 
 class CartReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         user_id = request.data.get('user_id')
         cart = Cart.objects.filter(user_id=user_id)
         serializer = CartReadSerializer(cart,many=True)

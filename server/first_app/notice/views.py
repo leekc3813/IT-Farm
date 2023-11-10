@@ -5,13 +5,9 @@ from rest_framework.generics import get_object_or_404
 from .models import Notice
 from .serializers import NoticeSerializer
 from django.db.models import Q
-from users.views import AuthView
 
 class NoticeReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         notice_type = int(request.data.get('notice_type', 0))
         user_type = request.data.get('user_type')
 
@@ -34,8 +30,6 @@ class NoticeReadView(APIView):
     
 class NoticeDetailReadView(APIView):
     def post(self,request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('notice_id')
         notices = Notice.objects.filter(notice_id=pk)
         serializer = NoticeSerializer(notices, many=True)
@@ -43,9 +37,6 @@ class NoticeDetailReadView(APIView):
     
 class NoticeCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         serializer = NoticeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -54,9 +45,6 @@ class NoticeCreateView(APIView):
     
 class NoticeUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('notice_id')
         notice = get_object_or_404(Notice, notice_id=pk)
         serializer = NoticeSerializer(notice, data=request.data)
@@ -67,9 +55,6 @@ class NoticeUpdateView(APIView):
 
 class NoticeDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('notice_id')
         notice = get_object_or_404(Notice, notice_id=pk)
         try:
@@ -80,9 +65,6 @@ class NoticeDeleteView(APIView):
     
 class NoticeSearchView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         search = request.data.get('search', '')
 
         if search:
