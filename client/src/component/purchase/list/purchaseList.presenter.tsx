@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './purchaseList.module.css'
 
 export default function PurchaseListPageUI():JSX.Element {
@@ -8,15 +9,18 @@ export default function PurchaseListPageUI():JSX.Element {
                     홍고추
                 </div>
                 <div className={styles.contentContainer}>
-                    <div className={styles.contentBox}>
-                        <div className={styles.imgBox}>
-                            <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
+                    <Link className={styles.link} href={"/purchase/list/유기농홍고추"}>
+                        <div className={styles.contentBox}>
+                            <div className={styles.imgBox}>
+                                <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
+                            </div>
+                            <div className={styles.contentsBox}>
+                                <p className={styles.contentsTitle}>유기농 홍고추</p>
+                                <p className={styles.contentsPrice}>12000원 1kg</p>
+                            </div>
                         </div>
-                        <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>유기농 홍고추</p>
-                            <p className={styles.contentsPrice}>12000원 1kg</p>
-                        </div>
-                    </div>
+                    </Link>
+                    <Link className={styles.link}  href={"/purchase/list/무농약홍고추"}>
                     <div className={styles.contentBox}>
                          <div className={styles.imgBox}>
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
@@ -26,6 +30,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             <p className={styles.contentsPrice}>10000원 1kg</p>
                         </div>
                     </div>
+                    </Link>
                     <div className={styles.contentBox}>
                          <div className={styles.imgBox}>
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
@@ -45,7 +50,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
                         </div>
                         <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>유기농 홍고추</p>
+                            <p className={styles.contentsTitle}>유기농 청고추</p>
                             <p className={styles.contentsPrice}>12000원 1kg</p>
                         </div>
                     </div>
@@ -54,7 +59,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
                         </div>
                         <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>무농약 홍고추</p>
+                            <p className={styles.contentsTitle}>무농약 청고추</p>
                             <p className={styles.contentsPrice}>10000원 1kg</p>
                         </div>
                     </div>
@@ -63,7 +68,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
                         </div>
                         <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>일반 홍고추</p>
+                            <p className={styles.contentsTitle}>일반 청고추</p>
                             <p className={styles.contentsPrice}>8000원 1kg</p>
                         </div>
                     </div>
@@ -72,21 +77,21 @@ export default function PurchaseListPageUI():JSX.Element {
                     건고추
                 </div>
                 <div className={styles.contentContainer}>
-                    <div className={styles.contentBox}>
-                        <div className={styles.imgBox}>
-                            <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
+                        <div className={styles.contentBox}>
+                            <div className={styles.imgBox}>
+                                <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
+                            </div>
+                            <div className={styles.contentsBox}>
+                                <p className={styles.contentsTitle}>유기농 건고추</p>
+                                <p className={styles.contentsPrice}>12000원 1kg</p>
+                            </div>
                         </div>
-                        <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>유기농 홍고추</p>
-                            <p className={styles.contentsPrice}>12000원 1kg</p>
-                        </div>
-                    </div>
                     <div className={styles.contentBox}>
                          <div className={styles.imgBox}>
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
                         </div>
                         <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>무농약 홍고추</p>
+                            <p className={styles.contentsTitle}>무농약 건고추</p>
                             <p className={styles.contentsPrice}>10000원 1kg</p>
                         </div>
                     </div>
@@ -95,7 +100,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             <img src='https://via.placeholder.com/321x221/FFFF00/000000' alt='상품이미지' />
                         </div>
                         <div className={styles.contentsBox}>
-                            <p className={styles.contentsTitle}>일반 홍고추</p>
+                            <p className={styles.contentsTitle}>일반 건고추</p>
                             <p className={styles.contentsPrice}>8000원 1kg</p>
                         </div>
                     </div>
