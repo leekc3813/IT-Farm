@@ -4,13 +4,10 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from .models import Order
 from .serializers import *
-from users.views import AuthView
 
 # 주문하기 
 class OrderCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -34,9 +31,6 @@ class OrderDeleteView(APIView):
 # 결제하기
 class OrderPayView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('order_number')
         order = Order.objects.get(order_number=pk)
         
@@ -50,9 +44,6 @@ class OrderPayView(APIView):
 # 리뷰 작성
 class ReviewCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-        
         product_id = request.data.get('product')
         nickname = request.data.get('nickname')
 

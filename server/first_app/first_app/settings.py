@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'order',
     'farm_product',
     'pest',
+    'cart',
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'middleware.authmiddleware.Authmiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

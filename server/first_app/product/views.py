@@ -4,13 +4,11 @@ from rest_framework.response import Response
 from .serializers import *
 from .models import Product
 from django.shortcuts import get_object_or_404
-from users.views import AuthView
+from django.db.models import Q
 
 
 class ProductCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -20,8 +18,6 @@ class ProductCreateView(APIView):
 
 class ProductUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('product_id')
         product = get_object_or_404(Product, pk=pk)
         serializer = ProductSerializer(instance=product, data=request.data)
@@ -33,8 +29,6 @@ class ProductUpdateView(APIView):
     
 class ProductDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         product_id = request.data.get('product_id')
         product = get_object_or_404(Product, id=product_id)
         try:
@@ -45,13 +39,25 @@ class ProductDeleteView(APIView):
 
 class ProductReadView(APIView):
     def post(self, request):
-        products = Product.objects.all
+        products = Product.objects.all()
         serializer = ProductSerializer(products,many=True)
         return Response(serializer.data)
     
 class ProductSearchView(APIView):
     def post(self, request):
         product_name = request.data.get('name')
-        products = Product.objects.filter(name__icontains=product_name)
-        serializer = ProductSerializer(products,many=True)
+        if product_name:
+            products = Product.objects.filter(
+                Q(name__icontains=product_name) |
+                Q(kind__icontains=product_name)
+                )
+            serializer = ProductSerializer(products,many=True)
+            return Response(serializer.data)
+        return Response({'message':'잘못된 검색어'}, status=status.HTTP_400_BAD_REQUEST)
+    
+class ProductDetailReadView(APIView):
+    def post(self, request):
+        product_id = request.data.get('product_id')
+        product = Product.objects.get(id=product_id)
+        serializer = ProductSerializer(product)
         return Response(serializer.data)
