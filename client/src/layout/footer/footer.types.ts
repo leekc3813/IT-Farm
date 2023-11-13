@@ -3,4 +3,6 @@ export interface IFooterPageUIProps {
     onClickRegister : () => void;
     onClickLogout : () => void;
     localLogin :  boolean;
+    onClickBasket : () => void;
+    onClickCart : () => void;
 }

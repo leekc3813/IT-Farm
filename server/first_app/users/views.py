@@ -28,6 +28,7 @@ class LoginView(APIView):
         if user:
             refresh = TokenObtainPairSerializer.get_token(user)
             access = refresh.access_token
+            serializer = UserSerializer(user)
 
             serializer = UserSerializer(user)
             response = Response({'message':'로그인 성공','user':serializer.data},status=status.HTTP_201_CREATED)

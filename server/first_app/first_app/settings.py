@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
+
 
 # Application definition
 
@@ -38,9 +39,9 @@ INSTALLED_APPS = [
     'qna',
     'event',
     'recipe',
-    'order',
     'farm_product',
     'pest',
+    'order',
     'cart',
 
     "django.contrib.admin",
@@ -66,7 +67,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'middleware.authmiddleware.Authmiddleware',
+    # 'middleware.authmiddleware.Authmiddleware',
 ]
 
 CORS_ORIGIN_WHITELIST = [

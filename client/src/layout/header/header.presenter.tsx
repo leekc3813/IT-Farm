@@ -1,4 +1,4 @@
-import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined  } from '@ant-design/icons'
+import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined,ShoppingCartOutlined  } from '@ant-design/icons'
 import styles from './header.module.css'
 import { IHeaderPageUIProps } from './header.types'
 
@@ -7,7 +7,24 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
     return(
          <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
             <div onClick={props.onClickPurchase} className={styles.headerTitle}>
-                IT-Farm
+                <div className={styles.headerTitleContainer}>
+                    <img src='/img/home/logo_2green.png' alt='상품이미지' className={styles.headerTitle} />
+                </div>
+                <div className={styles.infoBox3}>
+                    <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
+                    <SearchOutlined className={styles.headerIcon} />
+                    {props.localLogin ?
+                        <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
+                        : 
+                        <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
+                    }
+                    <ShoppingOutlined className={styles.headerIcon} />
+                    {props.usertype === 'admin' ?
+                        <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
+                        :
+                        ''
+                    }
+                </div>
             </div>
             <div className={styles.headerInfoContainer}>
                 <div className={styles.infoBox1}>
@@ -37,21 +54,7 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         </ul>
                     </div>
                 </div>
-                <div className={styles.infoBox3}>
-                    <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
-                    <SearchOutlined className={styles.headerIcon} />
-                    {props.localLogin ?
-                        <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
-                        : 
-                        <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
-                    }
-                    <ShoppingOutlined className={styles.headerIcon} />
-                    {props.usertype === 'admin' ?
-                        <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
-                        :
-                        ''
-                    }
-                </div>
+                
             </div>
         </div> 
     )

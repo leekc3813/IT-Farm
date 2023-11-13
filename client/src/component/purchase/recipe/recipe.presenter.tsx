@@ -1,7 +1,32 @@
 import styles from './recipe.module.css'
+import Link from 'next/link'
+import { IRecipePageUIProps } from './recipe.types'
 
-export default function RecipePageUI():JSX.Element{
+export default function RecipePageUI(props:IRecipePageUIProps):JSX.Element{
     return(
-        <div>ssssss</div>
+        <div className={styles.body}>
+            <div className={styles.wrapper}>
+                <div className={styles.title}>
+                    레시피
+                </div>
+                <div className={styles.contentContainer}>
+                    {props.data.map((data,index) => {
+                        return(
+                            <Link key={index} className={styles.link} href={`/purchase/recipe/${data.recipe_id}`}>
+                                <div className={styles.contentBox}>
+                                    <div className={styles.imgBox}>
+                                        <img src= {data.photo} alt='상품이미지' />
+                                    </div>
+                                    <div className={styles.contentsBox}>
+                                        <p className={styles.contentsTitle}>{data.subject}</p>
+                                        <p className={styles.contentsPrice}>{data.nickname}</p>
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
+            </div>
+        </div>
     )
 } 
