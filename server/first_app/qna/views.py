@@ -7,12 +7,9 @@ from .models import Qna, Comment
 from .serializers import QnaSerializer, CommentSerializer, CommentUpdateSerializer
 
 from django.db.models import Q
-from users.views import AuthView
 
 class QnaCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         serializer = QnaSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -21,17 +18,12 @@ class QnaCreateView(APIView):
 
 class QnaReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         qna = Qna.objects.all()
         serializer = QnaSerializer(qna, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class QnaDetailReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('qna_id')
         qna = Qna.objects.filter(qna_id=pk)
         serializer = QnaSerializer(qna, many=True)
@@ -40,9 +32,6 @@ class QnaDetailReadView(APIView):
 
 class QnaUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('qna_id')
         qna = get_object_or_404(Qna, qna_id=pk)
         serializer = QnaSerializer(qna, data=request.data)
@@ -53,9 +42,6 @@ class QnaUpdateView(APIView):
 
 class QnaDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('qna_id')
         qna = get_object_or_404(Qna, qna_id=pk)
         try:
@@ -66,9 +52,6 @@ class QnaDeleteView(APIView):
 
 class QnaSearchView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         search = request.data.get('search', '')
 
         if search:
@@ -93,9 +76,6 @@ class CommentCreateView(APIView):
     
 class CommentReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         qna_id = request.data.get('qna')  
         comments = Comment.objects.filter(qna_id=qna_id)
         serializer = CommentSerializer(comments, many=True)
@@ -103,9 +83,6 @@ class CommentReadView(APIView):
 
 class CommentUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
-
         pk = request.data.get('comment_id')
         comment = get_object_or_404(Comment, comment_id=pk)
         serializer = CommentUpdateSerializer(comment, data=request.data)
@@ -116,8 +93,6 @@ class CommentUpdateView(APIView):
     
 class CommentDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('comment_id')
         comment = get_object_or_404(Comment, comment_id=pk)
 

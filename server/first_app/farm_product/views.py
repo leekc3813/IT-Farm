@@ -5,15 +5,12 @@ from rest_framework.response import Response
 from .serializers import *
 from .models import Farm_products
 from django.shortcuts import get_object_or_404
-from users.views import AuthView
 from farms.models import Farms
 from django.db.models import Sum
 
 
 class FarmProductCreateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         user_id = request.data.get('user_id')
         farm_id = request.data.get('farm_id')
         unit_type = request.data.get('unit_type')
@@ -30,8 +27,6 @@ class FarmProductCreateView(APIView):
 
 class FarmProductUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         try:
             pk = request.data.get('farm_product_id')
             farm_product = get_object_or_404(Farm_products, pk=pk)
@@ -43,8 +38,6 @@ class FarmProductUpdateView(APIView):
     
 class FarmProductDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         farm_product_id = request.data.get('farm_product_id')
         farm_product = get_object_or_404(Farm_products, id=farm_product_id)
         try:
@@ -55,8 +48,6 @@ class FarmProductDeleteView(APIView):
 
 class FarmProductReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         farm_id = request.data.get('farm_id')
         center = request.data.get('center')
         if center:
@@ -69,8 +60,6 @@ class FarmProductReadView(APIView):
 
 class CenterProductReadView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         center = request.data.get('center')
         result = Farm_products.objects.filter(center=center).values('eco','kind').annotate(total_crop=Sum('crop'))
         return Response(result)

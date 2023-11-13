@@ -7,7 +7,6 @@ from .models import Recipe
 from .serializers import *
 
 from django.db.models import Q
-from users.views import AuthView
 
 class RecipeCreateView(APIView):
     def post(self, request):
@@ -32,8 +31,6 @@ class RecipeDetailReadView(APIView):
     
 class RecipeUpdateView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('recipe_id')
         recipes = get_object_or_404(Recipe, recipe_id=pk)
         serializer = RecipeSerializer(recipes, data=request.data)
@@ -44,8 +41,6 @@ class RecipeUpdateView(APIView):
     
 class RecipeDeleteView(APIView):
     def post(self, request):
-        auth_view = AuthView()
-        auth_view.post(request)
         pk = request.data.get('recipe_id')
         recipes = get_object_or_404(Recipe, recipe_id=pk)
         try:

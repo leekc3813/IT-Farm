@@ -38,4 +38,30 @@ class Migration(migrations.Migration):
                 ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='order.order')),
             ],
         ),
+        migrations.CreateModel(
+            name="Review",
+            fields=[
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nickname", models.CharField(max_length=45)),
+                ("content", models.TextField()),
+                ("photo", models.CharField(max_length=255)),
+                ("score", models.IntegerField()),
+                ("kind", models.IntegerField()),
+                ("regdate", models.DateTimeField(auto_now_add=True)),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="order.order"
+                    ),
+                ),
+            ],
+        ),
     ]

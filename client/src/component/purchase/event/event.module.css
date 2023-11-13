@@ -1,0 +1,29 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    width: 1050px;
+    height: 500px;
+    gap: 15px;
+}
+@media (max-width: 767px){
+    .wrapper {
+        width: 50%;
+    }
+}
+@media (max-width: 480px){
+    .wrapper {
+        width: 70%;
+    }
+}
+.bannerBox {
+    width: 1050px;
+    height: 200px;
+    cursor: pointer;
+}

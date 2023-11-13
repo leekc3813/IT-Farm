@@ -60,7 +60,31 @@ export default function HeaderPage():JSX.Element {
     }
 
     const onClickRegister = () => {
-      router.push('./register')
+      router.push('/register')
+    }
+
+    const onClickRecipe = () => {
+      router.push('/purchase/recipe')
+    }
+
+    const onClickEvent = () => {
+      router.push('/purchase/event')
+    }
+
+    const onClickPurchaseList = () => {
+      router.push('/purchase/list')
+    }
+
+    const onClickBasket = () => {
+      router.push('/purchase/basket/회원아이디')
+    }
+
+    const onClickCart = () => {
+      router.push('/purchase/cart/회원아이디')
+    }
+
+    const onClickSale = () => {
+      router.push('/purchase/sale')
     }
 
     const onClickLogout = async () => {
@@ -95,6 +119,12 @@ export default function HeaderPage():JSX.Element {
             localLogin = {localLogin}
             usertype = {usertype}
             onClickCenter = {onClickCenter}
+            onClickRecipe = {onClickRecipe}
+            onClickEvent = {onClickEvent}
+            onClickPurchaseList = {onClickPurchaseList}
+            onClickSale = {onClickSale}
+            onClickBasket = {onClickBasket}
+            onClickCart = {onClickCart}
          />
     )
 }
