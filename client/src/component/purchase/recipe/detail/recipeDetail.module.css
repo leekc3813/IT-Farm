@@ -1,0 +1,41 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    width: 65%;
+    margin-top: 180px;
+}
+
+.imgContainer{
+    width: 40%;
+}
+
+.img {
+    width: 100%;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 40px;
+    width: 60%;
+}
+
+.contentTitle {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.author{
+    font-size: 20px;
+    color: gray;
+}
+
+.content{
+    font-size: 23px;
+}

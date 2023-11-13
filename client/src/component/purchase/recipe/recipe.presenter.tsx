@@ -18,7 +18,7 @@ export default function RecipePageUI(props:IRecipePageUIProps):JSX.Element{
                                         <img src= {data.photo} alt='상품이미지' />
                                     </div>
                                     <div className={styles.contentsBox}>
-                                        <p className={styles.contentsTitle}>{data.content}</p>
+                                        <p className={styles.contentsTitle}>{data.subject}</p>
                                         <p className={styles.contentsPrice}>{data.nickname}</p>
                                     </div>
                                 </div>
