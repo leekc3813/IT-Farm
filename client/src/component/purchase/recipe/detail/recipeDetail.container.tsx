@@ -13,7 +13,6 @@ export default function RecipeDetailPage():JSX.Element {
             recipe_id : router.asPath.slice(17),
             })
             setData(response.data)
-            console.log(response.data)
         }catch(error){
             console.log(error)
         }  
