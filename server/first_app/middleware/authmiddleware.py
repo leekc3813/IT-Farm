@@ -17,9 +17,11 @@ class Authmiddleware:
         if request.path in urls:
             response = self.get_response(request)
             return response
+        
         if request.path.startswith('/users/'):
             response = self.get_response(request)
             return response
+        
         try:
             print('미들')
             access = request.COOKIES.get('access_token')
