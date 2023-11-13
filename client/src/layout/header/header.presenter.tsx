@@ -12,13 +12,13 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 </div>
                 <div className={styles.infoBox3}>
                     <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
-                    <SearchOutlined className={styles.headerIcon} />
+                    <ShoppingOutlined onClick={props.onClickBasket} className={styles.headerIcon} />
+                    <ShoppingCartOutlined onClick = {props.onClickCart}  className={styles.headerIcon} />
                     {props.localLogin ?
                         <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
                         : 
                         <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     }
-                    <ShoppingOutlined className={styles.headerIcon} />
                     {props.usertype === 'admin' ?
                         <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
                         :

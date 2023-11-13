@@ -76,11 +76,11 @@ export default function HeaderPage():JSX.Element {
     }
 
     const onClickBasket = () => {
-      router.push('/purchase/basket/회원아이디')
+      router.push('/purchase/basket/leekc')
     }
 
     const onClickCart = () => {
-      router.push('/purchase/cart/회원아이디')
+      router.push('/purchase/cart/leekc')
     }
 
     const onClickSale = () => {
