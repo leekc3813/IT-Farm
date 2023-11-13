@@ -31,10 +31,11 @@ class LoginView(APIView):
         if user:
             refresh = TokenObtainPairSerializer.get_token(user)
             access = refresh.access_token
+            serializer = UserSerializer(user)
 
-            response = Response({'message':'로그인 성공'},status=status.HTTP_201_CREATED)
-            response.set_cookie('access_token', access, httponly=True, secure=True, max_age=3600)
-            response.set_cookie('refresh_token', refresh, httponly=True, secure=True, max_age=86400)
+            response = Response({'user':serializer.data},status=status.HTTP_201_CREATED)
+            response.set_cookie('access_token', access, httponly=True,samesite='None', secure=False, max_age=3600,path='/')
+            response.set_cookie('refresh_token', refresh, httponly=True,samesite='None', secure=False, max_age=86400)
             return response
         else:
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)

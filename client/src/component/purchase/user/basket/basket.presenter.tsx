@@ -18,10 +18,10 @@ export default function UserBasketPageUI():JSX.Element{
                         <div className={styles.listInfo}>8근</div>
                         <div className={styles.selectBox}>
                             <span className={styles.selct}>
-                                구매하기
+                                구매
                             </span>
                             <span className={styles.selct}>
-                                취소하기
+                                취소
                             </span>
                         </div>
                     </div>
