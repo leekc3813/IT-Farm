@@ -51,7 +51,7 @@ class FarmProductReadView(APIView):
         farm_id = request.data.get('farm_id')
         center = request.data.get('center')
         if center:
-            farm_product = Farm_products.objects.filter(center=center)
+            farm_product = Farm_products.objects.filter(center=center,state='등록대기')
         else:
             farm_product = Farm_products.objects.filter(farm_id=farm_id)
         serializer = FarmReadSerializer(farm_product,many=True)
@@ -61,5 +61,8 @@ class FarmProductReadView(APIView):
 class CenterProductReadView(APIView):
     def post(self, request):
         center = request.data.get('center')
-        result = Farm_products.objects.filter(center=center).values('eco','kind').annotate(total_crop=Sum('crop'))
+        if center == '전국':
+            result = Farm_products.objects.filter(state='등록완료').values('eco','kind').annotate(total_crop=Sum('crop'))
+        else :
+            result = Farm_products.objects.filter(center=center,state='등록완료').values('eco','kind').annotate(total_crop=Sum('crop'))
         return Response(result)
