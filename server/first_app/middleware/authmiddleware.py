@@ -17,8 +17,13 @@ class Authmiddleware:
         if request.path in urls:
             response = self.get_response(request)
             return response
+        if request.path.startswith('/users/'):
+            response = self.get_response(request)
+            return response
         try:
+            print('미들')
             access = request.COOKIES.get('access_token')
+            print(access)
             payload = jwt.decode(access, SECRET_KEY, algorithms=['HS256'])
             pk = payload.get('user_id')
             user = get_object_or_404(User, pk=pk)
