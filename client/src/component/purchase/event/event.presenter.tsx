@@ -5,7 +5,19 @@ export default function EventPageUI():JSX.Element {
         <div className={styles.body}>
             <div className={styles.wrapper}>
                 <div className={styles.bannerBox}>
-                    <img src='https://via.placeholder.com/1140x280/FFFF00/000000.png?text=Test+Image' alt='배너이미지' />
+                    <img src='/img/purchase/event/006.png' alt='배너이미지' />
+                </div>
+                <div className={styles.bannerBox}>
+                    <img src='/img/purchase/event/005.png' alt='배너이미지' />
+                </div>
+                <div className={styles.bannerBox}>
+                    <img src='/img/purchase/event/004.png' alt='배너이미지' />
+                </div>
+                <div className={styles.bannerBox}>
+                    <img src='/img/purchase/event/003.png' alt='배너이미지' />
+                </div>
+                <div className={styles.bannerBox}>
+                    <img src='/img/purchase/event/002.png' alt='배너이미지' />
                 </div>
             </div>
         </div>
