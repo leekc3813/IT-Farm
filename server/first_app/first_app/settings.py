@@ -38,10 +38,9 @@ INSTALLED_APPS = [
     'qna',
     'event',
     'recipe',
-    'order',
     'farm_product',
     'pest',
-
+    'order',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

@@ -11,6 +11,6 @@ urlpatterns = [
     path('qna/', include('qna.urls')),
     path('event/', include('event.urls')),
     path('recipe/', include('recipe.urls')),
-    path('order/', include('order.urls')),
     path("pest/", include('pest.urls')),
+    path('order/', include('order.urls')),
 ]

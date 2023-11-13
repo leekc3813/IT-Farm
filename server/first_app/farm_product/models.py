@@ -11,3 +11,4 @@ class Farm_products(models.Model):
     state = models.CharField(max_length=100,default='등록대기') # 등록 상태
     created_at = models.DateTimeField(auto_now_add=True) # 등록일자
     updated_at = models.DateTimeField(auto_now=True) # 수정일자
+    
