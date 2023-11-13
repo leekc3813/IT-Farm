@@ -72,8 +72,6 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
         if (isFormDataValid) {
           // All fields have a non-empty value
           try {
-            const token = localStorage.getItem('accesstoken')
-            
             /*isEdit가 false == 등록 */
             if (!isEdit){
                 const response = await axios.post('http://localhost:8000/farms/create/',{
@@ -85,10 +83,6 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                     address_detail : formData.detailadress,
                     method : formData.method,
                     quantity : formData.quantity
-                },{
-                    headers :{
-                        Authorization : token
-                    }
                 })
                     if (response.status == 201){
                         alert("등록성공")
@@ -105,10 +99,6 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                     address_detail : formData.detailadress,
                     method : formData.method,
                     quantity : formData.quantity
-                },{
-                    headers :{
-                        Authorization : token
-                    }
                 })
                     if (response.status == 201){
                         alert("수정성공")

@@ -10,10 +10,6 @@ export default function QnaPage():JSX.Element{
         try{
             const response = await axios.post('http://localhost:8000/qna/read/',{
             user_id : localStorage.getItem('id')
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
             console.log(response.data)
             setData(response.data)

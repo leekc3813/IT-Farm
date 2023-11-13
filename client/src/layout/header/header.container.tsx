@@ -99,7 +99,6 @@ export default function HeaderPage():JSX.Element {
 
         localStorage.setItem('loginState', 'false')
         setLocalLogin(false)
-        localStorage.removeItem('accesstoken');
         localStorage.removeItem('nickname');
         localStorage.removeItem('usertype');
         localStorage.removeItem('id');

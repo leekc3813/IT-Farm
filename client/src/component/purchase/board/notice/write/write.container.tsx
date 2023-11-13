@@ -36,10 +36,6 @@ export default function WritePage():JSX.Element {
                 content: content,
                 user_type: localStorage.getItem('usertype'),
                 notice_type: 1,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('token')
-                }
             });
 
             if(response.status === 201){

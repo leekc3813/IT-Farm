@@ -46,7 +46,6 @@ export default function RegisterPage(): JSX.Element {
             })
             localStorage.setItem('nickname', response.data.user.nickname)
             localStorage.setItem('loginstate', 'true')
-            localStorage.setItem('accesstoken', response.data.access)
             localStorage.setItem('id', response.data.user.id)
             localStorage.setItem('usertype',response.data.user.user_type)
             console.log(response)

@@ -37,12 +37,9 @@ export default function HarvestPage():JSX.Element {
     }
 
     const fetchData = async ()=> {
-        const token = localStorage.getItem('accesstoken')
         try {
             const response = await axios.post('http://localhost:8000/farms/read/',{
                 user_id : localStorage.getItem('id')
-            },{
-                headers:{ Authorization: token}
             })
             console.log(response.data)
             setfarmData(response.data)
@@ -83,10 +80,6 @@ export default function HarvestPage():JSX.Element {
                 kind : formData.crop,
                 crop : formData.yield,
                 unit_type : formData.unitType,
-                },{
-                    headers : {
-                        Authorization : localStorage.getItem('accesstoken')
-                    }
                 })
 
                 console.log(response)

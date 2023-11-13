@@ -29,7 +29,14 @@ export default function ListDetailPage():JSX.Element{
         }
     }
 
+    const onClickOrder = async () => {
+        localStorage.setItem('orderMount','수량')
+        router.push(`/purchase/list/${decodedString}/order`)
+    }
+
     return(
-        <ListDetailPageUI />
+        <ListDetailPageUI 
+        onClickOrder = {onClickOrder}
+         />
     )
 }

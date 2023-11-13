@@ -15,10 +15,6 @@ export default function NoticePage():JSX.Element {
             user_id : localStorage.getItem('id'),
             notice_type : 1,
             user_type : localStorage.getItem('usertype'),
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
             if (response.status === 200){
                 setData(response.data)

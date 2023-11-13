@@ -11,10 +11,6 @@ export default function SellerinfoPage():JSX.Element {
         try {
             const response = await axios.post('http://localhost:8000/farms/read/',{
                 user_id : localStorage.getItem('id')
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
             setFarmsData(response.data)
         }catch(error){

@@ -17,10 +17,10 @@ export default function UserBasketPageUI():JSX.Element{
                         <div className={styles.listInfo}>유기농 청고추</div>
                         <div className={styles.listInfo}>8근</div>
                         <div className={styles.selectBox}>
-                            <span className={styles.selct}>
+                            <span className={styles.select}>
                                 구매
                             </span>
-                            <span className={styles.selct}>
+                            <span className={styles.select}>
                                 취소
                             </span>
                         </div>

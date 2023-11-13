@@ -14,10 +14,6 @@ export default function NoticeIndexPage():JSX.Element {
             const response = await axios.post('http://localhost:8000/notice/detail/',{
             user_id : localStorage.getItem('id'),
             notice_id : address,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
             setData(response.data)
             
