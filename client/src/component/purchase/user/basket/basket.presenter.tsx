@@ -1,4 +1,5 @@
 import styles from './basket.module.css'
+import Link from 'next/link'
 
 export default function UserBasketPageUI():JSX.Element{
     return(
@@ -13,18 +14,21 @@ export default function UserBasketPageUI():JSX.Element{
                         <div className={styles.listInfo}>수량</div>
                         <div className={styles.listInfo}>비고</div>
                     </div>
-                    <div className={styles.contentBox}>
-                        <div className={styles.listInfo}>유기농 청고추</div>
-                        <div className={styles.listInfo}>8근</div>
-                        <div className={styles.selectBox}>
-                            <span className={styles.select}>
-                                구매
-                            </span>
-                            <span className={styles.select}>
-                                취소
-                            </span>
-                        </div>
-                    </div>
+                    
+                        <div className={styles.contentBox}>
+                            <div className={styles.listInfo}>유기농 청고추</div>
+                            <div className={styles.listInfo}>8근</div>
+                            <div className={styles.selectBox}>
+                                <Link className={styles.link} href={'/purchase/list/받아온상품명/order'}>
+                                    <span className={styles.select}>
+                                        구매
+                                    </span>
+                                </Link>
+                                <span className={styles.select}>
+                                    취소
+                                </span>
+                            </div>
+                        </div>            
                 </div>
             </div>
         </div>

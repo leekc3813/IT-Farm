@@ -92,3 +92,8 @@
 .select:active {
     color: black;
 }
+
+.link {
+    text-decoration: none;
+    color: black;
+}
