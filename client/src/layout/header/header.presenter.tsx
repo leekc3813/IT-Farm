@@ -6,8 +6,8 @@ import { IHeaderPageUIProps } from './header.types'
 export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
     return(
          <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
-            <div onClick={props.onClickPurchase} className={styles.headerTitle}>
-                <div className={styles.headerTitleContainer}>
+            <div  className={styles.headerTitle}>
+                <div onClick={props.onClickPurchase} className={styles.headerTitleContainer}>
                     <img src='/img/home/logo_2green.png' alt='상품이미지' className={styles.headerTitle} />
                 </div>
                 <div className={styles.infoBox3}>
@@ -54,7 +54,6 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         </ul>
                     </div>
                 </div>
-                
             </div>
         </div> 
     )
