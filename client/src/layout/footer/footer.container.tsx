@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import FooterPageUI from "./footer.presenter";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function FooterPage():JSX.Element{
     const router = useRouter()
@@ -26,7 +27,7 @@ export default function FooterPage():JSX.Element{
     }
 
     const onClickLogout = async () => {
-        const response = await axios.post('http://localhost:8000/users/logout/', {
+        const response = await axios.post(`${BASE_URL}users/logout/`, {
           user_id : localStorage.getItem('id')
         })
 

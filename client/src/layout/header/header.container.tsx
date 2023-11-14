@@ -5,6 +5,7 @@ import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
 import HeaderPageUI from "./header.presenter";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function HeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
@@ -89,7 +90,7 @@ export default function HeaderPage():JSX.Element {
 
     const onClickLogout = async () => {
       try{
-        const response = await axios.post('http://localhost:8000/users/logout/', {
+        const response = await axios.post(`${BASE_URL}users/logout/`, {
           user_id : localStorage.getItem('id')
         })
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import RecipeDetailPageUI from "./recipeDetail.presenter";
 import { useRouter } from "next/router";
 import { useEffect, useState} from 'react';
+import { BASE_URL } from "@/src/config/config";
 
 export default function RecipeDetailPage():JSX.Element {
     const [data, setData] = useState([])
@@ -9,7 +10,7 @@ export default function RecipeDetailPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/recipe/detail/',{
+            const response = await axios.post(`${BASE_URL}recipe/detail/`,{
             recipe_id : router.asPath.slice(17),
             })
             setData(response.data)

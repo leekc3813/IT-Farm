@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { harvestState } from "@/src/store/harvest";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function HarvestPage():JSX.Element {
@@ -38,7 +39,7 @@ export default function HarvestPage():JSX.Element {
 
     const fetchData = async ()=> {
         try {
-            const response = await axios.post('http://localhost:8000/farms/read/',{
+            const response = await axios.post(`${BASE_URL}farms/read/`,{
                 user_id : localStorage.getItem('id')
             })
             console.log(response.data)
@@ -73,7 +74,7 @@ export default function HarvestPage():JSX.Element {
 
         if (isFormDataValid){
             try{
-                const response = await axios.post('http://localhost:8000/farm_product/create/',{
+                const response = await axios.post(`${BASE_URL}farm_product/create/`,{
                 user_id : localStorage.getItem('id'),
                 farm_id : localStorage.getItem('harvest'),
                 eco : formData.eco,

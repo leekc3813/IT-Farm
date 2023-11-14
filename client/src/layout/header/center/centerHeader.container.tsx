@@ -5,6 +5,7 @@ import { loginState } from "@/src/store/states";
 import HeaderCenterPageUI from "./centerHeader.presenter";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { BASE_URL } from "@/src/config/config";
 
 export default function CenterHeaderPage():JSX.Element{
     const router = useRouter()
@@ -38,7 +39,7 @@ export default function CenterHeaderPage():JSX.Element{
 
       const onClickLogout = async () => {
         try{
-          const response = await axios.post('http://localhost:8000/users/logout/', {
+          const response = await axios.post(`${BASE_URL}users/logout/`, {
             user_id : localStorage.getItem('id')
           })
   

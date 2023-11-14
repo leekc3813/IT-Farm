@@ -2,6 +2,7 @@ import { RadioChangeEvent } from "antd";
 import ApprovalPageUI from "./approval.presenter";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function ApprovalPage():JSX.Element {
     const [placement, setPlacement] = useState('정읍')
@@ -13,7 +14,7 @@ export default function ApprovalPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/farm_product/read/',{
+            const response = await axios.post(`${BASE_URL}farm_product/read/`,{
             user_id : localStorage.getItem('id'),
             center : placement,
              },{

@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { ISellerRegisterPageProps } from "./sellerRegister.types";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.Element{
@@ -74,7 +75,7 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
           try {
             /*isEdit가 false == 등록 */
             if (!isEdit){
-                const response = await axios.post('http://localhost:8000/farms/create/',{
+                const response = await axios.post(`${BASE_URL}farms/create/`,{
                     user_id : localStorage.getItem('id'),
                     name : formData.farmName,
                     area : formData.area,
@@ -89,7 +90,7 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                         router.push('/seller')
                     }
             }else{
-                const response = await axios.post('http://localhost:8000/farms/update/',{
+                const response = await axios.post(`${BASE_URL}farms/update/`,{
                     user_id : localStorage.getItem('id'),
                     farm_id : router.asPath.slice(22),
                     name : formData.farmName,

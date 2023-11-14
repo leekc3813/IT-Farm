@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import RegisterPageUI from "./register.presenter";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function RegisterPage(): JSX.Element {
     const router = useRouter()
@@ -40,7 +41,7 @@ export default function RegisterPage(): JSX.Element {
 
     const submitLogin = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/users/login/' ,{
+            const response = await axios.post(`${BASE_URL}users/login/` ,{
                 email : email,
                 password : password,
             })
@@ -74,7 +75,7 @@ export default function RegisterPage(): JSX.Element {
     const submitRegister = async () => {
 
         try {
-            const response = await axios.post('http://localhost:8000/users/register/',{
+            const response = await axios.post(`${BASE_URL}users/register/`,{
             nickname : nickName,
             email : email,
             password : password,

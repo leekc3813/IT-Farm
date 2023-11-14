@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import NoticePageUI from "./notice.presenter";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { BASE_URL } from "@/src/config/config";
 
 export default function NoticePage():JSX.Element {
     const [isAdmin, setIsAdmin] = useState('admin')
@@ -11,7 +12,7 @@ export default function NoticePage():JSX.Element {
 
     const fetchData = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/notice/read/', {
+            const response = await axios.post(`${BASE_URL}notice/read/`, {
             user_id : localStorage.getItem('id'),
             notice_type : 1,
             user_type : localStorage.getItem('usertype'),

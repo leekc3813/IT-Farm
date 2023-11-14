@@ -1,3 +1,4 @@
+import { BASE_URL } from "@/src/config/config";
 import QnaPageUI from "./qna.presenter";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -8,7 +9,7 @@ export default function QnaPage():JSX.Element{
 
     const fetchData = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/qna/read/',{
+            const response = await axios.post(`${BASE_URL}qna/read/`,{
             user_id : localStorage.getItem('id')
             })
             console.log(response.data)

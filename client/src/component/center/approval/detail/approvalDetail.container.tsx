@@ -2,13 +2,14 @@ import ApprovalDetailPageUI from "./approvalDetail.presenter";
 import axios from "axios";
 import { IApprovalDetailPageProps } from "./approvalDetail.types";
 import { useState } from "react";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.Element{
 
      const onCLickApproval = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/farm_product/update/',{
+            const response = await axios.post(`${BASE_URL}farm_product/update/`,{
                 user_id : localStorage.getItem('id'),
                 farm_product_id : props.farmData.id,
             },{
@@ -32,7 +33,7 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
 
      const onClickRefuse = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/farm_product/delete/',{
+            const response = await axios.post(`${BASE_URL}farm_product/delete/`,{
                 user_id : localStorage.getItem('id'),
                 farm_product_id : props.farmData.id,
             },{

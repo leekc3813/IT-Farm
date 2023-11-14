@@ -2,6 +2,7 @@ import CenterPageUI from "./center.presenter";
 import { useEffect, useState } from "react";
 import type { RadioChangeEvent } from 'antd';
 import axios from "axios";
+import {BASE_URL} from '../../config/config'
 
 declare global {
     interface Window {
@@ -51,7 +52,7 @@ export default function CenterPage():JSX.Element{
 
     const fetchEnroll = async () => {
       try {
-        const response = await axios.post('http://localhost:8000/farms/read/',{
+        const response = await axios.post(`${BASE_URL}farms/read/`,{
         user_id : localStorage.getItem('id'),
         center : placement,
         },{
@@ -122,7 +123,7 @@ export default function CenterPage():JSX.Element{
     
     const fetchSum = async () => {
       try {
-        const response = await axios.post('http://localhost:8000/farm_product/center/', {
+        const response = await axios.post(`${BASE_URL}farm_product/center/`, {
         user_id : localStorage.getItem('id'),
         center : placement,
         }, {

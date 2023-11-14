@@ -3,6 +3,7 @@ import ListDetailPageUI from "./listDetail.presenter";
 import { useRouter } from "next/router";
 import { useEffect} from 'react'
 import { errorMonitor } from "stream";
+import { BASE_URL } from "@/src/config/config";
 
 export default function ListDetailPage():JSX.Element{
     const router = useRouter()
@@ -10,7 +11,7 @@ export default function ListDetailPage():JSX.Element{
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/product/detail/${decodedString.replace(' ','_')}`)
+            const response = await axios.get(`${BASE_URL}product/detail/${decodedString.replace(' ','_')}`)
 
         }catch(error){
             console.log(errorMonitor)
@@ -19,7 +20,7 @@ export default function ListDetailPage():JSX.Element{
 
     const onClickBasket = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/',{
+            const response = await axios.post(`${BASE_URL}`,{
                 product_id : '아이디',
                 count : '수량'
             })
