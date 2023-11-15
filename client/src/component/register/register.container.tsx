@@ -41,6 +41,7 @@ export default function RegisterPage(): JSX.Element {
 
     const submitLogin = async () => {
         try{
+            console.log(BASE_URL)
             const response = await axios.post(`${BASE_URL}users/login/` ,{
                 email : email,
                 password : password,
