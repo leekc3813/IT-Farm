@@ -2,6 +2,7 @@ import { BASE_URL } from "@/src/config/config";
 import UserBasketPageUI from "./basket.presenter";
 import axios from "axios";
 import {useEffect} from 'react';
+import { useRouter } from "next/router";
 
 export default function UserBasketPage():JSX.Element{
     const fetchData = async () => {
@@ -11,7 +12,6 @@ export default function UserBasketPage():JSX.Element{
             console.log(error)
         }   
     }
-
     
 
     return(
