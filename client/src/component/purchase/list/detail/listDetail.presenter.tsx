@@ -13,8 +13,8 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                     <div className={styles.subText}>원산지: 국내산</div>
                     <div className={styles.subText}>1580원 1근/600g</div>
                     <div className={styles.subText}>주문수량</div>
-                    <input className={styles.quantityInput} type='number' placeholder='단위 1kg/500g' min="1" max="10" />
-                    <button className={styles.quantityButton}>장바구니 담기</button>
+                    <input onChange={props.onChangeMount} className={styles.quantityInput} type='number' placeholder='단위 1kg/500g' min="1" max="10" />
+                    <button onClick={props.onClickBasket} className={styles.quantityButton}>장바구니 담기</button>
                     <button onClick={props.onClickOrder} className={styles.quantityButton}>바로구매</button>
                 </div>
             </div>
