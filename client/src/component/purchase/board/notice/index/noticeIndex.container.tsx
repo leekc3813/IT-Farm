@@ -12,10 +12,7 @@ export default function NoticeIndexPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}notice/detail/`,{
-            user_id : localStorage.getItem('id'),
-            notice_id : address,
-            })
+            const response = await axios.get(`${BASE_URL}notice/detail/address/`)
             setData(response.data)
             
         }catch(error){

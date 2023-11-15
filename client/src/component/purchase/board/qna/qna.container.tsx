@@ -9,9 +9,7 @@ export default function QnaPage():JSX.Element{
 
     const fetchData = async () => {
         try{
-            const response = await axios.post(`${BASE_URL}qna/read/`,{
-            user_id : localStorage.getItem('id')
-            })
+            const response = await axios.get(`${BASE_URL}qna/read/`)
             console.log(response.data)
             setData(response.data)
 

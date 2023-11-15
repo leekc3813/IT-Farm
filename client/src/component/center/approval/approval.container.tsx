@@ -14,14 +14,7 @@ export default function ApprovalPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}farm_product/read/`,{
-            user_id : localStorage.getItem('id'),
-            center : placement,
-             },{
-                 headers : {
-                     Authorization : localStorage.getItem('accesstoken')
-                 }
-             })
+            const response = await axios.get(`${BASE_URL}farm_product/read/?center=${placement}`)
              setfarmData(response.data)
              console.log(response.data)
         }catch(error){

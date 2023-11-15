@@ -39,9 +39,7 @@ export default function HarvestPage():JSX.Element {
 
     const fetchData = async ()=> {
         try {
-            const response = await axios.post(`${BASE_URL}farms/read/`,{
-                user_id : localStorage.getItem('id')
-            })
+            const response = await axios.get(`${BASE_URL}farms/read/`)
             console.log(response.data)
             setfarmData(response.data)
         }catch(error){
@@ -75,7 +73,6 @@ export default function HarvestPage():JSX.Element {
         if (isFormDataValid){
             try{
                 const response = await axios.post(`${BASE_URL}farm_product/create/`,{
-                user_id : localStorage.getItem('id'),
                 farm_id : localStorage.getItem('harvest'),
                 eco : formData.eco,
                 kind : formData.crop,

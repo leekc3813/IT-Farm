@@ -52,14 +52,7 @@ export default function CenterPage():JSX.Element{
 
     const fetchEnroll = async () => {
       try {
-        const response = await axios.post(`${BASE_URL}farms/read/`,{
-        user_id : localStorage.getItem('id'),
-        center : placement,
-        },{
-          headers : {
-            Authorization : localStorage.getItem('accesstoken')
-          }
-        })
+        const response = await axios.get(`${BASE_URL}farms/read/?center=${placement}`)
         setEnrollData(response.data)
 
         const rr = response.data
@@ -123,14 +116,7 @@ export default function CenterPage():JSX.Element{
     
     const fetchSum = async () => {
       try {
-        const response = await axios.post(`${BASE_URL}farm_product/center/`, {
-        user_id : localStorage.getItem('id'),
-        center : placement,
-        }, {
-          headers : {
-            Authorization : localStorage.getItem('accesstoken')
-          }
-        })
+        const response = await axios.post(`${BASE_URL}farm_product/center/?center=${placement}`)
         setSum(response.data)
       }catch(error){
         console.log('error', error)
