@@ -9,13 +9,8 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
 
      const onCLickApproval = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}farm_product/update/`,{
-                user_id : localStorage.getItem('id'),
+            const response = await axios.put(`${BASE_URL}farm_product/update/`,{
                 farm_product_id : props.farmData.id,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
 
             if(response.status === 201){
@@ -33,14 +28,7 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
 
      const onClickRefuse = async () => {
         try{
-            const response = await axios.post(`${BASE_URL}farm_product/delete/`,{
-                user_id : localStorage.getItem('id'),
-                farm_product_id : props.farmData.id,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accestoken')
-                }
-            })
+            const response = await axios.delete(`${BASE_URL}farm_product/delete/${props.farmData.id}/`)
 
             if(response.status === 200){
                 alert('삭제성공')

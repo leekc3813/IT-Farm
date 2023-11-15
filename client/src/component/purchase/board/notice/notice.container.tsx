@@ -12,11 +12,7 @@ export default function NoticePage():JSX.Element {
 
     const fetchData = async () => {
         try{
-            const response = await axios.post(`${BASE_URL}notice/read/`, {
-            user_id : localStorage.getItem('id'),
-            notice_type : 1,
-            user_type : localStorage.getItem('usertype'),
-            })
+            const response = await axios.get(`${BASE_URL}notice/read/?notice_type=1`)
             if (response.status === 200){
                 setData(response.data)
                 

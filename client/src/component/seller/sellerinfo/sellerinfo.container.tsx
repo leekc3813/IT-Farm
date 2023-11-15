@@ -10,9 +10,7 @@ export default function SellerinfoPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}farms/read/`,{
-                user_id : localStorage.getItem('id')
-            })
+            const response = await axios.get(`${BASE_URL}farms/read/`)
             setFarmsData(response.data)
         }catch(error){
             console.log('error', error)

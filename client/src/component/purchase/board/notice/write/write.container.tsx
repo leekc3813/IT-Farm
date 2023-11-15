@@ -32,10 +32,8 @@ export default function WritePage():JSX.Element {
 
         try {
             const response = await axios.post(`${BASE_URL}notice/create/`,{
-                user_id : localStorage.getItem('id'),
                 subject: title,
                 content: content,
-                user_type: localStorage.getItem('usertype'),
                 notice_type: 1,
             });
 

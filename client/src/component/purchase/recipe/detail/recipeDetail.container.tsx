@@ -10,9 +10,7 @@ export default function RecipeDetailPage():JSX.Element {
 
     const fetchData = async () => {
         try {
-            const response = await axios.post(`${BASE_URL}recipe/detail/`,{
-            recipe_id : router.asPath.slice(17),
-            })
+            const response = await axios.get(`${BASE_URL}recipe/detail/${router.asPath.slice(17)}/`)
             setData(response.data)
         }catch(error){
             console.log(error)
