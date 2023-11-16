@@ -17,9 +17,9 @@ export default function UserBasketPageUI(props:IUserBasketPageUIProps):JSX.Eleme
                     </div>
                     
                         <div className={styles.contentBox}>
-                            {props.data?.map((data) => {
+                            {props.data?.map((data, index) => {
                                 return(
-                                    <div className={styles.contentBox}>
+                                    <div key={index} className={styles.contentBox}>
                                         <div className={styles.listInfo}>{data.product_id}</div>
                                         <div className={styles.listInfo}>{data.count} kg</div>
                                         <div className={styles.selectBox}>
