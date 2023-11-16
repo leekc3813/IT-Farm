@@ -1,7 +1,8 @@
 import styles from './basket.module.css'
 import Link from 'next/link'
+import { IUserBasketPageUIProps } from './basket.types'
 
-export default function UserBasketPageUI():JSX.Element{
+export default function UserBasketPageUI(props:IUserBasketPageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
@@ -16,18 +17,24 @@ export default function UserBasketPageUI():JSX.Element{
                     </div>
                     
                         <div className={styles.contentBox}>
-                            <div className={styles.listInfo}>유기농 청고추</div>
-                            <div className={styles.listInfo}>8근</div>
-                            <div className={styles.selectBox}>
-                                <Link className={styles.link} href={'/purchase/list/받아온상품명/order'}>
-                                    <span className={styles.select}>
-                                        구매
-                                    </span>
-                                </Link>
-                                <span className={styles.select}>
-                                    취소
-                                </span>
-                            </div>
+                            {props.data?.map((data) => {
+                                return(
+                                    <div className={styles.contentBox}>
+                                        <div className={styles.listInfo}>{data.product_id}</div>
+                                        <div className={styles.listInfo}>{data.count} kg</div>
+                                        <div className={styles.selectBox}>
+                                        <Link className={styles.link} href={`/purchase/list/${data.product_id}/order`}>
+                                            <span className={styles.select}>
+                                                구매
+                                            </span>
+                                        </Link>
+                                        <span onClick={() => props.onClickCancle(data.cart_id) } className={styles.select}>
+                                            취소
+                                        </span>
+                                        </div>
+                                    </div> 
+                                )
+                            })}
                         </div>            
                 </div>
             </div>

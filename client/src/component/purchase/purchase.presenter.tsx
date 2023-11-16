@@ -29,20 +29,57 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                     <div className={styles.contentContainer}>
                         <div className={styles.contentBox}>
                             <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src='https://cdn.kormedi.com/wp-content/uploads/2023/07/unnamed-file-144.jpg.webp' alt='상품이미지' />
+                                <img className={styles.contentImg} src='/img/purchase/list/홍고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentInfoContainer}>
                                 <div className={styles.contentName}>
-                                    더 맛있는 청고추
+                                    유기농 홍고추
                                 </div>
                                 <div className={styles.price}>
                                         13890원
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.contentBox2}>asd</div>
-                        <div className={styles.contentBox2}>asd</div>
-                        <div className={styles.contentBox2}>asd</div>
+                        <div className={styles.contentBox}>
+                            <div className={styles.contentImgContainer}>
+                                <img className={styles.contentImg} src='/img/purchase/list/청고추.png' alt='상품이미지' />
+                            </div>
+                            <div className={styles.contentInfoContainer}>
+                                <div className={styles.contentName}>
+                                    유기농 청고추
+                                </div>
+                                <div className={styles.price}>
+                                        13000원
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.contentBox}>
+                            <div className={styles.contentImgContainer}>
+                                <img className={styles.contentImg} src= '/img/purchase/list/건고추.png' alt='상품이미지' />
+                            </div>
+                            <div className={styles.contentInfoContainer}>
+                                <div className={styles.contentName}>
+                                    유기농 건고추
+                                </div>
+                                <div className={styles.price}>
+                                        13890원
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.contentBox}>
+                            <div className={styles.contentImgContainer}>
+                                <img className={styles.contentImg} src='/img/purchase/list/고춧가루.png' alt='상품이미지' />
+                            </div>
+                            <div className={styles.contentInfoContainer}>
+                                <div className={styles.contentName}>
+                                    국산 고추가루
+                                </div>
+                                <div className={styles.price}>
+                                        13890원
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div className={styles.contentTitleContainer}>
                         <div className={styles.contentTitleBox}>

@@ -19,10 +19,29 @@ export default function UserBasketPage():JSX.Element{
             console.log(error)
         }   
     }
+
+    const onClickCancle = async (cart_id:string) => {
+        try {
+            const response = await axios.delete(`${BASE_URL}cart/delete/`)
+            
+            if (response.status === 200) {
+                setData(response.data)
+            }
+
+        }catch(error){
+            console.log(error)
+        }   
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+    
     
     return(
         <UserBasketPageUI
-
+        data = {data}
+        onClickCancle = {onClickCancle}
          />
     )
 }
