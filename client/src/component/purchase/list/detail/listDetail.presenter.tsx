@@ -9,7 +9,7 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                     <img src='https://via.placeholder.com/470/FFFF00/000000' alt='상품이미지' />
                 </div>
                 <div className={styles.rightContainer}>
-                    <div className={styles.contentTitle}>유기농 홍고추 1kg</div>
+                    <div className={styles.contentTitle}>{props.title}</div>
                     <div className={styles.subText}>원산지: 국내산</div>
                     <div className={styles.subText}>1580원 1근/600g</div>
                     <div className={styles.subText}>주문수량</div>

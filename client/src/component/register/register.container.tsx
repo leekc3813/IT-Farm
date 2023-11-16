@@ -7,6 +7,7 @@ import RegisterPageUI from "./register.presenter";
 import axios from "axios";
 import { BASE_URL } from "@/src/config/config";
 
+
 export default function RegisterPage(): JSX.Element {
     const router = useRouter()
 

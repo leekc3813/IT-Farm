@@ -39,3 +39,6 @@ next-env.d.ts
 
 # .pyc
 *.pyc
+
+# envirment control
+./src/config/*

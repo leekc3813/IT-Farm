@@ -116,7 +116,7 @@ export default function CenterPage():JSX.Element{
     
     const fetchSum = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}farm_product/center/?center=${placement}`)
+        const response = await axios.get(`${BASE_URL}farm_product/center/${placement}/`)
         setSum(response.data)
       }catch(error){
         console.log('error', error)
