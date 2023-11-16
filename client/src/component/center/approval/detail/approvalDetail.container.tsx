@@ -2,19 +2,15 @@ import ApprovalDetailPageUI from "./approvalDetail.presenter";
 import axios from "axios";
 import { IApprovalDetailPageProps } from "./approvalDetail.types";
 import { useState } from "react";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.Element{
 
      const onCLickApproval = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/farm_product/update/',{
-                user_id : localStorage.getItem('id'),
+            const response = await axios.put(`${BASE_URL}farm_product/update/`,{
                 farm_product_id : props.farmData.id,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accesstoken')
-                }
             })
 
             if(response.status === 201){
@@ -32,14 +28,7 @@ export default function ApprovalDetailPage(props: IApprovalDetailPageProps):JSX.
 
      const onClickRefuse = async () => {
         try{
-            const response = await axios.post('http://localhost:8000/farm_product/delete/',{
-                user_id : localStorage.getItem('id'),
-                farm_product_id : props.farmData.id,
-            },{
-                headers : {
-                    Authorization : localStorage.getItem('accestoken')
-                }
-            })
+            const response = await axios.delete(`${BASE_URL}farm_product/delete/${props.farmData.id}/`)
 
             if(response.status === 200){
                 alert('삭제성공')

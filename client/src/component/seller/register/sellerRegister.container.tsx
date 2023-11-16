@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { ISellerRegisterPageProps } from "./sellerRegister.types";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.Element{
@@ -72,12 +73,9 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
         if (isFormDataValid) {
           // All fields have a non-empty value
           try {
-            const token = localStorage.getItem('accesstoken')
-            
             /*isEdit가 false == 등록 */
             if (!isEdit){
-                const response = await axios.post('http://localhost:8000/farms/create/',{
-                    user_id : localStorage.getItem('id'),
+                const response = await axios.post(`${BASE_URL}farms/create/`,{
                     name : formData.farmName,
                     area : formData.area,
                     mail_number : formData.q1,
@@ -85,18 +83,13 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                     address_detail : formData.detailadress,
                     method : formData.method,
                     quantity : formData.quantity
-                },{
-                    headers :{
-                        Authorization : token
-                    }
                 })
                     if (response.status == 201){
                         alert("등록성공")
                         router.push('/seller')
                     }
             }else{
-                const response = await axios.post('http://localhost:8000/farms/update/',{
-                    user_id : localStorage.getItem('id'),
+                const response = await axios.put(`${BASE_URL}farms/update/`,{
                     farm_id : router.asPath.slice(22),
                     name : formData.farmName,
                     area : formData.area,
@@ -105,10 +98,6 @@ export default function SellerRegisterPage(props:ISellerRegisterPageProps):JSX.E
                     address_detail : formData.detailadress,
                     method : formData.method,
                     quantity : formData.quantity
-                },{
-                    headers :{
-                        Authorization : token
-                    }
                 })
                     if (response.status == 201){
                         alert("수정성공")

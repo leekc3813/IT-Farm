@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { harvestState } from "@/src/store/harvest";
+import { BASE_URL } from "@/src/config/config";
 
 
 export default function HarvestPage():JSX.Element {
@@ -37,13 +38,8 @@ export default function HarvestPage():JSX.Element {
     }
 
     const fetchData = async ()=> {
-        const token = localStorage.getItem('accesstoken')
         try {
-            const response = await axios.post('http://localhost:8000/farms/read/',{
-                user_id : localStorage.getItem('id')
-            },{
-                headers:{ Authorization: token}
-            })
+            const response = await axios.get(`${BASE_URL}farms/read/`)
             console.log(response.data)
             setfarmData(response.data)
         }catch(error){
@@ -76,17 +72,12 @@ export default function HarvestPage():JSX.Element {
 
         if (isFormDataValid){
             try{
-                const response = await axios.post('http://localhost:8000/farm_product/create/',{
-                user_id : localStorage.getItem('id'),
+                const response = await axios.post(`${BASE_URL}farm_product/create/`,{
                 farm_id : localStorage.getItem('harvest'),
                 eco : formData.eco,
                 kind : formData.crop,
                 crop : formData.yield,
                 unit_type : formData.unitType,
-                },{
-                    headers : {
-                        Authorization : localStorage.getItem('accesstoken')
-                    }
                 })
 
                 console.log(response)

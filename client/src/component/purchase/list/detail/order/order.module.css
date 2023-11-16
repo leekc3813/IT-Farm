@@ -1,0 +1,77 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin-top: 180px;
+    width: 60%;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.infoBox {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.registerInputForm{
+    display: flex;
+    gap: 15px;
+}
+
+.registerNum{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.searchButton {
+    width: 50px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.searchButton:hover {
+    transform: scale(1.1);
+}
+
+.searchButton:active {
+    transform: scale(1.0);
+}
+
+.error {
+    font-size: 15px;
+    color: red;
+}
+
+.reigsterAddress1{
+    width: 50%;
+    height: 30px;
+    font-size: 20px;
+}
+
+.reigsterAddress2{
+    width: 50%;
+    height: 30px;
+    font-size: 20px;
+}
+
+.submitButton {
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}

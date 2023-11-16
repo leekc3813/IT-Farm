@@ -5,6 +5,7 @@ import { loginState } from "@/src/store/states";
 import throttle from "lodash/throttle";
 import HeaderPageUI from "./header.presenter";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function HeaderPage():JSX.Element {
     /* 내렸을때 true 올릴때 false */
@@ -76,22 +77,16 @@ export default function HeaderPage():JSX.Element {
     }
 
     const onClickBasket = () => {
-      router.push('/purchase/basket/회원아이디')
+      router.push('/purchase/basket/leekc')
     }
 
     const onClickCart = () => {
-      router.push('/purchase/cart/회원아이디')
-    }
-
-    const onClickSale = () => {
-      router.push('/purchase/sale')
+      router.push('/purchase/cart/leekc')
     }
 
     const onClickLogout = async () => {
       try{
-        const response = await axios.post('http://localhost:8000/users/logout/', {
-          user_id : localStorage.getItem('id')
-        })
+        const response = await axios.delete(`${BASE_URL}users/logout/`)
 
         if (response.status === 200){
           console.log("로그아웃 성공")
@@ -99,7 +94,6 @@ export default function HeaderPage():JSX.Element {
 
         localStorage.setItem('loginState', 'false')
         setLocalLogin(false)
-        localStorage.removeItem('accesstoken');
         localStorage.removeItem('nickname');
         localStorage.removeItem('usertype');
         localStorage.removeItem('id');
@@ -122,7 +116,6 @@ export default function HeaderPage():JSX.Element {
             onClickRecipe = {onClickRecipe}
             onClickEvent = {onClickEvent}
             onClickPurchaseList = {onClickPurchaseList}
-            onClickSale = {onClickSale}
             onClickBasket = {onClickBasket}
             onClickCart = {onClickCart}
          />

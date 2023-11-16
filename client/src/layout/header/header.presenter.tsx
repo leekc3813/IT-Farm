@@ -6,19 +6,19 @@ import { IHeaderPageUIProps } from './header.types'
 export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
     return(
          <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
-            <div onClick={props.onClickPurchase} className={styles.headerTitle}>
-                <div className={styles.headerTitleContainer}>
+            <div  className={styles.headerTitle}>
+                <div onClick={props.onClickPurchase} className={styles.headerTitleContainer}>
                     <img src='/img/home/logo_2green.png' alt='상품이미지' className={styles.headerTitle} />
                 </div>
                 <div className={styles.infoBox3}>
                     <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
-                    <SearchOutlined className={styles.headerIcon} />
+                    <ShoppingOutlined onClick={props.onClickBasket} className={styles.headerIcon} />
+                    <ShoppingCartOutlined onClick = {props.onClickCart}  className={styles.headerIcon} />
                     {props.localLogin ?
                         <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
                         : 
                         <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     }
-                    <ShoppingOutlined className={styles.headerIcon} />
                     {props.usertype === 'admin' ?
                         <div onClick={props.onClickCenter} className={styles.moveCenter}>센터이동</div>
                         :
@@ -32,9 +32,6 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                 <div className={styles.infoBox2}>
                     <div onClick={props.onClickPurchaseList} className={styles.categorieBox}>
                         상품목록
-                    </div>
-                    <div onClick={props.onClickSale} className={styles.categorieBox}>
-                        Today특가
                     </div>
                     <div onClick={props.onClickRecipe} className={styles.categorieBox}>
                         레시피
@@ -54,7 +51,6 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         </ul>
                     </div>
                 </div>
-                
             </div>
         </div> 
     )

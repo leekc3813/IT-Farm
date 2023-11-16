@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { loginState } from "@/src/store/states";
 import FooterPageUI from "./footer.presenter";
 import axios from "axios";
+import { BASE_URL } from "@/src/config/config";
 
 export default function FooterPage():JSX.Element{
     const router = useRouter()
@@ -26,9 +27,7 @@ export default function FooterPage():JSX.Element{
     }
 
     const onClickLogout = async () => {
-        const response = await axios.post('http://localhost:8000/users/logout/', {
-          user_id : localStorage.getItem('id')
-        })
+        const response = await axios.delete(`${BASE_URL}users/logout/`)
 
         if (response.status === 200){
           console.log("로그아웃 성공")
@@ -36,7 +35,6 @@ export default function FooterPage():JSX.Element{
 
         localStorage.setItem('loginState', 'false')
         setLocalLogin(false)
-        localStorage.removeItem('accesstoken');
         localStorage.removeItem('nickname');
         localStorage.removeItem('usertype');
         localStorage.removeItem('id');
