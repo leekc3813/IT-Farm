@@ -20,40 +20,6 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                 <div className={styles.wrapper}>
                     <div className={styles.contentTitleContainer}>
                         <div className={styles.contentTitleBox}>
-                            <h1 className={styles.contentTitle} >오늘의 특가!</h1>
-                        </div>
-                        <div className={styles.contentTitleSubBox}>
-                            <h3 className={styles.contentTitleSub} >신선한 상품을 합리적인 가격으로 만나보세요!</h3>
-                        </div>
-                    </div>
-                    <div className={styles.contentContainer}>
-                        <div className={styles.contentBox}>
-                            <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src='https://s3.ap-northeast-2.amazonaws.com/gred/vendor/1230/images/107_8657395923.jpg' alt='상품이미지' />
-                            </div>
-                            <div className={styles.contentInfoContainer}>
-                                <div className={styles.contentName}>
-                                    맛있는 홍고추
-                                </div>
-                                <div className={styles.contentBillBox}>
-                                    <div className={styles.billPercent}>
-                                        30%
-                                    </div>
-                                    <div className={styles.originPrice}>
-                                        20000
-                                    </div>
-                                </div>
-                                <div className={styles.dicountPrice}>
-                                        13890원
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.contentBox2}>asd</div>
-                        <div className={styles.contentBox2}>asd</div>
-                        <div className={styles.contentBox2}>asd</div>
-                    </div>
-                    <div className={styles.contentTitleContainer}>
-                        <div className={styles.contentTitleBox}>
                             <h1 className={styles.contentTitle} >BEST! SELLER!</h1>
                         </div>
                         <div className={styles.contentTitleSubBox}>

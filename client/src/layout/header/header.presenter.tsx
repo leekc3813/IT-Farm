@@ -33,9 +33,6 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                     <div onClick={props.onClickPurchaseList} className={styles.categorieBox}>
                         상품목록
                     </div>
-                    <div onClick={props.onClickSale} className={styles.categorieBox}>
-                        Today특가
-                    </div>
                     <div onClick={props.onClickRecipe} className={styles.categorieBox}>
                         레시피
                     </div>

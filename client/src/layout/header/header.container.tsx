@@ -84,10 +84,6 @@ export default function HeaderPage():JSX.Element {
       router.push('/purchase/cart/leekc')
     }
 
-    const onClickSale = () => {
-      router.push('/purchase/sale')
-    }
-
     const onClickLogout = async () => {
       try{
         const response = await axios.delete(`${BASE_URL}users/logout/`)
@@ -120,7 +116,6 @@ export default function HeaderPage():JSX.Element {
             onClickRecipe = {onClickRecipe}
             onClickEvent = {onClickEvent}
             onClickPurchaseList = {onClickPurchaseList}
-            onClickSale = {onClickSale}
             onClickBasket = {onClickBasket}
             onClickCart = {onClickCart}
          />

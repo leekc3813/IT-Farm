@@ -10,7 +10,6 @@ export interface IHeaderPageUIProps {
     onClickRecipe : () => void;
     onClickEvent : () => void;
     onClickPurchaseList : () => void;
-    onClickSale : () => void;
     onClickBasket : () => void;
     onClickCart : () => void;
 }
