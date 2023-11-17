@@ -7,6 +7,8 @@ export interface IListDetailPageUIProps {
     submitReview : () => void;
     onChangeReviewContent : (event:ChangeEvent<HTMLTextAreaElement>) => void;
     onChangeReviewScore : (value:number) => void;
+    editReview : (review_id:number) => void;
+    removeReview : (review_id:number) => void;
     title : string;
     data : FetchData[];
     reviewData : ReviewData[];

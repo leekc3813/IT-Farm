@@ -71,10 +71,10 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                                     {data.score}
                                 </div>
                                 <div className={styles.selectBox}>
-                                    <div className={styles.select}>
+                                    <div onClick={() => props.editReview(data.review_id)} className={styles.select}>
                                         수정
                                     </div>
-                                    <div className={styles.select}>
+                                    <div onClick={() => props.removeReview(data.review_id)} className={styles.select}>
                                         삭제
                                     </div>
                                 </div>

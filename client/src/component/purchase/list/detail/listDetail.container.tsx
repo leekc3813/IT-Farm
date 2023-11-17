@@ -85,6 +85,8 @@ export default function ListDetailPage():JSX.Element{
                 score : reviewScore,
             })
 
+            alert('리뷰 등록완료.')
+
         }catch(error){
             console.log(error)
         }
@@ -99,6 +101,41 @@ export default function ListDetailPage():JSX.Element{
         setReviewScore(value)
     } 
 
+    const editReview = async (review_id:number) => {
+        try {
+            if(!reviewContent) {
+                alert('수정할 항목을 입력해주세요.')
+                return
+            }
+
+            if(reviewScore === 0) {
+                alert('수정할 점수를 입력해주세요.')
+                return
+            }
+
+            const response = await axios.put(`${BASE_URL}order/review/update/`,{
+                review_id : review_id,
+                content : reviewContent,
+                score : reviewScore,
+            })
+
+            alert('리뷰 수정완료.')
+
+        }catch(error){
+            console.log(error)
+        }
+    }
+
+    const removeReview = async (review_id:number) => {
+        try{
+            const response = await axios.delete(`${BASE_URL}order/review/delete/${review_id}/`)
+            
+            alert('리뷰 삭제성공.')
+        }catch(error){
+            console.log(error)
+        }
+    }
+
     return(
         <ListDetailPageUI 
             onClickOrder = {onClickOrder}
@@ -112,6 +149,8 @@ export default function ListDetailPage():JSX.Element{
             reviewScore = {reviewScore}
             onChangeReviewContent = {onChangeReviewContent}
             onChangeReviewScore = {onChangeReviewScore}
+            editReview = {editReview}
+            removeReview = {removeReview}
          />
     )
 }
