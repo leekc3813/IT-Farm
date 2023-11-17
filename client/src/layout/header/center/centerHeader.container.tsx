@@ -73,6 +73,10 @@ export default function CenterHeaderPage():JSX.Element{
     const onClickCenter = () => {
       router.push('/center')
     }
+
+    const onClickData = () => {
+      router.push('/center/data')
+    }
     
 
     return(
@@ -84,6 +88,7 @@ export default function CenterHeaderPage():JSX.Element{
             onClickSell = {onClickSell}
             onClickApproval = {onClickApproval}
             onClickCenter = {onClickCenter}
+            onClickData = {onClickData}
          />
     )
 }

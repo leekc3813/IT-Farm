@@ -6,4 +6,5 @@ export interface IHeaderCenterPageUIProps{
     onClickSell : () => void;
     onClickApproval : () => void;
     onClickCenter : () => void;
+    onClickData : () => void;
 }

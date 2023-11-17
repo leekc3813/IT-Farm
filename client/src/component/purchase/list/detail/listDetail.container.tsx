@@ -20,7 +20,7 @@ export default function ListDetailPage():JSX.Element{
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}product/detail/${decodedString.replace(' ','_')}`)
+            const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
             localStorage.setItem('orderprice','받아온 price')
 
         }catch(error){
@@ -35,8 +35,8 @@ export default function ListDetailPage():JSX.Element{
 
     const onClickBasket = async () => {
         try{
-            const response = await axios.post(`${BASE_URL}`,{
-                product_id : decodedString,
+            const response = await axios.post(`${BASE_URL}cart/create/`,{
+                product_name : decodedString,
                 count : mount,
             })
                 

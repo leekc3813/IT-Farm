@@ -1,0 +1,56 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    margin-top: 160px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 0 50px;
+}
+.title{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.inputContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subtitle {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.input {
+    width: 150px;
+    height: 35px;
+}
+
+.submitButton {
+    width: 150px;
+    height: 55px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submitButton:hover {
+    transform: scale(1.1);
+}
+
+.submitButton:active {
+    transform: scale(1.0);
+}
