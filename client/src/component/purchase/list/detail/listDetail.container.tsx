@@ -16,12 +16,14 @@ export default function ListDetailPage():JSX.Element{
     /* 상품정보 */
     const decodedString = decodeURIComponent(router.asPath.slice(15));
     const [title, setTitle] = useState(decodedString)
+    const [data, setData] = useState([])
 
 
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
-            localStorage.setItem('orderprice','받아온 price')
+            localStorage.setItem('orderprice',response.data.price)
+            setData(response.data)
 
         }catch(error){
             console.log(errorMonitor)
