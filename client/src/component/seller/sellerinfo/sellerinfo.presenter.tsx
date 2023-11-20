@@ -72,40 +72,6 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
                             </div>
                         )
                     })}
-                    <div className={styles.farmBox}>
-                        <div className={styles.farmName}>
-                            62225
-                        </div>
-                        <div className={styles.farmName}>
-                            유기농
-                        </div>
-                        <div className={styles.farmName}>
-                            청고추
-                        </div>
-                        <div className={styles.farmName}>
-                            3kg
-                        </div>
-                        <div className={styles.farmName}>
-                            2023-11-03
-                        </div>
-                    </div>
-                    <div className={styles.farmBox}>
-                        <div className={styles.farmName}>
-                            62213
-                        </div>
-                        <div className={styles.farmName}>
-                            일반
-                        </div>
-                        <div className={styles.farmName}>
-                            건고추
-                        </div>
-                        <div className={styles.farmName}>
-                            5kg
-                        </div>
-                        <div className={styles.farmName}>
-                            2023-11-03
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
