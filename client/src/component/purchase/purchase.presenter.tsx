@@ -15,8 +15,8 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}review_model/pred/`)
-            setPositive(response.data.positive)
-            setNegative(response.data.negative)
+            setPositive(response.data.positive/(response.data.positive+response.data.negative)*100)
+            setNegative(response.data.negative/(response.data.positive+response.data.negative)*100)
 
         }catch(error){
             console.log(error)
