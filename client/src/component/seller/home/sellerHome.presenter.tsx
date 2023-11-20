@@ -105,20 +105,20 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                             <span className={styles.recipeTitle}>스마트팜 운영 노하우를 알려드려요!</span>
                             <div className={styles.recipeContentContainer}>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/001.png' alt='노하우이미지' />
-                                    <span className={styles.recipeContent}>내부 CO2(ppm)</span>
+                                    <img className={styles.recipeImg} src='https://www.shinsegaegroupnewsroom.com/wp-content/uploads/2021/04/cropped-Go%ED%98%84%EC%9E%A5_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8C%9C_main1.png' alt='노하우이미지' />
+                                    <span className={styles.recipeContent}>온도,습도 조절방법을 알려드려요!</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/002.png' alt='노하우이미지' />
-                                    <span className={styles.recipeContent}>일사량-외부(W/m-2)</span>
+                                    <img className={styles.recipeImg} src='https://www.shinsegaegroupnewsroom.com/wp-content/uploads/2021/04/cropped-Go%ED%98%84%EC%9E%A5_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8C%9C_main1.png' alt='노하우이미지' />
+                                    <span className={styles.recipeContent}>온도,습도 조절방법을 알려드려요!</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/003.png' alt='노하우이미지' />
-                                    <span className={styles.recipeContent}>내부 습도(%)</span>
+                                    <img className={styles.recipeImg} src='https://www.shinsegaegroupnewsroom.com/wp-content/uploads/2021/04/cropped-Go%ED%98%84%EC%9E%A5_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8C%9C_main1.png' alt='노하우이미지' />
+                                    <span className={styles.recipeContent}>온도,습도 조절방법을 알려드려요!</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/004.png' alt='노하우이미지' />
-                                    <span className={styles.recipeContent}>이슬점 온도</span>
+                                    <img className={styles.recipeImg} src='https://www.shinsegaegroupnewsroom.com/wp-content/uploads/2021/04/cropped-Go%ED%98%84%EC%9E%A5_%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8C%9C_main1.png' alt='노하우이미지' />
+                                    <span className={styles.recipeContent}>온도,습도 조절방법을 알려드려요!</span>
                                 </div>
                             </div>
                             <div className={styles.plus}>
@@ -134,7 +134,7 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                         <div className={styles.noticeContainer}>
                             <div className={styles.noticeBox}>
                                 <div className={styles.noticeContent}>
-                                    IT-Farm 사장님 페이지가 개설되었습니다!
+                                    더 좋은 스마트팜을 만들기위한 기술
                                 </div>
                                 <div className={styles.noticeDate}>
                                     2023-10-30
@@ -142,26 +142,26 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                             </div>
                             <div className={styles.noticeBox}>
                                 <div className={styles.noticeContent}>
-                                    ※ 농장정보 입력 주의사항 ※
+                                    더 좋은 스마트팜을 만들기위한 기술
                                 </div>
                                 <div className={styles.noticeDate}>
-                                    2023-11-10
+                                    2023-10-30
                                 </div>
                             </div>
                             <div className={styles.noticeBox}>
                                 <div className={styles.noticeContent}>
-                                    세금계산서 발행 관련 공지
+                                    더 좋은 스마트팜을 만들기위한 기술
                                 </div>
                                 <div className={styles.noticeDate}>
-                                    2023-11-10
+                                    2023-10-30
                                 </div>
                             </div>
                             <div className={styles.noticeBox}>
                                 <div className={styles.noticeContent}>
-                                    스마트팜 운영 노하우 게시판이 개설되었습니다!!
+                                    더 좋은 스마트팜을 만들기위한 기술
                                 </div>
                                 <div className={styles.noticeDate}>
-                                    2023-11-28
+                                    2023-10-30
                                 </div>
                             </div>
                         </div>
