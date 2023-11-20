@@ -74,9 +74,9 @@ export default function CenterPageUI(props: ICenterPageUIProps):JSX.Element{
                         <div className={styles.farmInfo}>농장주소</div>
                         <div className={styles.farmInfo}>농경방법</div>
                     </div>
-                        {props.enrollData?.map((data) => {
+                        {props.enrollData?.map((data,index) => {
                             return (
-                                <div className={styles.farmInfoBox}>
+                                <div key={index} className={styles.farmInfoBox}>
                                     <div className={styles.farmContent}>
                                         {data.name}
                                     </div>
