@@ -7,11 +7,14 @@ import { BASE_URL } from "@/src/config/config";
 export default function SellerinfoPage():JSX.Element {
     const router = useRouter()
     const [farmsData, setFarmsData] = useState([])
+    const [productData, setProductData] = useState([])
 
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}farms/read/`)
+            const response2 = await axios.get(`${BASE_URL}farm_product/read/`)
             setFarmsData(response.data)
+            setProductData(response2.data)
         }catch(error){
             console.log('error', error)
         }
@@ -26,6 +29,7 @@ export default function SellerinfoPage():JSX.Element {
     return(
         <SellerinfoPageUI
             farmsData = {farmsData}
+            productData = {productData}
          />
     )
 }

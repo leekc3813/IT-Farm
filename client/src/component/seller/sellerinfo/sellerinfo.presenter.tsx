@@ -36,7 +36,7 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
                 <div className={styles.farmContainer}>
                     <div className={styles.farminfoBox}>
                         <div className={styles.farminfoName}>
-                            우편번호
+                            농장이름
                         </div>
                         <div className={styles.farminfoContent}>
                             농사기법
@@ -51,6 +51,27 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
                             등록일자
                         </div>     
                     </div>
+                    {props.productData?.map((data,index) => {
+                        return(
+                            <div key={index} className={styles.farmBox}>
+                                <div className={styles.farmName}>
+                                     {data.farm_name}
+                                </div>
+                                <div className={styles.farmName}>
+                                    {data.eco}
+                                </div>
+                                <div className={styles.farmName}>
+                                    {data.kind}
+                                </div>
+                                <div className={styles.farmName}>
+                                    {data.crop}kg
+                                </div>
+                                <div className={styles.farmName}>
+                                    {data.updated_at.slice(0,10)}
+                                </div>
+                            </div>
+                        )
+                    })}
                     <div className={styles.farmBox}>
                         <div className={styles.farmName}>
                             62225

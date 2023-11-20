@@ -1,5 +1,6 @@
 export interface ISellerinfoPageUIProps {
-    farmsData : Farms[]
+    farmsData : Farms[];
+    productData : Products[];
 }
 
 interface Farms {
@@ -15,4 +16,18 @@ interface Farms {
     quantity : number,
     updated_at : string,
     user_id : number
+}
+
+interface Products {
+    id : number;
+    farm_id : number;
+    eco : string;
+    kind : string;
+    crop : string;
+    center : string;
+    state : string;
+    created_at : string;
+    updated_at : string;
+    farm_name : string;
+    farm_address : string;
 }
