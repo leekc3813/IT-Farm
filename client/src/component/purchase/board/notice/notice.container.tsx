@@ -3,10 +3,15 @@ import NoticePageUI from "./notice.presenter";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { BASE_URL } from "@/src/config/config";
+import { userState } from "@/src/store/states";
+import { useRecoilState } from "recoil";
 
 export default function NoticePage():JSX.Element {
-    const [isAdmin, setIsAdmin] = useState('admin')
+    
     const [data, setData] = useState([])
+
+    const [localUser, setLocalUser] = useRecoilState(userState)
+    const [isAdmin, setIsAdmin] = useState(localUser)
 
     const router = useRouter()
 
@@ -15,7 +20,7 @@ export default function NoticePage():JSX.Element {
             const response = await axios.get(`${BASE_URL}notice/read/?notice_type=1`)
             if (response.status === 200){
                 setData(response.data)
-                
+                setIsAdmin(localUser)
             }else{
                 console.log('server 에러')
             }
