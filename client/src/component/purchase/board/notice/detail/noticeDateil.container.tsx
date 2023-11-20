@@ -6,7 +6,7 @@ export default function NoticeDetailPage(props:INoticeDetailPageProps):JSX.Eleme
     const router = useRouter()
 
     const onClickDetail = () => {
-        router.push(`/purchase/board/notice/${props.data.notice_id}`)
+        router.push(`/purchase/board/notice/detail/${props.data.notice_id}`)
     }
 
     return (

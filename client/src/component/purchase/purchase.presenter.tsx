@@ -1,9 +1,65 @@
 import styles from './purchase.module.css'
 import { Carousel } from 'antd'
 import { IPurchasePageUIProps } from './purchase.types'
-
+import { Chart } from 'chart.js/auto';
+import { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
+import { BASE_URL } from '@/src/config/config';
 
 export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
+    const canvasEl = useRef(null);
+
+    const [positive, setPositive] = useState(70)
+    const [negative, setNegative] = useState(30)
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}review_model/pred/`)
+            setPositive(response.data.positive)
+            setNegative(response.data.negative)
+
+        }catch(error){
+            console.log(error)
+        }
+    }
+    useEffect(() => {
+        fetchData();
+    },[])
+
+    useEffect(() => {
+      if (canvasEl.current !== null) {
+        const ctx = canvasEl.current;
+
+        const labels = ['긍정', '부정'];
+
+        const data = {
+          labels: labels,
+          datasets: [
+            {
+              label: 'doughnut Chart',
+              data: [positive, negative],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              backgroundColor : [
+                'rgb(0, 0, 255)', 
+                'rgb(255, 0, 0)',
+              ],
+              tension: 0.1,
+            },
+          ],
+        };
+
+        const myLineChart = new Chart(ctx, {
+          type: 'doughnut',
+          data: data,
+        });
+
+        return function cleanup() {
+          myLineChart.destroy();
+        };
+      }
+    });
+
     return(
         <div>
             <div className={styles.bannerVisible}>
@@ -93,6 +149,19 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                     </div>
                     <div className={styles.eventContainer}>
                         <img className={styles.eventImg} src='https://file.cafe24cos.com/banner-admin-live/upload/ecudemo276582/45eb6083-3982-4ce1-d4b0-043c998d4630.png' alt='이벤트사진' /> 
+                    </div>
+                    <div className={styles.contentTitleContainer}>
+                        <div className={styles.contentTitleBox}>
+                            <h1 className={styles.contentTitle} >SATISFACTION</h1>
+                        </div>
+                        <div className={styles.contentTitleSubBox}>
+                            <h3 className={styles.contentTitleSub}>소중한 회원님들의 만족도 입니다!</h3>
+                        </div>
+                        <div className={styles.chartContainer}>
+                            <div className={styles.chartBox} >
+                                <canvas ref={canvasEl} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
