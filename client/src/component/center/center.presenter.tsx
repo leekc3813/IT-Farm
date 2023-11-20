@@ -30,10 +30,10 @@ export default function CenterPageUI(props: ICenterPageUIProps):JSX.Element{
                         }
                     })}
                 </div>
-                <div className={styles.title}>청고추</div>
+                <div className={styles.title}>청양고추</div>
                 <div className={styles.contentBox}>
                     {props.sum?.map((data,index) => {
-                            if( data.kind === '청고추'){
+                            if( data.kind === '청양고추'){
                                 return (
                                     <div className={styles.contentInner} key={index}>
                                         <div className={styles.subTitle}>{data.eco}</div>

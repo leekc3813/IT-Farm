@@ -15,7 +15,7 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
                     <div onClick={props.onClickApproval} className={styles.categorieBox}>
                         물품승인
                     </div>
-                    <div className={styles.categorieBox}>
+                    <div onClick={props.onClickData} className={styles.categorieBox}>
                         데이터
                     </div>
                 </div>

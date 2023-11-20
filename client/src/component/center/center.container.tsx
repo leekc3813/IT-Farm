@@ -52,7 +52,7 @@ export default function CenterPage():JSX.Element{
 
     const fetchEnroll = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}farms/read/?center=${placement}`)
+        const response = await axios.get(`${BASE_URL}farms/read/?center=${placement}/`)
         setEnrollData(response.data)
 
         const rr = response.data

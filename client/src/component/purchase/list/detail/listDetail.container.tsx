@@ -16,12 +16,14 @@ export default function ListDetailPage():JSX.Element{
     /* 상품정보 */
     const decodedString = decodeURIComponent(router.asPath.slice(15));
     const [title, setTitle] = useState(decodedString)
+    const [data, setData] = useState([])
 
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}product/detail/${decodedString.replace(' ','_')}`)
-            localStorage.setItem('orderprice','받아온 price')
+            const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
+            localStorage.setItem('orderprice',response.data.price)
+            setData(response.data)
 
         }catch(error){
             console.log(errorMonitor)
@@ -35,8 +37,8 @@ export default function ListDetailPage():JSX.Element{
 
     const onClickBasket = async () => {
         try{
-            const response = await axios.post(`${BASE_URL}`,{
-                product_id : decodedString,
+            const response = await axios.post(`${BASE_URL}cart/create/`,{
+                product_name : decodedString,
                 count : mount,
             })
                 
