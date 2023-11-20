@@ -34,7 +34,7 @@ export default function DataPageUI(props: IDataPageUIProps):JSX.Element{
                         <input onChange={(event) => props.onChangeDetailData('radiation',event.target.value)} className={styles.input} type='text' />
                     </div>
                 </div>
-                <button className={styles.submitButton} >생산량 예측하기</button>
+                <button onClick={props.onClickSubmit} className={styles.submitButton} >생산량 예측하기</button>
                 <p className={styles.title}>
                     예측 생산량
                 </p>

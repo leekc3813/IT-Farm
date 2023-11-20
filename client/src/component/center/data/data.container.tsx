@@ -40,6 +40,7 @@ export default function DataPage():JSX.Element {
         formData = {formData}
         onChangeDetailData = {onChangeDetailData}
         result = {result}
+        onClickSubmit = {onClickSubmit}
         />
     )
 }
