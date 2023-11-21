@@ -54,3 +54,7 @@
 .submitButton:active {
     transform: scale(1.0);
 }
+
+.chartBox {
+    width: 50%;
+}
