@@ -52,6 +52,7 @@ export default function RegisterPage(): JSX.Element {
             localStorage.setItem('loginstate', 'true')
             localStorage.setItem('id', response.data.user.id)
             localStorage.setItem('usertype',response.data.user.user_type)
+            localStorage.setItem('userstate',response.data.user.user_type)
             setLocalUser(response.data.user.user_type)
             console.log(response)
             console.log(document.cookie)

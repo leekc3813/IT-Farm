@@ -1,0 +1,28 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    margin-top: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 65%;
+}
+
+.titleForm{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.dateForm {
+    font-size: 18px;
+    color: gray;
+}
+
+.contentForm{
+    margin-top: 30px;
+    font-size: 20px;
+}
