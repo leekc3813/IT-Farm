@@ -41,12 +41,12 @@
     line-height:30px;
 }
 .headCol1{
-    width: 5%;
+    width: 10%;
     height: 60px;
     padding:15px 10px 16px;
 }
 .headCol2{
-    width: 75%;
+    width: 65%;
     height: 60px;
     padding:15px 10px 16px;
 }
@@ -56,7 +56,7 @@
     padding:15px 10px 16px;
 }
 .headCol4{
-    width: 10%;
+    width: 15%;
     height: 60px;
     padding:15px 10px 16px;
 }
@@ -99,7 +99,7 @@
     flex-direction: row;
     justify-content: space-between;
     height: 50px;
-    margin-top: 20px;
+    margin-top: 30px;
     align-items: flex-end;
     text-align: center;
 }

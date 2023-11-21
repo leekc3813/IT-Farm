@@ -76,12 +76,12 @@
 }
 
 .bodyCol1{
-    width: 5%;
+    width: 10%;
     padding:15px 10px 16px;
     line-height:50px;
 }
 .bodyCol2{
-    width: 75%;
+    width: 65%;
     padding:15px 10px 16px;
     text-align: left;
     line-height:50px;
@@ -92,7 +92,7 @@
     line-height:50px;
 }
 .bodyCol4{
-    width: 10%;
+    width: 15%;
     padding:15px 10px 16px;
     line-height:50px;
 }

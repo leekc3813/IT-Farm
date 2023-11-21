@@ -20,7 +20,7 @@ export default function WritePageUI(props:IWritePageUIProps):JSX.Element{
                             </div>
                             <div className={styles.titleCheckName}>
                                 <input type="checkbox" className={styles.titleCheckbox} />
-                                게시안함
+                                노하우
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ export default function WritePageUI(props:IWritePageUIProps):JSX.Element{
                     </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <button className={styles.buttonStyle1}>취소</button>
+                    <button onClick={props.handleCancleClick} className={styles.buttonStyle1}>취소</button>
                     <button onClick={props.handleWriteClick} className={styles.buttonStyle2}>등록</button>
                 </div>
             </div>

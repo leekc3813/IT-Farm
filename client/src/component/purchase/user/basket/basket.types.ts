@@ -7,7 +7,7 @@ interface DataSet {
     cart_id : string;
     user_id : string;
     count : number;
-    product_id : string;
+    product_name : string;
     created_at : string;
     updated_at : string
 }

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { RadioChangeEvent } from 'antd';
 import axios from "axios";
 import {BASE_URL} from '../../config/config'
+import { useRouter } from "next/router";
 
 declare global {
     interface Window {
@@ -29,6 +30,8 @@ declare global {
 export default function CenterPage():JSX.Element{
     /* 초기 화면크기 (대한민국 남한크기) */
     const [mapLevel, setMapLevel] = useState(13)
+    
+    const router = useRouter()
 
     /* 초기 화면좌표 (대한민국 중앙) */
     const [mapCenterX, setCenterX] = useState(35.9078)
@@ -109,18 +112,26 @@ export default function CenterPage():JSX.Element{
     
       kakaoMapScript.addEventListener('load', onLoadKakaoAPI)
 
-      }catch (error){
-        console.log('error', error)
-      }
+      }catch(error:any){
+        console.log(error)
+        if (error.response.status === 401){
+            alert('로그인 x')
+            router.push('/register')
+        }
+    }  
     }
     
     const fetchSum = async () => {
       try {
         const response = await axios.get(`${BASE_URL}farm_product/center/${placement}/`)
         setSum(response.data)
-      }catch(error){
-        console.log('error', error)
-      }
+      }catch(error:any){
+        console.log(error)
+        if (error.response.status === 401){
+            alert('로그인 x')
+            router.push('/register')
+        }
+    }  
     }
 
     useEffect(() => {
