@@ -68,6 +68,12 @@
     }
 }
 
+.greetBoxs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
 .iconContainer{
     display: flex;
     width: 100%;

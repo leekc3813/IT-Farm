@@ -19,88 +19,27 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
             <div className={styles.wrapper}>
                 <div className={styles.main}>
                     <div className={styles.container1}>
-                        <div className={styles.iconContainer}>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <ClockCircleOutlined className={styles.iconImg} />
+                        <div className={styles.greetBoxs}>
+                            <div className={styles.greetContainer}>
+                                <div className={styles.greetInfoBox}>
+                                    IT-Farm 사장님 반갑습니다<br />
+                                    농장정보를 입력해주세요 :&#41;
                                 </div>
-                                <div className={styles.iconInfoBox}>
-                                    운영시간
-                                </div>
+                                <button onClick={props.onClickRegister} className={styles.greetButton}>
+                                    농장정보 입력하기
+                                </button>
                             </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <ShoppingCartOutlined  className={styles.iconImg} />
+                            <div className={styles.greetContainer}>
+                                <div className={styles.greetInfoBox}>
+                                    수확을 하셨나요?<br />
+                                    수확량을 등록해주세요 :&#41;
                                 </div>
-                                <div className={styles.iconInfoBox}>
-                                    품목관리
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <UserOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    정보수정
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <WalletOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    결제관리
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <UserOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    정보수정
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <MailOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    메일입력
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <WifiOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    원격관리
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <SyncOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    효율적유통
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <HeartOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    고객사랑
-                                </div>
-                            </div>
-                            <div className={styles.iconBox}>
-                                <div className={styles.iconImgBox}>
-                                    <CommentOutlined  className={styles.iconImg} />
-                                </div>
-                                <div className={styles.iconInfoBox}>
-                                    Q&A
-                                </div>
+                                <button onClick={props.onClickHarvest} className={styles.greetButton}>
+                                    수확량 등록하기
+                                </button>
                             </div>
                         </div>
+                        
                         <div className={styles.recipeContainer}>
                             <span className={styles.recipeTitle}>스마트팜 운영 노하우를 알려드려요!</span>
                             <div className={styles.recipeContentContainer}>
@@ -167,24 +106,6 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                         </div>
                     </div>
                     <div className={styles.container2}>
-                        <div className={styles.greetContainer}>
-                            <div className={styles.greetInfoBox}>
-                                IT-Farm 사장님 반갑습니다<br />
-                                농장정보를 입력해주세요 :&#41;
-                            </div>
-                            <button onClick={props.onClickRegister} className={styles.greetButton}>
-                                농장정보 입력하기
-                            </button>
-                        </div>
-                        <div className={styles.greetContainer}>
-                            <div className={styles.greetInfoBox}>
-                                수확을 하셨나요?<br />
-                                수확량을 등록해주세요 :&#41;
-                            </div>
-                            <button onClick={props.onClickHarvest} className={styles.greetButton}>
-                                수확량 등록하기
-                            </button>
-                        </div>
                         <div className={styles.greetContainer2}>
                             <div className={styles.greet2Box}>
                                 <ReadOutlined className={styles.greet2Icon} />
