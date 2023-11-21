@@ -36,13 +36,13 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
           labels: labels,
           datasets: [
             {
-              label: 'doughnut Chart',
+              label: 'Line Chart',
               data: [positive, negative],
               fill: false,
               borderColor: 'rgb(75, 192, 192)',
               backgroundColor : [
-                'rgb(0, 0, 255)', 
-                'rgb(255, 0, 0)',
+                'rgb(227, 106, 131)',
+                'rgb(111, 162, 247)',
               ],
               tension: 0.1,
             },
