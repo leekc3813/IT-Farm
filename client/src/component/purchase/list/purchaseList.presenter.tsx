@@ -33,13 +33,13 @@ export default function PurchaseListPageUI():JSX.Element {
                             </div>
                         </div>
                     </Link>
-                    <Link className={styles.link} href={'/purchase/list/청홍고추'}>
+                    <Link className={styles.link} href={'/purchase/list/일반 홍고추'}>
                         <div className={styles.contentBox}>
                              <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/청홍고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
-                                <p className={styles.contentsTitle}>홍고추</p>
+                                <p className={styles.contentsTitle}>일반 홍고추</p>
                                 <p className={styles.contentsWeight}>1kg</p>
                                 <p className={styles.contentsPrice}>5,500원</p>
                             </div>
@@ -50,7 +50,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     청양고추
                 </div>
                 <div className={styles.contentContainer}>
-                    <Link className={styles.link} href={'/purchase/list/유기농 청고추'}>
+                    <Link className={styles.link} href={'/purchase/list/유기농 청양고추'}>
                         <div className={styles.contentBox}>
                             <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/청고추.png' alt='상품이미지' />
@@ -62,7 +62,7 @@ export default function PurchaseListPageUI():JSX.Element {
                             </div>
                         </div>
                     </Link>
-                    <Link className={styles.link} href={'/purchase/list/무농약 청고추'}>
+                    <Link className={styles.link} href={'/purchase/list/무농약 청양고추'}>
                         <div className={styles.contentBox}>
                              <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/국내산_풋고추.png' alt='상품이미지' />
@@ -74,13 +74,13 @@ export default function PurchaseListPageUI():JSX.Element {
                             </div>
                         </div>
                     </Link>
-                    <Link className={styles.link} href={'/purchase/list/청고추'}>
+                    <Link className={styles.link} href={'/purchase/list/일반 청양고추'}>
                         <div className={styles.contentBox}>
                              <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/친환경_풋고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
-                                <p className={styles.contentsTitle}>청양고추</p>
+                                <p className={styles.contentsTitle}>일반 청양고추</p>
                                 <p className={styles.contentsWeight}>1kg</p>
                                 <p className={styles.contentsPrice}>8,000원</p>
                             </div>
@@ -132,13 +132,13 @@ export default function PurchaseListPageUI():JSX.Element {
                     고춧가루
                 </div>
                 <div className={styles.contentContainer}>
-                    <Link className={styles.link} href={'/purchase/list/국산 고추가루'}>
+                    <Link className={styles.link} href={'/purchase/list/국산 고춧가루'}>
                         <div className={styles.contentBox}>
                             <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/고춧가루.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
-                                <p className={styles.contentsTitle}>국산 고추가루</p>
+                                <p className={styles.contentsTitle}>국산 고춧가루</p>
                                 <p className={styles.contentsWeight}>1kg</p>
                                 <p className={styles.contentsPrice}>12,000원</p>
                             </div>

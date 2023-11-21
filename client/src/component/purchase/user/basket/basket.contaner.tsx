@@ -28,12 +28,11 @@ export default function UserBasketPage(): JSX.Element {
 
     const onClickCancle = async (cart_id: string) => {
         try {
-            const response = await axios.delete(`${BASE_URL}cart/delete/`)
-
-            if (response.status === 200) {
-                setData(response.data)
+            const response = await axios.delete(`${BASE_URL}cart/delete/${cart_id}/`)
+            if (response.status===200){
+                alert('삭제 성공')
+                window.location.reload();
             }
-
         } catch (error: any) {
             console.log(error)
             if (error.response.status === 401) {

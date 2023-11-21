@@ -29,7 +29,7 @@ export default function NoticePageUI(props:INoticePageUIProps):JSX.Element {
                         })}
                         
                     <div className={styles.searchContainer}>
-                        {props.isAdmin === 'admin' ?
+                        {props.isAdmin ?
                             <button onClick={props.onClickWrite} className={styles.writingButton}>글쓰기</button>
                             :
                             ''

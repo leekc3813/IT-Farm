@@ -11,7 +11,7 @@ export default function NoticePage():JSX.Element {
     const [data, setData] = useState([])
 
     const [localUser, setLocalUser] = useRecoilState(userState)
-    const [isAdmin, setIsAdmin] = useState(localUser)
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const router = useRouter()
 
@@ -20,7 +20,10 @@ export default function NoticePage():JSX.Element {
             const response = await axios.get(`${BASE_URL}notice/read/?notice_type=1`)
             if (response.status === 200){
                 setData(response.data)
-                setIsAdmin(localUser)
+                
+                if (localStorage.getItem('usertype') === 'admin'){
+                    setIsAdmin(true)
+                }
             }else{
                 console.log('server 에러')
             }

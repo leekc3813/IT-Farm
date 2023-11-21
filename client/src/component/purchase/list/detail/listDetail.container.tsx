@@ -28,6 +28,7 @@ export default function ListDetailPage(): JSX.Element {
             setData(response.data)
             const response2 = await axios.get(`${BASE_URL}order/review/read/${decodedString}/`)
             setReviewData(response2.data)
+            console.log(response.data)
 
         } catch (error: any) {
             console.log(error)
@@ -89,18 +90,22 @@ export default function ListDetailPage(): JSX.Element {
             }
 
             const response = await axios.post(`${BASE_URL}order/review/create/`, {
-                produt_name: decodedString,
+                product_name: decodedString,
                 content: reviewContent,
                 score: reviewScore,
             })
 
             alert('리뷰 등록완료.')
+            window.location.reload();
 
         } catch (error: any) {
             console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
+            // }else if (error.response.status === 400){
+            } else{
+                alert(error.response.data.message)
             }
         }
 
@@ -133,6 +138,7 @@ export default function ListDetailPage(): JSX.Element {
             })
 
             alert('리뷰 수정완료.')
+            window.location.reload();
 
         } catch (error: any) {
             console.log(error)
@@ -148,6 +154,7 @@ export default function ListDetailPage(): JSX.Element {
             const response = await axios.delete(`${BASE_URL}order/review/delete/${review_id}/`)
 
             alert('리뷰 삭제성공.')
+            window.location.reload();
         } catch (error: any) {
             console.log(error)
         }

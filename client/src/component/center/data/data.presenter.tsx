@@ -49,19 +49,19 @@ export default function DataPageUI(props: IDataPageUIProps):JSX.Element{
                 <div className={styles.inputContainer}>
                     <div className={styles.inputBox}>
                         <p className={styles.subtitle}>
-                            평균습도(%)
+                            평균습도
                         </p>
                         <input onChange={(event) => props.onChangeDetailData('humidity',event.target.value)} className={styles.input} type='text' />
                     </div>
                     <div className={styles.inputBox}>
                         <p className={styles.subtitle}>
-                            평균기온(%)
+                            평균기온
                         </p>
                         <input onChange={(event) => props.onChangeDetailData('temp',event.target.value)} className={styles.input} type='text' />
                     </div>
                     <div className={styles.inputBox}>
                         <p className={styles.subtitle}>
-                            평균 지중온도(%)
+                            평균 지중온도
                         </p>
                         <input onChange={(event) => props.onChangeDetailData('underground',event.target.value)} className={styles.input} type='text' />
                     </div>

@@ -71,15 +71,15 @@ export default function PurchaseOrderPage(): JSX.Element {
             try {
                 /*isEdit가 false == 등록 */
                 const response = await axios.post(`${BASE_URL}order/create/`, {
-                    product: productTitle,
-                    count: localStorage.getItem('orderMount'),
+                    product_name: productTitle,
+                    count: mount,
                     mail_number: formData.q1,
                     address: formData.q3,
                     address_detail: formData.detailadress
                 })
                 if (response.status == 201) {
                     alert("등록성공")
-                    router.push('/seller')
+                    router.push('purchase/list')
                 }
             } catch (error: any) {
                 console.log(error)

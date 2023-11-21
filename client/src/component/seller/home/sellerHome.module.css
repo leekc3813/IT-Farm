@@ -305,13 +305,13 @@
     flex-direction: column;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    height: 240px;
-    padding: 30px 30px;
+    height: 290px;
+    padding: 35px 30px;
 }
 
 .greetInfoBox {
     height: 50%;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .greetButton{

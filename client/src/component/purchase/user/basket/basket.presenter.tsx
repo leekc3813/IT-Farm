@@ -22,11 +22,11 @@ export default function UserBasketPageUI(props: IUserBasketPageUIProps): JSX.Ele
                                 <div className={styles.listInfo}>{data.count} kg</div>
                                 <div className={styles.selectBox}>
                                     <Link className={styles.link} href={`/purchase/list/${data.product_name}/order`}>
-                                        <span className={styles.select}>
+                                        <span className={`${styles.select} ${styles.blueColor}`}>
                                             구매
                                         </span>
                                     </Link>
-                                    <span onClick={() => props.onClickCancle(data.cart_id)} className={styles.select}>
+                                    <span onClick={() => props.onClickCancle(data.cart_id)} className={`${styles.select} ${styles.redColor}`}>
                                         취소
                                     </span>
                                 </div>
