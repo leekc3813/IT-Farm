@@ -35,6 +35,7 @@
     cursor: pointer;
 }
 
+
 .headerInfoContainer {
     display: flex;
     flex-direction: row-reverse;

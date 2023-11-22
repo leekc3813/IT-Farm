@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 500;
+  font-style: 500;
 }
 
 
@@ -21,7 +21,7 @@
 
 .h1 {
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 2px;
   font-family: 'Cafe24Ssurround', sans-serif;
 }
 
@@ -34,7 +34,7 @@
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  margin: 25px 0 25px;
 }
 
 .span {
@@ -49,9 +49,9 @@
 }
 
 .button {
-  border-radius: 20px;
-  border: 1px solid #36e2ac;
-  background-color: #36e2ac;
+  border-radius: 80px;
+  border: 1px solid #00662E;
+  background-color: #00662E;
   color: #FFFFFF;
   font-size: 20px;
   font-weight: bold;
@@ -60,7 +60,7 @@
   text-transform: uppercase;
   transition: transform 80ms ease-in;
   cursor: pointer;
-  
+  margin-top: 10px;
 }
 
 .button:active ,
@@ -74,10 +74,10 @@
 }
 
 .buttonWhite {
-    border-radius: 20px;
+    border-radius: 80px;
     border: 1px solid #ffffff;
     background-color: #ffffff;
-    color: #36e2ac;
+    color: #00662E;
     font-size: 20px;
     font-weight: bold;
     padding: 12px 45px;
@@ -85,6 +85,7 @@
     text-transform: uppercase;
     transition: transform 80ms ease-in;
     cursor: pointer;
+    margin-top: 10px;
   }
   
 
@@ -106,14 +107,14 @@
 }
 
 .title{
-    color: #36e2ac;
+    color: #00662E;
     font-family: 'Cafe24Ssurround', sans-serif;
 }
 
 .titleSub {
     cursor: pointer;
     margin-top: 15px;
-    color: #36e2ac;
+    color: #00662E;
     text-decoration: underline;
     font-size: 15px;
 }
@@ -243,9 +244,9 @@
 }
 
 .overlay {
-  background: #36e2ac;
-  background: -webkit-linear-gradient(to right, #FFFFFF, #36e2ac);
-  background: linear-gradient(to right, #FFFFFF, #36e2ac);
+  background: #00662E;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #00662E);
+  /* background: linear-gradient(to right, #FFFFFF, #00662E); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -270,11 +271,12 @@
   flex-direction: column;
   padding: 0 40px;
   text-align: center;
-  top: 0;
+  margin-top: 23px;
   height: 100%;
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+  gap:40px;
 }
 
 .overlayLeft {

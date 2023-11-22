@@ -1,6 +1,6 @@
 .body {
     width: 100%;
-    height: 120px;
+    height: 170px;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -12,6 +12,8 @@
     transition: opacity 0.5s, visibility 0.5s;
     opacity: 1;
     visibility: visible;
+    background-color: #00662E;
+    color: white;
 }
 
 @media (max-width:480px){
@@ -29,16 +31,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    height: 60px;
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
+    margin: 30px 0px;
 }
-
 .headerInfoContainer {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     height: 50px;
+    background-color: #00662E;
 }
 
 @media (max-width:480px){
@@ -64,9 +67,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Pretendard-Regular';
     font-size: 14px;
     color: #3A3A3A;
     cursor: pointer;
+    gap: 20px;
 }
 
 .categorieBox {
@@ -76,6 +81,7 @@
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    color: white;
     position: relative; /* 하위 메뉴의 위치 기준점 */
 }
 
@@ -89,6 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Pretendard-Regular';
 }
 
 .categorieBox a {
@@ -110,6 +117,7 @@
     font-size: 22px;
     margin-right: 20px;
     cursor: pointer;
+    font-family: 'Pretendard-Regular';
 }
 
 @media (max-width:480px){
@@ -123,6 +131,18 @@
     height: 40px;
     cursor: pointer;
     margin-right: 15px;
+    font-family: 'Pretendard-Regular';
+    border: 0;
 }
-
-
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: 500;
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -17,9 +17,9 @@ export default function ApprovalPageUI(props: IApprovalPageUIProps):JSX.Element{
                 </Radio.Group>
                 <div className={styles.detailContainer}>
                     <div className={styles.infoBox}>
-                        <div className={styles.infoContent}>농장이름</div>
-                        <div className={styles.infoContent}>농장주소</div>
-                        <div className={styles.infoContent}>농업방식</div>
+                        <div className={styles.infoContent}>농장명</div>
+                        <div className={styles.infoContent}>주소</div>
+                        <div className={styles.infoContent}>농업 방식</div>
                         <div className={styles.infoContent}>종류</div>
                         <div className={styles.infoContent}>비고</div>
                     </div>
