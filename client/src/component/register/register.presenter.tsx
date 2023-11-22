@@ -1,13 +1,13 @@
 import styles from './register.module.css'
 import { IRegisterPageUIProps } from './register.types'
-import {ArrowLeftOutlined} from '@ant-design/icons'
+import {HomeOutlined} from '@ant-design/icons'
 
 export default function RegisterPageUI (props:IRegisterPageUIProps):JSX.Element {
     return(
         <div className={styles.wrapper}>
             <div className={styles.container}>
               <div className={`${styles.formContainer} ${styles.signInContainer}`}>
-                <ArrowLeftOutlined onClick={props.onClickMoveHome} className={styles.backIcon} />
+                <HomeOutlined onClick={props.onClickMoveHome} className={styles.backIcon} />
                 <div className={styles.form} >
                   {props.isLogin ? <h1 className={styles.title}>로그인</h1>:<h1 className={styles.title}>회원가입</h1>}
                   {props.isLogin ? <h1 onClick={props.onClickLoginState} className={styles.titleSub}>회원가입 하러가기</h1>:<h1 onClick={props.onClickLoginState} className={styles.titleSub}>로그인 하러가기</h1>}
