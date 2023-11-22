@@ -10,14 +10,14 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
         <div className={styles.body}>
             <div className={styles.wrapper}>
                 <div className={styles.leftContainer}>
-                    <img src={props.data[0]?.photo} alt='상품이미지' />
+                    <img src={props.data?.photo} alt='상품이미지' />
                 </div>
                 <div className={styles.rightContainer}>
                     <div className={styles.contentTitle}>{props.title}</div>
                     <div className={styles.subText}>원산지: 국내산</div>
-                    <div className={styles.subText}>{props.data[0]?.price}원 1kg</div>
+                    <div className={styles.subText}>{props.data?.price}원 1kg</div>
                     <div className={styles.subText}>주문수량</div>
-                    <input onChange={props.onChangeMount} className={styles.quantityInput} type='number' placeholder='단위 1kg/500g' min="1" max="10" />
+                    <input onChange={props.onChangeMount} className={styles.quantityInput} type='number' placeholder='단위 1kg' min="1" max="10" />
                     <button onClick={props.onClickBasket} className={styles.quantityButton}>장바구니 담기</button>
                     <button onClick={props.onClickOrder} className={styles.quantityButton}>바로구매</button>
                 </div>
@@ -65,7 +65,7 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                                     {data.content}
                                 </div>
                                 <div className={styles.reviewInfo}>
-                                    {data.regdate}
+                                    {data.regdate.slice(0,10)}
                                 </div>
                                 <div className={styles.reviewInfo}>
                                     {data.score}

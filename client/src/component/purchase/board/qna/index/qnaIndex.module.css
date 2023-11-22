@@ -1,69 +1,37 @@
-.body{
+.body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.wrapper {
+.wrapper{
     margin-top: 200px;
-    width: 50%;
-    display: flex;
-    gap: 2%;
-}
-
-.leftContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 49%;
-}
-
-.leftContainer img{
-    width: 100%;
-}
-
-.rightContainer {
-    width: 49%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 10px 30px;
+    gap: 20px;
+    width: 65%;
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 75vh;
 }
 
-.contentTitle{
-    font-size: 40px;
+.titleForm{
+    font-size: 45px;
     font-weight: bold;
+    padding: 20px 30px;
 }
 
-.subText {
+.dateForm {
+    font-size: 18px;
+    color: gray;
+    padding: 20px 30px;
+}
+
+.contentForm{
+    margin-top: 30px;
     font-size: 20px;
-    color: #454F5B;
-}
-
-.quantityInput{
-    height: 35px;
-    width: 180px;
-    font-size: 20px;
-}
-
-.quantityButton{
-    width: 180px;
-    height: 35px;
-    font-size: 20px;
-    background-color: white;
-    border: 1px solid #346AFF;
-    color: #346AFF;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.quantityButton:hover{
-    transform: scale(1.1);
-}
-
-.quantityButton:active{
-    transform: scale(1.0);
+    padding: 20px 30px;
 }
 
 .reviewContainer {
@@ -122,10 +90,17 @@
 
 .reviewInfoBox {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+.reviewInfoBox > :not(:last-child) {
+    border-right: 1px solid lightgray;
 }
 
-.reviewInfoBox > :not(:last-child) {
+.reviewCenterInfoBox {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+}
+.reviewCenterInfoBox > :not(:last-child) {
     border-right: 1px solid lightgray;
 }
 

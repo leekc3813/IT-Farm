@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./write.module.css";
-import { IWritePageUIProps } from "./write.types";
+import styles from "./qnawrite.module.css";
+import { IQnaWritePageUIProps } from "./qnawrite.types";
 
-export default function WritePageUI(props:IWritePageUIProps):JSX.Element{
+export default function QnaWritePageUI(props:IQnaWritePageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.writeContainer}>
                 <div className={styles.titleContainer}>
-                    <h2>공지사항</h2>
+                    <h2>Q&A</h2>
                 </div>
                 <div className={styles.listContainer}>
                     <div className={styles.listTitleContainer}>
@@ -16,11 +16,11 @@ export default function WritePageUI(props:IWritePageUIProps):JSX.Element{
                             <input onChange={props.handleTitleChange} type="text" className={styles.titleInput} />
                             <div className={styles.titleCheckName}>
                                 <input type="checkbox" className={styles.titleCheckbox} />
-                                공지사항
+                                상품
                             </div>
                             <div className={styles.titleCheckName}>
                                 <input type="checkbox" className={styles.titleCheckbox} />
-                                노하우
+                                배송
                             </div>
                         </div>
                     </div>

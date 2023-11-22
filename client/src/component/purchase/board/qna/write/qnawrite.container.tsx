@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from "axios";
-import WritePageUI from "./write.presenter";
+import QnaWritePageUI from "./qnawrite.presenter";
 import { BASE_URL } from '@/src/config/config';
 
-export default function WritePage(): JSX.Element {
+export default function QnaWritePage(): JSX.Element {
     const router = useRouter();
 
     const [title, setTitle] = useState('');
@@ -31,17 +31,16 @@ export default function WritePage(): JSX.Element {
         }
 
         try {
-            const response = await axios.post(`${BASE_URL}notice/create/`, {
+            const response = await axios.post(`${BASE_URL}qna/create/`, {
                 subject: title,
                 content: content,
-                notice_type: 1,
             });
 
             if (response.status === 201) {
-                alert('공지등록 성공')
-                router.push('/purchase/board/notice');
+                alert('Q&A등록 성공')
+                router.push('/purchase/board/qna');
             } else {
-                alert('공지등록 실패')
+                alert('Q&A등록 실패')
             }
 
 
@@ -55,11 +54,11 @@ export default function WritePage(): JSX.Element {
     };
 
     const handleCancleClick = async() =>{
-        router.push('/purchase/board/notice')
+        router.push('/purchase/board/qna')
     }
 
     return (
-        <WritePageUI
+        <QnaWritePageUI
             handleTitleChange={handleTitleChange}
             handleContentChange={handleContentChange}
             handleWriteClick={handleWriteClick}

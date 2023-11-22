@@ -2,6 +2,7 @@ import DataPageUI from "./data.presenter";
 import {useState} from 'react';
 import axios from "axios";
 import { BASE_URL } from "@/src/config/config";
+import { useRouter } from "next/router";
 
 export default function DataPage():JSX.Element {
     const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export default function DataPage():JSX.Element {
         underground : '',
         radiation : '',
     }) 
+
+    const router = useRouter()
 
     const [result, setresult] = useState(1)
 
@@ -30,9 +33,13 @@ export default function DataPage():JSX.Element {
             })
             setresult(response.data.output)
 
-        }catch(error){
-
-        }
+        }catch(error:any){
+            console.log(error)
+            if (error.response.status === 401){
+                alert('로그인 x')
+                router.push('/register')
+            }
+        }  
     }
 
     return(

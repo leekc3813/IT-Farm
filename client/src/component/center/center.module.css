@@ -35,13 +35,13 @@
 
 .contentBox{
     display: flex;
-
+    margin-bottom: 10%;
 }
 
 .contentInner{
     width: 30%;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 2fr;
 
 }
 
@@ -51,7 +51,7 @@
 }
 
 .weight {
-
+    font-size: 20px;
 }
 
 .farmContainer{
@@ -67,6 +67,7 @@
 .farmInfoBox{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    height: 40px;
 }
 
 .farmInfoBox > :not(:last-child) {

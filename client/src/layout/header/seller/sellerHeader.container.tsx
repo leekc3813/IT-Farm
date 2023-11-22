@@ -55,7 +55,7 @@ export default function SellerHeaderPage():JSX.Element {
           console.log("로그아웃 성공")
         }
 
-          localStorage.setItem('loginState', 'false')
+          localStorage.setItem('loginstate', 'false')
           setLocalLogin(false)
           localStorage.removeItem('nickname');
           localStorage.removeItem('usertype');

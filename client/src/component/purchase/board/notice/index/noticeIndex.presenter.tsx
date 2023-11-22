@@ -9,7 +9,7 @@ export default function NoticeIndexPageUI(props: INoticeIndexPageUIProps):JSX.El
                     {props.data[0]?.subject}
                 </div>
                 <div className={styles.dateForm}>
-                    {props.data[0]?.regdate}
+                    작성일: {props.data[0]?.regdate}
                 </div>
                 <div className={styles.contentForm}>
                     {props.data[0]?.content}

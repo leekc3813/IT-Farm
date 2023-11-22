@@ -16,12 +16,11 @@ export default function ApprovalDetailPageUI(props:IApprovalDetailPageUIProps):J
                     {props.farmData?.crop}kg
                 </div>
             </div>
-            
             <div className={styles.selectBox}>
-                <div onClick={props.onCLickApproval} className={styles.select}>
+                <div onClick={props.onCLickApproval} className={`${styles.select} ${styles.blue}`}>
                     수락
                 </div>
-                <div onClick={props.onClickRefuse} className={styles.select}>
+                <div onClick={props.onClickRefuse} className={`${styles.select} ${styles.red}`}>
                     거절
                 </div>
             </div>

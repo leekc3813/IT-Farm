@@ -2,8 +2,8 @@ import styles from './center.module.css'
 import { ICenterPageUIProps } from './center.types'
 import { Radio } from 'antd';
 
-export default function CenterPageUI(props: ICenterPageUIProps):JSX.Element{
-    return(
+export default function CenterPageUI(props: ICenterPageUIProps): JSX.Element {
+    return (
         <div className={styles.body}>
             <div className={styles.container}>
                 <div className={styles.title}>품목현황</div>
@@ -17,52 +17,48 @@ export default function CenterPageUI(props: ICenterPageUIProps):JSX.Element{
                 </Radio.Group>
                 <div className={styles.title}>홍고추</div>
                 <div className={styles.contentBox}>
-                    {props.sum?.map((data,index) => {
-                        if( data.kind === '홍고추'){
+                    {props.sum?.map((data, index) => {
+                        if (data.kind === '홍고추') {
                             return (
                                 <div className={styles.contentInner} key={index}>
                                     <div className={styles.subTitle}>{data.eco}</div>
                                     <div className={styles.weight}>{data.total_crop}kg</div>
                                 </div>
                             )
-                        }else{
+                        } else {
                             return <div></div>
                         }
                     })}
                 </div>
                 <div className={styles.title}>청양고추</div>
                 <div className={styles.contentBox}>
-                    {props.sum?.map((data,index) => {
-                            if( data.kind === '청양고추'){
-                                return (
-                                    <div className={styles.contentInner} key={index}>
-                                        <div className={styles.subTitle}>{data.eco}</div>
-                                        <div className={styles.weight}>{data.total_crop}kg</div>
-                                    </div>
-                                )
-                            }else{
-                                return <div></div>
-                            }
-                        })}
+                    {props.sum?.map((data, index) => {
+                        if (data.kind === '청양고추') {
+                            return (
+                                <div className={styles.contentInner} key={index}>
+                                    <div className={styles.subTitle}>{data.eco}</div>
+                                    <div className={styles.weight}>{data.total_crop}kg</div>
+                                </div>
+                            )
+                        } else {
+                            return <div></div>
+                        }
+                    })}
                 </div>
                 <div className={styles.title}>건고추</div>
                 <div className={styles.contentBox}>
-                    {props.sum?.map((data,index) => {
-                                if( data.kind === '건고추'){
-                                    return (
-                                        <div className={styles.contentInner} key={index}>
-                                            <div className={styles.subTitle}>{data.eco}</div>
-                                            <div className={styles.weight}>{data.total_crop}kg</div>
-                                        </div>
-                                    )
-                                }else{
-                                    return <div></div>
-                                }
-                            })}
-                </div>
-                <div className={styles.title}>고춧가루</div>
-                <div className={styles.contentBox}>
-                    <div className={styles.weight}>35kg</div>
+                    {props.sum?.map((data, index) => {
+                        if (data.kind === '건고추') {
+                            return (
+                                <div className={styles.contentInner} key={index}>
+                                    <div className={styles.subTitle}>{data.eco}</div>
+                                    <div className={styles.weight}>{data.total_crop}kg</div>
+                                </div>
+                            )
+                        } else {
+                            return <div></div>
+                        }
+                    })}
                 </div>
             </div>
             <div id="map" className={styles.maps} />
@@ -74,21 +70,21 @@ export default function CenterPageUI(props: ICenterPageUIProps):JSX.Element{
                         <div className={styles.farmInfo}>농장주소</div>
                         <div className={styles.farmInfo}>농경방법</div>
                     </div>
-                        {props.enrollData?.map((data,index) => {
-                            return (
-                                <div key={index} className={styles.farmInfoBox}>
-                                    <div className={styles.farmContent}>
-                                        {data.name}
-                                    </div>
-                                    <div className={styles.farmContent}>
-                                        {data.address}
-                                    </div>
-                                    <div className={styles.farmContent}>
-                                        {data.method}
-                                    </div>
+                    {props.enrollData?.map((data, index) => {
+                        return (
+                            <div key={index} className={styles.farmInfoBox}>
+                                <div className={styles.farmContent}>
+                                    {data.name}
                                 </div>
-                            )
-                        })}
+                                <div className={styles.farmContent}>
+                                    {data.address}
+                                </div>
+                                <div className={styles.farmContent}>
+                                    {data.method}
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 export interface INoticePageUIProps {
-    isAdmin: string | null;
+    isAdmin: boolean;
     onClickWrite : () => void;
     data : Datas[];
 }

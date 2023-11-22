@@ -59,13 +59,18 @@
 .contentsBox {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
+    margin: 2px;
     /* padding-bottom: 10px; */
     padding: 0px 10px;
 }
 
 .contentsTitle {
     font-size: 18px;
+}
+
+.contentsWeight {
+    font-size: 15px;
 }
 
 .contentsPrice {

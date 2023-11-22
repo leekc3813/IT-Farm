@@ -75,31 +75,33 @@
     cursor: pointer;
 }
 
+
 .bodyCol1{
-    width: 10%;
-    padding:15px 10px 16px;
-    line-height:50px;
-    font-size: 15px;
-}
-.bodyCol2{
     width: 65%;
     padding:15px 10px 16px;
     text-align: left;
     line-height:50px;
     font-size: 15px;
+    margin-left: 5%;
 }
-.bodyCol3{
+.bodyCol2{
     width: 10%;
     padding:15px 10px 16px;
     line-height:50px;
     font-size: 15px;
 }
-.bodyCol4{
+.bodyCol3{
     width: 15%;
     padding:15px 10px 16px;
     line-height:50px;
     font-size: 15px;
 }
+.bodyCol4{
+    width: 10%;
+    padding:15px 10px 16px;
+    line-height:50px;
+}
+
 .searchContainer{
     display: flex;
     flex-direction: row;

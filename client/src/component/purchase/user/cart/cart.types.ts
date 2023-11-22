@@ -3,7 +3,7 @@ export interface IUserCartPageUIProps {
 }
 
 interface FetchData {
-    product: string;
+    product_name: string;
     order_date : string;
     count : string;
     center : string;
