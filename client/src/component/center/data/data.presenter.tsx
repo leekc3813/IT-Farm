@@ -61,9 +61,7 @@ export default function DataPageUI(props: IDataPageUIProps):JSX.Element{
               <p className={styles.title}>
                   예측 생산량
               </p>
-              <div className={styles.chartBox}>
                   <canvas ref={canvasEl} />
-              </div>
             </div>
         </div>
     )
