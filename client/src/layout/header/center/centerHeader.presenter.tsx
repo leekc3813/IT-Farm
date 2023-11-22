@@ -6,8 +6,9 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
     return(
         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
             <div onClick={props.onClickCenter}  className={styles.headerTitle}>
-                IT-Farm Center
+                <img src='/img/center/white_center_logo.png' alt='상품이미지' className={styles.headerTitle} />
             </div>
+            
             <div className={styles.headerInfoContainer}>
                 <div className={styles.infoBox1}>
                 </div>
@@ -16,7 +17,7 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
                         물품승인
                     </div>
                     <div onClick={props.onClickData} className={styles.categorieBox}>
-                        데이터
+                        생산량예측
                     </div>
                 </div>
                 <div className={styles.infoBox3}>
