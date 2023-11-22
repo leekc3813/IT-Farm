@@ -6,6 +6,7 @@ export interface IQnaDetailPageProps {
         subject : string;
         user_type : string;
         nickname : string;
+        status: number;
     },
     index : number;
 }
@@ -18,6 +19,7 @@ export interface IQnaDetailPageUIProps {
         subject : string;
         user_type : string;
         nickname : string;
+        status: number;
     },
     index : number;
     onClickDetail : () => void;

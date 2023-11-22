@@ -10,7 +10,10 @@ export interface IListDetailPageUIProps {
     editReview: (review_id: number) => void;
     removeReview: (review_id: number) => void;
     title: string;
-    data: FetchData[];
+    data: {
+        price: number;
+        photo: string;
+    };
     reviewData: ReviewData[];
     reviewContent: string;
     reviewScore: number;

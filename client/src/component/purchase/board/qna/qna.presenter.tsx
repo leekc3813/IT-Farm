@@ -15,12 +15,8 @@ export default function QnaPageUI(props: IQnaPageUIProps): JSX.Element {
             <div className={styles.headCol1}>제목</div>
             <div className={styles.headCol2}>작성자</div>
             <div className={styles.headCol3}>작성일</div>
+            <div className={styles.headCol4}>상태</div>
           </div>
-          {/* <div className={styles.tablebody}>
-            <div className={styles.bodyCol1}>{props.data[0]?.subject}</div>
-            <div className={styles.bodyCol2}>{props.data[0]?.regdate}</div>
-            <div className={styles.bodyCol3}>{props.data[0]?.content}</div>
-          </div> */}
           {props.data?.map((data, index) => {
             return (
               <QnaDetailPage
@@ -30,6 +26,15 @@ export default function QnaPageUI(props: IQnaPageUIProps): JSX.Element {
               />
             )
           })}
+          <div className={styles.searchContainer}>
+            {props.isAdmin ?
+              '' :
+              <button onClick={props.onClickWrite} className={styles.writingButton}>글쓰기</button>
+            }
+          </div>
+          <div className={styles.pageSelect}>
+            <Pagination defaultCurrent={1} total={50} />
+          </div>
         </div>
       </div>
     </div>

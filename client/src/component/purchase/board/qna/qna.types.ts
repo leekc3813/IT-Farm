@@ -1,5 +1,7 @@
 export interface IQnaPageUIProps{
     data : DataSet [];
+    onClickWrite : () => void;
+    isAdmin: boolean;
 }
 
 interface DataSet {

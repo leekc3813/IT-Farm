@@ -79,22 +79,26 @@
     width: 10%;
     padding:15px 10px 16px;
     line-height:50px;
+    font-size: 15px;
 }
 .bodyCol2{
     width: 65%;
     padding:15px 10px 16px;
     text-align: left;
     line-height:50px;
+    font-size: 15px;
 }
 .bodyCol3{
     width: 10%;
     padding:15px 10px 16px;
     line-height:50px;
+    font-size: 15px;
 }
 .bodyCol4{
     width: 15%;
     padding:15px 10px 16px;
     line-height:50px;
+    font-size: 15px;
 }
 .searchContainer{
     display: flex;

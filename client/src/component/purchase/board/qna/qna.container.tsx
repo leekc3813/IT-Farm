@@ -8,14 +8,18 @@ import { useRouter } from "next/router";
 export default function QnaPage(): JSX.Element {
     const [data, setData] = useState([]);
 
+    const [isAdmin, setIsAdmin] = useState(false)
+
     const router = useRouter()
 
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}qna/read/`)
-            console.log(response.data)
             setData(response.data)
 
+            if (localStorage.getItem('usertype') === 'admin') {
+                setIsAdmin(true)
+            }
         } catch (error: any) {
             console.log(error)
             if (error.response.status === 401) {
@@ -29,9 +33,15 @@ export default function QnaPage(): JSX.Element {
         fetchData()
     }, [])
 
+    const onClickWrite = () => {
+        router.push('/purchase/board/qna/write')
+    }
+
     return (
         <QnaPageUI
             data={data}
+            onClickWrite={onClickWrite}
+            isAdmin={isAdmin}
         />
     )
 }

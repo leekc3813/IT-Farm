@@ -26,9 +26,10 @@ export default function ListDetailPage(): JSX.Element {
             const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
             localStorage.setItem('orderprice', response.data.price)
             setData(response.data)
+            console.log(response)
             const response2 = await axios.get(`${BASE_URL}order/review/read/${decodedString}/`)
-            setReviewData(response2.data)
-            console.log(response.data)
+            setReviewData(response2.data.slice(0, 5))
+
 
         } catch (error: any) {
             console.log(error)
@@ -103,8 +104,7 @@ export default function ListDetailPage(): JSX.Element {
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
-            // }else if (error.response.status === 400){
-            } else{
+            } else {
                 alert(error.response.data.message)
             }
         }
