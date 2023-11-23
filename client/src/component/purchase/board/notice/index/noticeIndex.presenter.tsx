@@ -11,9 +11,7 @@ export default function NoticeIndexPageUI(props: INoticeIndexPageUIProps):JSX.El
                 <div className={styles.dateForm}>
                     작성일: {props.data[0]?.regdate}
                 </div>
-                <div className={styles.contentForm}>
-                    {props.data[0]?.content}
-                </div>
+                <div className={styles.contentForm} dangerouslySetInnerHTML={{__html:props.data[0]?.content}}/>
             </div>
         </div>
     )

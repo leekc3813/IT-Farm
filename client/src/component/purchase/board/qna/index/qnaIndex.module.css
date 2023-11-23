@@ -11,9 +11,9 @@
     flex-direction: column;
     gap: 20px;
     width: 65%;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     border-radius: 5px;
-    height: 75vh;
+    height: auto;
 }
 
 .titleForm{

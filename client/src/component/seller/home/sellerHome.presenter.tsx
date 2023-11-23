@@ -9,10 +9,10 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
             <div className={styles.bannerVisible}>
                 <Carousel className={styles.bannerContainer} autoplay>
                     <div>
-                      <img className={styles.bannerImg}  src='https://ceo.yogiyo.co.kr/_next/static/media/banner-multi-burden-event-lg.87547498.png' alt='bannerImg' />
+                        <img className={styles.bannerImg} src='/img/home/seller/001.png' alt='bannerImg' />
                     </div>
                     <div>
-                        <img className={styles.bannerImg} src='https://ceo.yogiyo.co.kr/_next/static/media/banner-origin-2-lg.cacf2466.png' alt='bannerImg' />
+                        <img className={styles.bannerImg} src='/img/home/seller/002.png' alt='bannerImg' />
                     </div>
                 </Carousel>
             </div>
@@ -44,19 +44,19 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                             <span className={styles.recipeTitle}>스마트팜 운영 노하우를 알려드려요!</span>
                             <div className={styles.recipeContentContainer}>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/001.png' alt='노하우이미지' />
+                                    <img className={styles.recipeImg} src='/img/home/seller/icon1.png' alt='노하우이미지' />
                                     <span className={styles.recipeContent}>내부 CO2(ppm)</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/002.png' alt='노하우이미지' />
+                                    <img className={styles.recipeImg} src='/img/home/seller/icon2.png' alt='노하우이미지' />
                                     <span className={styles.recipeContent}>일사량-외부(W/m-2)</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/003.png' alt='노하우이미지' />
+                                    <img className={styles.recipeImg} src='/img/home/seller/icon3.png' alt='노하우이미지' />
                                     <span className={styles.recipeContent}>내부 습도(%)</span>
                                 </div>
                                 <div className={styles.recipeBox}>
-                                    <img className={styles.recipeImg} src='/img/home/seller/004.png' alt='노하우이미지' />
+                                    <img className={styles.recipeImg} src='/img/home/seller/icon4.png' alt='노하우이미지' />
                                     <span className={styles.recipeContent}>이슬점 온도</span>
                                 </div>
                             </div>
