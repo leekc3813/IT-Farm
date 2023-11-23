@@ -5,7 +5,8 @@ export default function SellerHeaderPageUI(props:ISellerHeaderPageUIProps):JSX.E
     return(
         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
             <div onClick={props.onClickLogo} className={styles.headerTitle}>
-                IT-Farm 사장님
+                <img src='/img/home/seller/farmer_icon.png' alt='아이콘' className={styles.headerTitle} />
+                <img src='/img/home/seller/green_logo.png' alt='아이콘' className={styles.headerTitle} />
             </div>
             <div className={styles.headerInfoContainer}>
                 <div className={styles.infoBox}>
