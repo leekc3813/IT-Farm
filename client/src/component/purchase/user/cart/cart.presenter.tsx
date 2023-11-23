@@ -5,7 +5,7 @@ export default function UserCartPageUI(props:IUserCartPageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
-                <p className={styles.title}>주문현황</p>
+                <h2 className={styles.title}>주문현황</h2>
                 <div className={styles.container}>
                     <div className={styles.infoContainer}>
                         <div className={styles.info}>상품명</div>
