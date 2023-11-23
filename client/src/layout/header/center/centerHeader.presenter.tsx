@@ -6,7 +6,8 @@ export default function HeaderCenterPageUI(props: IHeaderCenterPageUIProps):JSX.
     return(
         <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
             <div onClick={props.onClickCenter}  className={styles.headerTitle}>
-                <img src='/img/center/white_center_logo.png' alt='상품이미지' className={styles.headerTitle} />
+                <img src='/img/center/center_icon.png' alt='아이콘' className={styles.headerTitle} />
+                <img src='/img/center/white_center_logo.png' alt='로고' className={styles.headerTitle} />
             </div>
             
             <div className={styles.headerInfoContainer}>
