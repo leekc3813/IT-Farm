@@ -6,16 +6,19 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
+                <div className={styles.mainTitle}>
+                    내정보
+                </div>
                 <div className={styles.title}>
-                    나의 농장정보
+                    농장 정보
                 </div>
                 <div className={styles.farmContainer}>
                     <div className={styles.farminfoBox}>
                         <div className={styles.farminfoName}>
-                            농장이름
+                            농장명
                         </div>
                         <div className={styles.farminfoaddress}>
-                            농장주소
+                            주소
                         </div>
                         <div className={styles.farminfoSelect}>
                             비고
@@ -31,12 +34,12 @@ export default function SellerinfoPageUI(props:ISellerinfoPageUIProps):JSX.Eleme
                     })}
                 </div>
                 <div className={styles.title}>
-                    나의 신청정보
+                    신청 정보
                 </div>
                 <div className={styles.farmContainer}>
                     <div className={styles.farminfoBox}>
                         <div className={styles.farminfoName}>
-                            농장이름
+                            농장명
                         </div>
                         <div className={styles.farminfoContent}>
                             농사기법

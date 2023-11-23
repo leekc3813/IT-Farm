@@ -19,10 +19,21 @@
         margin-top: 0;
     }
 }
-
-.registerTitle{
-    font-size: 50px;
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #2e2e2e;
     font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.registerTitle{
+    font-size: 25px;
+    font-weight: bold;
+    color: #2e2e2e;
+    margin-left: 10px;
 }
 
 @media (max-width:480px) {
@@ -51,7 +62,7 @@
 }
 
 .inputTitle { 
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
 }
 
