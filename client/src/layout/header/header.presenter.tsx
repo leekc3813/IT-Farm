@@ -41,7 +41,7 @@ export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
                         EVENT
                     </div>
                     <div className={styles.categorieBox}>
-                        <a href="#">고객센터</a>
+                        <a href="/purchase/board/notice">고객센터</a>
                         <ul className={styles.sub_cate01}>
                             <li className={styles.noChild}>
                                 <a href="/purchase/board/notice">공지사항</a>

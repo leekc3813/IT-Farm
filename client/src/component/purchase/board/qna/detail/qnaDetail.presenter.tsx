@@ -4,6 +4,7 @@ import { IQnaDetailPageUIProps } from './qnaDetail.types'
 export default function NoticeDetailPageUI(props:IQnaDetailPageUIProps):JSX.Element {
     return(
         <div onClick={props.onClickDetail} className={styles.tableBody}>
+            <div className={styles.bodyCol0}>{props.index}</div>
             <div className={styles.bodyCol1}>{props.data.subject}</div>
             <div className={styles.bodyCol2}>{props.data.nickname}</div>
             <div className={styles.bodyCol3}>

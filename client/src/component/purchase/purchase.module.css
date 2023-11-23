@@ -204,9 +204,8 @@
 
 .eventContainer{
     width: 100%;
-    height: 200px;
+    height: 100%;
     margin-bottom: 50px;
-    background-color: green;
 }
 
 .eventImg{

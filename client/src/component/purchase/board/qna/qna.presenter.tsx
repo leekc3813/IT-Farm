@@ -12,17 +12,19 @@ export default function QnaPageUI(props: IQnaPageUIProps): JSX.Element {
         </div>
         <div className={styles.table}>
           <div className={styles.tableHead}>
+            <div className={styles.headCol0}>번호</div>
             <div className={styles.headCol1}>제목</div>
             <div className={styles.headCol2}>작성자</div>
             <div className={styles.headCol3}>작성일</div>
             <div className={styles.headCol4}>상태</div>
           </div>
           {props.data?.map((data, index) => {
+            const reversedIndex = props.data.length -index;
             return (
               <QnaDetailPage
                 key={index}
                 data={data}
-                index={index}
+                index={reversedIndex}
               />
             )
           })}

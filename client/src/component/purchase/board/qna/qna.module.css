@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 }
-  
+
 .contentContainer{
     display: flex;
     flex-direction: column;
@@ -40,8 +40,16 @@
     text-align: center;
     line-height:30px;
 }
+
+.headCol0{
+    width: 10%;
+    height: 60px;
+    padding:15px 10px 16px;
+    font-size: 15px;
+}
+
 .headCol1{
-    width: 65%;
+    width: 55%;
     height: 60px;
     padding:15px 10px 16px;
     font-size: 15px;

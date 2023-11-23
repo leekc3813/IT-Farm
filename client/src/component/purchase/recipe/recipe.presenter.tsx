@@ -6,9 +6,9 @@ export default function RecipePageUI(props:IRecipePageUIProps):JSX.Element{
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
-                <div className={styles.title}>
+                <h2 className={styles.title}>
                     레시피
-                </div>
+                </h2>
                 <div className={styles.contentContainer}>
                     {props.data.map((data,index) => {
                         return(
