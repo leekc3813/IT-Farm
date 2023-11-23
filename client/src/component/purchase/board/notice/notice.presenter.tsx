@@ -19,11 +19,12 @@ export default function NoticePageUI(props:INoticePageUIProps):JSX.Element {
                     </div>
                     
                         {props.data?.map((data,index) => {
+                            const reversedIndex = props.data.length -index -1;
                             return(
                                 <NoticeDetailPage
                                     key={index} 
                                     data = {data}
-                                    index = {index}
+                                    index = {reversedIndex}
                                 />
                             )
                         })}
