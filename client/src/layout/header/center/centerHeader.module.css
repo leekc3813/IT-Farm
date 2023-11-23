@@ -119,6 +119,7 @@
     margin-right: 20px;
     cursor: pointer;
     font-family: 'Pretendard-Regular';
+    color: #000000;
 }
 
 @media (max-width:480px){
