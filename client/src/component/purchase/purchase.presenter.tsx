@@ -39,10 +39,10 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
               label: 'Line Chart',
               data: [positive, negative],
               fill: false,
-              borderColor: 'rgb(75, 192, 192)',
+            //   borderColor: 'rgb(75, 192, 192)',
               backgroundColor : [
-                'rgb(227, 106, 131)',
-                'rgb(111, 162, 247)',
+                'rgb(0, 102, 46)',
+                'lightgray',
               ],
               tension: 0.1,
             },
@@ -92,7 +92,7 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                                     유기농 홍고추
                                 </div>
                                 <div className={styles.price}>
-                                        13890원
+                                        13,890원
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                                     유기농 청고추
                                 </div>
                                 <div className={styles.price}>
-                                        13000원
+                                        13,000원
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                                     유기농 건고추
                                 </div>
                                 <div className={styles.price}>
-                                        13890원
+                                        13,890원
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                                     국산 고추가루
                                 </div>
                                 <div className={styles.price}>
-                                        13890원
+                                        13,890원
                                 </div>
                             </div>
                         </div>

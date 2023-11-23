@@ -1,4 +1,4 @@
-import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, StopOutlined,ShoppingCartOutlined  } from '@ant-design/icons'
+import {SearchOutlined,ShoppingOutlined,HomeOutlined, KeyOutlined, LogoutOutlined,ShoppingCartOutlined  } from '@ant-design/icons'
 import styles from './header.module.css'
 import { IHeaderPageUIProps } from './header.types'
 
@@ -6,16 +6,17 @@ import { IHeaderPageUIProps } from './header.types'
 export default function HeaderPageUI(props:IHeaderPageUIProps):JSX.Element {
     return(
          <div className={`${styles.body} ${props.visible ? '' : styles.hidden}`}>
-            <div  className={styles.headerTitle}>
+            <div className={styles.headerTitle}>
                 <div onClick={props.onClickPurchase} className={styles.headerTitleContainer}>
-                    <img src='/img/home/logo_2green.png' alt='상품이미지' className={styles.headerTitle} />
+                    <img src='/img/purchase/img_logo.png' alt='상품이미지' className={styles.headerTitle} />
+                    <img src='/img/purchase/text_logo.png' alt='상품이미지' className={styles.headerTitle} />
                 </div>
                 <div className={styles.infoBox3}>
                     <HomeOutlined onClick={props.onClickHome} className={styles.headerIcon} />
                     <ShoppingOutlined onClick={props.onClickBasket} className={styles.headerIcon} />
                     <ShoppingCartOutlined onClick = {props.onClickCart}  className={styles.headerIcon} />
                     {props.localLogin ?
-                        <StopOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
+                        <LogoutOutlined onClick = {props.onClickLogout} className={styles.headerIcon} />
                         : 
                         <KeyOutlined onClick = {props.onClickRegister} className={styles.headerIcon} />
                     }
