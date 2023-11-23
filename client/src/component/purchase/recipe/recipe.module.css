@@ -15,7 +15,14 @@
 }
 
 .title {
-    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width:100px; */
+    margin-top: 100px;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: #555555;
     font-weight: bold;
 }
 
@@ -63,6 +70,7 @@
 .contentsTitle {
     font-size: 18px;
     font-weight: bold;
+    color: black;
 }
 
 .contentsPrice {

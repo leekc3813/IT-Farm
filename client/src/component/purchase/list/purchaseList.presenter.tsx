@@ -23,7 +23,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/무농약 홍고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/국내산_홍고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
@@ -35,7 +35,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/일반 홍고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/청홍고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
@@ -64,7 +64,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/무농약 청양고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/국내산_풋고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
@@ -76,7 +76,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/일반 청양고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/친환경_풋고추.png' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
@@ -105,7 +105,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/무농약 건고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/건고추2.jpg' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>
@@ -117,7 +117,7 @@ export default function PurchaseListPageUI():JSX.Element {
                     </Link>
                     <Link className={styles.link} href={'/purchase/list/일반 건고추'}>
                         <div className={styles.contentBox}>
-                             <div className={styles.imgBox}>
+                            <div className={styles.imgBox}>
                                 <img src='/img/purchase/list/건고추3.jpg' alt='상품이미지' />
                             </div>
                             <div className={styles.contentsBox}>

@@ -6,23 +6,28 @@
 
 .wrapper {
     display: flex;
-    flex-direction: column;
     gap: 30px;
-    margin-top: 140px;
-    margin-bottom: 140px;
-    width: 70%;
+    flex-direction: column;
+    margin: 10%;
+    width: 60%;
 }
 
 .title {
     font-size: 40px;
     font-weight: bold;
-    margin-top: 100px;
+    margin-top: 15%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 .contentContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
-    gap: 1.7%;
+    gap: 5%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
 @media (max-width:480px) {
@@ -30,6 +35,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
     }
 }
 
