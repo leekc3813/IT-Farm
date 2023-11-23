@@ -7,6 +7,7 @@ export default function HarvestPageUI(props: IHarvestPageUIProps):JSX.Element {
     return (
         <div className={styles.body}>
             <div className={styles.wrappers}>
+                <div className={styles.title}>수확량등록</div>
                 <span className={styles.registerTitle}>내농장 목록</span>
                 <div className={styles.farmContainer}>
                     {props.farmData?.map((farmData) => {
