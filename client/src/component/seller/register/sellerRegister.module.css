@@ -6,11 +6,17 @@
 }
 
 .wrapper {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     width: 90%;
     padding: 50px 100px;
-    gap: 40px;
+    gap: 40px; */
+    margin-top: 20px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    
+    width: 50%;
 }
 
 @media (max-width: 480px) {
@@ -18,10 +24,24 @@
         padding: 0;
     }
 }
-
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid #dcdee0;
+    padding: 10px 50px;
+    margin-bottom: 50px;
+    
+}
 .registerTitle{
-    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #2e2e2e;
     font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 480px) {
@@ -58,6 +78,7 @@
     flex-direction: column;
     gap: 15px;
     height: 50%;
+    margin-top: 20px;
 }
 
 @media (max-width:480px) {
@@ -130,6 +151,8 @@
     font-size: 15px;
     cursor: pointer;
     transition: all 0.2s;
+    border: 0.1px solid #dcdee0;
+    border-radius: 5%;
 }
 
 .searchButton:hover {
@@ -180,9 +203,16 @@
 }
 
 .submitButton{
-    width: 100px;
+    /* width: 100px;
     height: 50px;
     cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s; */
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
     font-size: 18px;
     transition: all 0.2s;
 }
