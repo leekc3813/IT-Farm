@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 50px;
 }
 
 .wrapper {
@@ -17,8 +18,12 @@
     justify-content: center;
     align-items: center;
     width: 49%;
+    height: 49%;    
 }
-
+.lineStyle{
+    border-top:  1px solid #9d9d9d;
+    margin: 5px 0;
+}
 .leftContainer img{
     width: 100%;
 }
@@ -27,33 +32,62 @@
     width: 49%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     padding: 10px 30px;
 }
 
 .contentTitle{
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
+    color: #2e2e2e;
+    margin-bottom: 20px;
 }
-
+.priceText{
+    font-size: 25px;
+    color: rgba(208, 4, 4, 0.867); 
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 .subText {
     font-size: 20px;
     color: #454F5B;
 }
-
+.orderCount{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
 .quantityInput{
     height: 35px;
-    width: 180px;
+    width: 120px;
     font-size: 20px;
+    text-align: center;
+    border: 1px solid #a1a1a1;
 }
-
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
 .quantityButton{
-    width: 180px;
-    height: 35px;
+    width: 100%;
+    height: 50px;
     font-size: 20px;
-    background-color: white;
-    border: 1px solid #346AFF;
-    color: #346AFF;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    color: #2e2e2e;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.quantityButton2{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    background-color: #19662d;
+    border: 1px solid #19662d;
+    color: white;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -75,13 +109,15 @@
 }
 
 .reviewTitle{
-    font-size: 30px;
+    margin-top: 50px;
+    font-size: 25px;
     font-weight: bold;
+    color: #2e2e2e;
 }
 
 .writeContainer{
     display: flex;
-    gap: 70px;
+    gap: 30px;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
     padding: 10px 20px;
@@ -89,16 +125,25 @@
 }
 
 .writeInput {
+    /* width: 1250; */
     font-size: 20px;
     height: 100%;
+    resize: none;
+    border: 1px solid #a1a1a1;
 }
-
+.starContainer{
+    display: flex;
+    justify-content: center;
+    width:25%;
+}
 .writeSubmit {
     cursor: pointer;
-    width: 100px;
-    height: 100px;
+    width: 20%;
+    height: 125px;
     font-size: 20px;
     transition: all 0.2s;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
 }
 
 .writeSubmit:hover {
@@ -112,21 +157,22 @@
 .reviewBox{
     display: flex;
     flex-direction: column;
-    border: 1px solid lightgray;
+    border: 1px solid white;
     margin-bottom: 50px;
 }
 
 .reviewBox > :not(:last-child) {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid white;
 }
 
 .reviewInfoBox {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr 0.5fr 1fr;
+    background-color: #f0f0f0;
 }
 
 .reviewInfoBox > :not(:last-child) {
-    border-right: 1px solid lightgray;
+    border-right: 1px solid white;
 }
 
 .reviewInfo{
