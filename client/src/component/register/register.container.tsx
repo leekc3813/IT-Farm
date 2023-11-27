@@ -74,6 +74,7 @@ export default function RegisterPage(): JSX.Element {
 
         }catch(error){
             console.log('error',error)
+            alert('입력한 정보를 확인해 주세요')
         }    
     }
 
@@ -92,9 +93,11 @@ export default function RegisterPage(): JSX.Element {
                 setEmail('')
                 setPassword('')
                 onClickLoginState()
+                alert('회원가입 성공')
             }
         }catch(error){
             console.log(error,'error')
+            alert('입력한 정보를 확인해 주세요')
         }
     }
 
