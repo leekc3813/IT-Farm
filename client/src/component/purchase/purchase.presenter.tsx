@@ -5,6 +5,7 @@ import { Chart } from 'chart.js/auto';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '@/src/config/config';
+import Link from 'next/link';
 
 export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
     const canvasEl = useRef(null);
@@ -83,59 +84,66 @@ export default function PurchasePageUI(props:IPurchasePageUIProps):JSX.Element {
                         </div>
                     </div>
                     <div className={styles.contentContainer}>
-                        <div className={styles.contentBox}>
-                            <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src='/img/purchase/list/홍고추.png' alt='상품이미지' />
-                            </div>
-                            <div className={styles.contentInfoContainer}>
-                                <div className={styles.contentName}>
-                                    유기농 홍고추
+                        <Link className={styles.link} href={'/purchase/list/무농약 홍고추'} >
+                            <div className={styles.contentBox}>
+                                <div className={styles.contentImgContainer}>
+                                    <img className={styles.contentImg} src='/img/purchase/list/홍고추.png' alt='상품이미지' />
                                 </div>
-                                <div className={styles.price}>
-                                        13,890원
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.contentBox}>
-                            <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src='/img/purchase/list/청고추.png' alt='상품이미지' />
-                            </div>
-                            <div className={styles.contentInfoContainer}>
-                                <div className={styles.contentName}>
-                                    유기농 청고추
-                                </div>
-                                <div className={styles.price}>
-                                        13,000원
+                                <div className={styles.contentInfoContainer}>
+                                    <div className={styles.contentName}>
+                                        유기농 홍고추
+                                    </div>
+                                    <div className={styles.price}>
+                                            13,890원
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className={styles.contentBox}>
-                            <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src= '/img/purchase/list/건고추.png' alt='상품이미지' />
-                            </div>
-                            <div className={styles.contentInfoContainer}>
-                                <div className={styles.contentName}>
-                                    유기농 건고추
+                        </Link>
+                        <Link className={styles.link} href={'/purchase/list/유기농 청양고추'} >
+                            <div className={styles.contentBox}>
+                                <div className={styles.contentImgContainer}>
+                                    <img className={styles.contentImg} src='/img/purchase/list/청고추.png' alt='상품이미지' />
                                 </div>
-                                <div className={styles.price}>
-                                        13,890원
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.contentBox}>
-                            <div className={styles.contentImgContainer}>
-                                <img className={styles.contentImg} src='/img/purchase/list/고춧가루.png' alt='상품이미지' />
-                            </div>
-                            <div className={styles.contentInfoContainer}>
-                                <div className={styles.contentName}>
-                                    국산 고추가루
-                                </div>
-                                <div className={styles.price}>
-                                        13,890원
+                                <div className={styles.contentInfoContainer}>
+                                    <div className={styles.contentName}>
+                                        유기농 청양고추
+                                    </div>
+                                    <div className={styles.price}>
+                                            13,000원
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </Link>
+                        <Link className={styles.link} href={'/purchase/list/유기농 건고추'} >
+                            <div className={styles.contentBox}>
+                                <div className={styles.contentImgContainer}>
+                                    <img className={styles.contentImg} src= '/img/purchase/list/건고추.png' alt='상품이미지' />
+                                </div>
+                                <div className={styles.contentInfoContainer}>
+                                    <div className={styles.contentName}>
+                                        유기농 건고추
+                                    </div>
+                                    <div className={styles.price}>
+                                            13,890원
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <Link className={styles.link} href={'/purchase/list/국산 고춧가루'}>
+                            <div className={styles.contentBox}>
+                                <div className={styles.contentImgContainer}>
+                                    <img className={styles.contentImg} src='/img/purchase/list/고춧가루.png' alt='상품이미지' />
+                                </div>
+                                <div className={styles.contentInfoContainer}>
+                                    <div className={styles.contentName}>
+                                        국산 고춧가루
+                                    </div>
+                                    <div className={styles.price}>
+                                            13,890원
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                     <div className={styles.contentTitleContainer}>
                         <div className={styles.contentTitleBox}>

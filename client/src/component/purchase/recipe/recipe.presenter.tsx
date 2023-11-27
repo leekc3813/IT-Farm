@@ -19,7 +19,7 @@ export default function RecipePageUI(props:IRecipePageUIProps):JSX.Element{
                                     </div>
                                     <div className={styles.contentsBox}>
                                         <p className={styles.contentsTitle}>{data.subject}</p>
-                                        <p className={styles.contentsPrice}>{data.nickname}</p>
+                                        <p className={styles.contentsPrice}>{data.content}</p>
                                     </div>
                                 </div>
                             </Link>
