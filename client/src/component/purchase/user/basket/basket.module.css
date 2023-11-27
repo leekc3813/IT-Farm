@@ -5,12 +5,13 @@
 }
 
 .wrapper {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 190px;
     gap: 25px;
-    padding-left: 300px;
+    /* padding-left: 300px; */
+    align-items: center;
 }
 
 @media (max-width:480px) {
@@ -21,15 +22,19 @@
 }
 
 .title {
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
+    color: #2e2e2e;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .listContainer{
     display: flex;
     flex-direction: column;
     width: 60%;
-    border: 1px solid gray;
+    border: 1px solid #f0f0f0;
 }
 
 @media (max-width:480px) {
@@ -39,24 +44,29 @@
 }
 
 .listContainer > :not(:last-child){
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .listInfoBox {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
 }
 
 .listInfoBox > :not(:last-child){
-    border-right: 1px solid gray;
+    border-right: 1px solid #f0f0f0;
 }
 
 .listInfo {
     font-size: 15px;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 16px;
+    height: 40px;
+    color: #2e2e2e;
 }
 
 .contentBox{
@@ -65,7 +75,7 @@
 }
 
 .contentBox > :not(:last-child){
-    border-right: 1px solid gray;
+    border-right: 1px solid #f0f0f0;
 }
 
 .selectBox {
@@ -74,14 +84,14 @@
 }
 
 .selectBox > :not(:last-child){
-    border-right: 1px solid gray;
+    border-right: 1px solid #f0f0f0;
 }
 
 .select{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
