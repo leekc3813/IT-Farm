@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function DataPage():JSX.Element {
     const [formData, setFormData] = useState({
+        area : '',
         humidity : '',
         temp : '',
         underground : '',
@@ -24,14 +25,20 @@ export default function DataPage():JSX.Element {
     }
 
     const onClickSubmit = async () => {
+        if (!formData.area || !formData.humidity || !formData.temp || !formData.underground || !formData.radiation) {
+            alert('항목을 전부 채워주세요');
+            return;
+        }
+
         try {
             const response = await axios.post(`${BASE_URL}output_model/pred/`,{
+                area : formData.area,
                 humi : formData.humidity,
                 temp : formData.temp,
                 earth : formData.underground,
                 radio : formData.radiation,
             })
-            setresult(response.data.output)
+            alert(`예측 수확량: ${response.data.output}`)
 
         }catch(error:any){
             console.log(error)

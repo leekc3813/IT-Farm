@@ -25,19 +25,46 @@
 }
 
 .inputContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 80px;
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 70%;
 }
 
 .inputBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.inputTitle{
+    font-size: 45px;
+    font-weight: bold
+}
+
+.buttonContainer {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
 }
+
+.inputButton {
+    width: 120px;
+    height: 70px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.inputButton:hover{
+    transform: scale(1.1);
+}
+
+.inputButton:active{
+    transform: scale(1.0);
+}
+
 
 .subtitle {
     font-size: 20px;
