@@ -7,7 +7,8 @@ export default function PurchaseOrderPageUI(props:IPurchaseOrderPageUIProps):JSX
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>
-                <p className={styles.title}>구매하기</p>
+                <div className={styles.title}>구매하기</div>
+                
                 <div className={styles.infoBox}>
                     <div className={styles.contentInfo}>
                         상품명 :
@@ -24,7 +25,7 @@ export default function PurchaseOrderPageUI(props:IPurchaseOrderPageUIProps):JSX
                         {props.mount}
                     </div>
                 </div>
-                <p className={styles.title}>주소</p>
+                <p className={styles.subTitle}>주소</p>
                 {
                         props.isOpen && (
                         <Modal
@@ -45,7 +46,10 @@ export default function PurchaseOrderPageUI(props:IPurchaseOrderPageUIProps):JSX
                 {props.errorData.q3 && <span className={styles.error}>주소를 검색해주세요.</span>}
                 <input onChange={(event) => props.onChangeDetailadress('detailadress', event.target.value)} className={styles.reigsterAddress2} type='text' placeholder='상세주소' />
                 {props.errorData.detailadress && <span className={styles.error}>상세주소를 입력해주세요.</span>}
-                <button onClick={props.onClickSubmit} className={styles.submitButton}>구매하기</button>
+                <div className={styles.submitButtonContainer}>
+                    <button onClick={props.onClickSubmit} className={styles.submitButton}>구매하기</button>
+                </div>
+                
             </div>
         </div>
     )

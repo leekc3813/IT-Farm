@@ -15,7 +15,7 @@ export default function UserCartPageUI(props:IUserCartPageUIProps):JSX.Element{
                     </div>
                     {props.data.map((data,index) => {
                         return(
-                            <div key={index} className={styles.infoContainer}>
+                            <div key={index} className={styles.infoContainer2}>
                                 <div className={`${styles.info} ${styles.padding}`}>{data.product_name}</div>
                                 <div className={`${styles.info} ${styles.padding}`}>{data.count}</div>
                                 <div className={`${styles.info} ${styles.padding}`}>{data.order_date.slice(0,10)}</div>

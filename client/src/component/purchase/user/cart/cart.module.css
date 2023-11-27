@@ -40,6 +40,14 @@
     border-right: 1px solid #f0f0f0;
 }
 
+.infoContainer2{
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr 2fr;
+    background-color: #ffffff;
+}
+.infoContainer2 > :not(:last-child) {
+    border-right: 1px solid #ffffff;
+}
 .info {
     display: flex;
     justify-content: center;

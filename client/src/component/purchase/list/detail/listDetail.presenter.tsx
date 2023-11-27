@@ -68,7 +68,7 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                     </div>
                     {props.reviewData.map((data,index) => {
                         return (
-                            <div key={index} className={styles.reviewInfoBox}>
+                            <div key={index} className={styles.reviewInfoBox2}>
                                 <div className={styles.reviewInfo}>
                                     {data.nickname}
                                 </div>
