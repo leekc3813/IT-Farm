@@ -79,7 +79,7 @@ export default function PurchaseOrderPage(): JSX.Element {
                 })
                 if (response.status == 201) {
                     alert("등록성공")
-                    router.push('purchase/list')
+                    router.push('/purchase/list')
                 }
             } catch (error: any) {
                 console.log(error)
