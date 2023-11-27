@@ -19,7 +19,6 @@ export default function ApprovalPage():JSX.Element {
         try {
             const response = await axios.get(`${BASE_URL}farm_product/read/?center=${placement}`)
              setfarmData(response.data)
-             console.log(response.data)
         }catch(error:any){
             console.log(error)
             if (error.response.status === 401){

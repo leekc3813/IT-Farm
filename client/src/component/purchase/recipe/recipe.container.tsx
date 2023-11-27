@@ -14,7 +14,6 @@ export default function RecipePage(): JSX.Element {
             const response = await axios.get(`${BASE_URL}recipe/read/`)
             setData(response.data)
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')

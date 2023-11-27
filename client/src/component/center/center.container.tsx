@@ -113,7 +113,6 @@ export default function CenterPage():JSX.Element{
       kakaoMapScript.addEventListener('load', onLoadKakaoAPI)
 
       }catch(error:any){
-        console.log(error)
         if (error.response.status === 401){
             alert('로그인 x')
             router.push('/register')
@@ -126,7 +125,6 @@ export default function CenterPage():JSX.Element{
         const response = await axios.get(`${BASE_URL}farm_product/center/${placement}/`)
         setSum(response.data)
       }catch(error:any){
-        console.log(error)
         if (error.response.status === 401){
             alert('로그인 x')
             router.push('/register')

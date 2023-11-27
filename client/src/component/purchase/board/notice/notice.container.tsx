@@ -6,8 +6,8 @@ import { BASE_URL } from "@/src/config/config";
 import { userState } from "@/src/store/states";
 import { useRecoilState } from "recoil";
 
-export default function NoticePage():JSX.Element {
-    
+export default function NoticePage(): JSX.Element {
+
     const [data, setData] = useState([])
 
     const [localUser, setLocalUser] = useRecoilState(userState)
@@ -16,39 +16,34 @@ export default function NoticePage():JSX.Element {
     const router = useRouter()
 
     const fetchData = async () => {
-        try{
+        try {
             const response = await axios.get(`${BASE_URL}notice/read/?notice_type=1`)
-            if (response.status === 200){
-                setData(response.data)
-                
-                if (localStorage.getItem('usertype') === 'admin'){
-                    setIsAdmin(true)
-                }
-            }else{
-                console.log('server 에러')
+            setData(response.data)
+
+            if (localStorage.getItem('usertype') === 'admin') {
+                setIsAdmin(true)
             }
-        }catch(error:any){
-            console.log(error)
-            if (error.response.status === 401){
+        } catch (error: any) {
+            if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
             }
-        }  
+        }
     }
 
     useEffect(() => {
         fetchData();
-    },[])
-    
+    }, [])
+
     const onClickWrite = () => {
         router.push('/purchase/board/notice/write')
     }
 
-    return(
+    return (
         <NoticePageUI
-            isAdmin = {isAdmin}
-            onClickWrite = {onClickWrite}
-            data = {data}
+            isAdmin={isAdmin}
+            onClickWrite={onClickWrite}
+            data={data}
         />
     )
 }

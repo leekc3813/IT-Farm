@@ -16,7 +16,6 @@ export default function SellerinfoPage(): JSX.Element {
             setFarmsData(response.data)
             setProductData(response2.data)
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')

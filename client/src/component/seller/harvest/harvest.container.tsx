@@ -40,10 +40,8 @@ export default function HarvestPage(): JSX.Element {
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}farms/read/`)
-            console.log(response.data)
             setfarmData(response.data)
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
@@ -84,12 +82,10 @@ export default function HarvestPage(): JSX.Element {
                     unit_type: formData.unitType,
                 })
 
-                console.log(response)
                 alert('등록성공')
                 router.push('/seller')
 
             } catch (error: any) {
-                console.log(error)
                 if (error.response.status === 401) {
                     alert('로그인 x')
                     router.push('/register')
