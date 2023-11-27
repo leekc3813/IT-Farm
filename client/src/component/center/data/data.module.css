@@ -5,7 +5,7 @@
 }
 
 .wrapper {
-    margin-top: 220px;
+    margin-top: 15%;
     width: 55%;
     display: flex;
     align-items: center;
@@ -14,14 +14,15 @@
     padding: 0 50px;
 }
 .title{
+
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 45px;
+    font-size: 30px;
     font-weight: bold;
     font-family: 'Pretendard-Regular';
     color: #3f3f3f;
-    margin-bottom: 90px;;
+    margin-bottom: 50px;
 }
 
 .inputContainer {
@@ -33,28 +34,42 @@
 
 .inputBox {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    /* height: 30px; */
     gap: 20px;
+    /* vertical-align: middle; */
 }
-
 .inputTitle{
-    font-size: 45px;
-    font-weight: bold
+    /* font-size: 45px;
+    font-weight: bold; */
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Pretendard-Regular';
+    color: #3f3f3f;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .buttonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+
 }
 
 .inputButton {
-    width: 120px;
-    height: 70px;
-    font-size: 30px;
+    width: 15%;
+    height: 50px;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.2s;
+    border-radius: 5px;
+    border: none;
+    /* border: 1px solid #dcdee0; */
 }
 
 .inputButton:hover{
