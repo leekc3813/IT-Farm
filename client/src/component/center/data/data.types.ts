@@ -8,4 +8,5 @@ export interface IDataPageUIProps {
     onChangeDetailData  : (name : string, value : string) => void;
     result : number;
     onClickSubmit : () => void;
+    outputData: number;
 }

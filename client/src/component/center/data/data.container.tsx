@@ -13,6 +13,8 @@ export default function DataPage():JSX.Element {
         radiation : '',
     }) 
 
+    const [outputData, setOutputData] = useState(0)
+
     const router = useRouter()
 
     const [result, setresult] = useState(1)
@@ -38,7 +40,7 @@ export default function DataPage():JSX.Element {
                 earth : formData.underground,
                 radio : formData.radiation,
             })
-            alert(`예측 수확량: ${response.data.output}`)
+            setOutputData(response.data.output.toFixed(4))
 
         }catch(error:any){
             if (error.response.status === 401){
@@ -54,6 +56,7 @@ export default function DataPage():JSX.Element {
         onChangeDetailData = {onChangeDetailData}
         result = {result}
         onClickSubmit = {onClickSubmit}
+        outputData = {outputData}
         />
     )
 }
