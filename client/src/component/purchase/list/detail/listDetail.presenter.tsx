@@ -73,7 +73,7 @@ export default function ListDetailPageUI(props:IListDetailPageUIProps):JSX.Eleme
                                     {data.nickname}
                                 </div>
                                 <div className={styles.reviewInfo}>
-                                    {data.content}
+                                    <div className={styles.reviewText}>{data.content}</div>
                                 </div>
                                 <div className={styles.reviewInfo}>
                                     {data.regdate.slice(0,10)}

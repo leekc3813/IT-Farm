@@ -5,7 +5,6 @@ import { IDataPageUIProps } from './data.types'
 
 export default function DataPageUI(props: IDataPageUIProps):JSX.Element{
 
-
     return(
         <div className={styles.body}>
             <div className={styles.wrapper}>                

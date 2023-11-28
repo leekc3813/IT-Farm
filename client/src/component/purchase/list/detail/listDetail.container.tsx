@@ -25,6 +25,7 @@ export default function ListDetailPage(): JSX.Element {
         try {
             const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
             localStorage.setItem('orderprice', response.data.price)
+            response.data.price = response.data.price.toLocaleString()
             setData(response.data)
             console.log(response)
             const response2 = await axios.get(`${BASE_URL}order/review/read/${decodedString}/`)
