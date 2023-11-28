@@ -51,10 +51,6 @@ export default function SellerHeaderPage():JSX.Element {
         try{
           const response = await axios.delete(`${BASE_URL}users/logout/`)
 
-        if (response.status === 200){
-          console.log("로그아웃 성공")
-        }
-
           localStorage.setItem('loginstate', 'false')
           setLocalLogin(false)
           localStorage.removeItem('nickname');

@@ -106,7 +106,6 @@ export default function SellerRegisterPage(props: ISellerRegisterPageProps): JSX
                 }
 
             } catch (error: any) {
-                console.log(error)
                 if (error.response.status === 401) {
                     alert('로그인 x')
                     router.push('/register')

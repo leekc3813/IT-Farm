@@ -43,7 +43,6 @@ export default function RegisterPage(): JSX.Element {
 
     const submitLogin = async () => {
         try{
-            console.log(BASE_URL)
             const response = await axios.post(`${BASE_URL}users/login/` ,{
                 email : email,
                 password : password,
@@ -54,8 +53,6 @@ export default function RegisterPage(): JSX.Element {
             localStorage.setItem('usertype',response.data.user.user_type)
             localStorage.setItem('userstate',response.data.user.user_type)
             setLocalUser(response.data.user.user_type)
-            console.log(response)
-            console.log(document.cookie)
             setLocalLogin(true)
             if (localStorage.getItem('usertype') === 'buyer') {
                 router.push('/purchase')
@@ -73,7 +70,6 @@ export default function RegisterPage(): JSX.Element {
             }
 
         }catch(error){
-            console.log('error',error)
             alert('입력한 정보를 확인해 주세요')
         }    
     }
@@ -95,9 +91,8 @@ export default function RegisterPage(): JSX.Element {
                 onClickLoginState()
                 alert('회원가입 성공')
             }
-        }catch(error){
-            console.log(error,'error')
-            alert('입력한 정보를 확인해 주세요')
+        }catch(error:any){
+            alert(error.response.data.message)
         }
     }
 

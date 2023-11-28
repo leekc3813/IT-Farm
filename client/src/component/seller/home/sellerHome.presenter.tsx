@@ -1,10 +1,11 @@
 import styles from './sellerHome.module.css'
 import { Carousel } from 'antd'
-import {ClockCircleOutlined, CommentOutlined, HeartOutlined, MailOutlined, ReadOutlined, ShoppingCartOutlined, SmileOutlined, SyncOutlined, UserOutlined, WalletOutlined, WifiOutlined} from '@ant-design/icons'
+import { ClockCircleOutlined, CommentOutlined, HeartOutlined, MailOutlined, ReadOutlined, ShoppingCartOutlined, SmileOutlined, SyncOutlined, UserOutlined, WalletOutlined, WifiOutlined } from '@ant-design/icons'
 import { ISellerHomePageUIProps } from './sellerHome.types'
+import Link from 'next/link'
 
-export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Element{
-    return(
+export default function SellerHomePageUI(props: ISellerHomePageUIProps): JSX.Element {
+    return (
         <div className={styles.body}>
             <div className={styles.bannerVisible}>
                 <Carousel className={styles.bannerContainer} autoplay>
@@ -39,7 +40,7 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div className={styles.recipeContainer}>
                             <span className={styles.recipeTitle}>스마트팜 운영 노하우를 알려드려요!</span>
                             <div className={styles.recipeContentContainer}>
@@ -66,9 +67,12 @@ export default function SellerHomePageUI(props: ISellerHomePageUIProps):JSX.Elem
                         </div>
                         <div className={styles.sectionContainer}>
                             공지사항
-                            <div className={styles.sectionPlus}>
-                                더보기
-                            </div>
+                            <Link href={'/purchase/board/notice'}>
+                                <div className={styles.sectionPlus}>
+                                    더보기
+                                </div>
+                            </Link>
+
                         </div>
                         <div className={styles.noticeContainer}>
                             <div className={styles.noticeBox}>

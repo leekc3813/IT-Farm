@@ -25,7 +25,6 @@ export default function QnaIndexPage(): JSX.Element {
                 setIsAdmin(true)
             }
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
@@ -50,7 +49,8 @@ export default function QnaIndexPage(): JSX.Element {
             })
 
             alert('댓글 등록완료.')
-            window.location.reload();
+            router.push('/purchase/board/qna')
+
         } catch (error: any) {
             if (error.response.status === 401) {
                 alert('로그인 x')
@@ -81,7 +81,6 @@ export default function QnaIndexPage(): JSX.Element {
             window.location.reload();
 
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')

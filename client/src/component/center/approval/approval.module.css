@@ -37,7 +37,7 @@
 
 .infoBox {
     display: grid;
-    grid-template-columns: 1.5fr 3.5fr 1fr  1fr 1fr;
+    grid-template-columns: 1.5fr 3.5fr 1fr  1.5fr 1fr;
 }
 
 .infoBox > :not(:last-child){

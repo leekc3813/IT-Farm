@@ -18,7 +18,6 @@ export default function UserBasketPage(): JSX.Element {
             }
 
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
@@ -34,7 +33,6 @@ export default function UserBasketPage(): JSX.Element {
                 window.location.reload();
             }
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')

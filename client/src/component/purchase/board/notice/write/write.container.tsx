@@ -46,7 +46,6 @@ export default function WritePage(): JSX.Element {
 
 
         } catch (error: any) {
-            console.log(error)
             if (error.response.status === 401) {
                 alert('로그인 x')
                 router.push('/register')
