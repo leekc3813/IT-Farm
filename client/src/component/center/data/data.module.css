@@ -5,12 +5,12 @@
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
     margin-top: 15%;
     width: 55%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    /* gap: 60px; */
     padding: 0 50px;
 }
 .title{
@@ -24,33 +24,49 @@
     color: #3f3f3f;
     margin-bottom: 50px;
 }
-
+.container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
 .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 70%;
+    margin: 30px 0pxs;
+}
+.resultContainer {
     display: flex;
     flex-direction: column;
     gap: 25px;
     width: 70%;
 }
-
 .inputBox {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    /* grid-template-columns: 1fr 2fr; */
     /* height: 30px; */
-    gap: 20px;
+    gap: 10px;
     /* vertical-align: middle; */
 }
 
 .inputTitle{
     /* font-size: 45px;
     font-weight: bold; */
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Pretendard-Regular';
     color: #3f3f3f;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     display: flex;
     align-items: center;
     height: 100%;
+    width: 120px;
 }
 .buttonContainer {
     display: flex;
@@ -60,11 +76,16 @@
     margin-top: 30px;
 
 }
-
+.result{
+    font-size: 20px;
+    font-weight: bold;
+    color: #3f3f3f;
+}
 .inputButton {
-    width: 15%;
+    width: 150px;
     height: 50px;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
     border-radius: 5px;
