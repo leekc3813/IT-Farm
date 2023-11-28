@@ -6,6 +6,8 @@ import { errorMonitor } from "stream";
 import { BASE_URL } from "@/src/config/config";
 import { orderState } from "@/src/store/order";
 import { useRecoilState } from "recoil";
+import { decode } from "punycode";
+import { local } from "d3";
 
 export default function ListDetailPage(): JSX.Element {
     const router = useRouter()
@@ -20,11 +22,13 @@ export default function ListDetailPage(): JSX.Element {
     const [reviewData, setReviewData] = useState([])
     const [reviewContent, setReviewContent] = useState('')
     const [reviewScore, setReviewScore] = useState(0)
+    // console.log(decodedString)
 
     const fetchData = async () => {
         try {
             const response = await axios.get(`${BASE_URL}product/detail/${decodedString}/`)
             localStorage.setItem('orderprice', response.data.price)
+            response.data.price = response.data.price.toLocaleString()
             setData(response.data)
             const response2 = await axios.get(`${BASE_URL}order/review/read/${decodedString}/`)
             setReviewData(response2.data.slice(0, 5))
@@ -95,7 +99,7 @@ export default function ListDetailPage(): JSX.Element {
             })
 
             alert('리뷰 등록완료.')
-            window.location.reload();
+            router.push('/purchase/list')
 
         } catch (error: any) {
             if (error.response.status === 401) {

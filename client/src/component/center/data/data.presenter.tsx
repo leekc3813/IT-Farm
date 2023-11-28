@@ -18,7 +18,7 @@ export default function DataPageUI(props: IDataPageUIProps):JSX.Element{
                   <input onChange={(event) => props.onChangeDetailData('area',event.target.value)} type='text' placeholder=' 면적을 입력하세요' />
                 </div>
                 <div className={styles.inputBox}>
-                  <div className={styles.inputTitle}>평균습도:</div>
+                  <div className={styles.inputTitle}>평균 습도:</div>
                   <input onChange={(event) => props.onChangeDetailData('humidity',event.target.value)} type='text' placeholder=' 평균습도를 입력하세요' />
                 </div>
                 <div className={styles.inputBox}>

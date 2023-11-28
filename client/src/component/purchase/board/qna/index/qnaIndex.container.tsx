@@ -49,7 +49,8 @@ export default function QnaIndexPage(): JSX.Element {
             })
 
             alert('댓글 등록완료.')
-            window.location.reload();
+            router.push('/purchase/board/qna')
+
         } catch (error: any) {
             if (error.response.status === 401) {
                 alert('로그인 x')
